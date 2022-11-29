@@ -1,0 +1,19 @@
+{
+  "name": "school-days",
+  "version": "1.0.0",
+  "description": "School days project node library",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.metropolia.fi/riteshg/school-days.git"
+  },
+  "author": "riteshg,asmitas,prabinb",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
