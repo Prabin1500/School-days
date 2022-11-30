@@ -11,9 +11,22 @@ const getAnnouncement = async(res) => {
     }
 };
 
+const addAnnouncement = async(announcement,res) => {
+    try{
+        const values = [announcement.text,announcement.media_filename,announcement.dateandtime,announcement.userssn];
+        const sql = "INSERT INTO announcement VALUES (null,?,?,?,?)";
+        const [result] = await promisePool.query(sql, values);
+        return result.insertId;
+
+    }catch(e){
+        res.status(500).send(e.message);
+    }
+};
+
 
 
 
 module.exports = { 
-    getAnnouncement
+    getAnnouncement,
+    addAnnouncement,
 };
