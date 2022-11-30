@@ -2,15 +2,17 @@
 const pool = require("../database/db");
 const promisePool = pool.promise();
 
+//get all announcement from database
 const getAnnouncement = async(res) => {
     try{
-        const [rows]= await promisePool.query("select announcement.text, announcement.dateandtime, users.first_name, users.last_name from announcement,users where announcement.userssn = users.userssn;");
+        const [rows]= await promisePool.query("select announcement.text,announcement.media_filename, announcement.dateandtime, users.first_name, users.last_name from announcement,users where announcement.userssn = users.userssn;");
         return rows;
     }catch (e){
         res.status(500).send(e.message);
     }
 };
 
+// add all announcement into database
 const addAnnouncement = async(announcement,res) => {
     try{
         const values = [announcement.text,announcement.media_filename,announcement.dateandtime,announcement.userssn];
