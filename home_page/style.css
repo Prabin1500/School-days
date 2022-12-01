@@ -130,4 +130,13 @@
   input[type="submit"]:hover {
     background-color: var(--themeColor);
   }
-  
+  .round_image{
+    float:left;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    padding: 10px;
+}  
+.info {
+  padding: 10px;
+}
