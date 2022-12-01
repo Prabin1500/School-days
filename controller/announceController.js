@@ -9,8 +9,9 @@ const getAnnouncement = async(req,res) =>{
 
 const addAnnouncement = async(req,res) =>{
     const announcement = req.body;
+    announcement.media_filename = req.file.filename;
     const announcementId = await announcementModel.addAnnouncement(announcement,res);
-    res.status(201).json({message: 'announcement added', announcementId});
+    res.status(201);
 };
 
 module.exports = {

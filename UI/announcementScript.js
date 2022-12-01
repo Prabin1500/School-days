@@ -13,11 +13,10 @@ const getAnnouncement = async() =>{
         <h1>WORKS</h1>
         <h2>${announcement.text}</h2>
         <figure>
-            <img src="${announcement.media_filename}" class="resp">
+        <img src="/uploads/${announcement.media_filename}" class="resp">
         </figure>
         <p>Uploaddate: ${announcement.dateandtime}</p>
-        <p>Uploader FirstName: ${announcement.first_name}</p>
-        <p>Last Name: ${announcement.last_name}</p>
+        <p>${announcement.first_name} ${announcement.last_name}</p>
     </li>
     `;
     }
