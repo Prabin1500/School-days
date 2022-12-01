@@ -12,5 +12,4 @@ app.use(express.json()); // for parsing application/json
 app.use('', userRoute);
 app.use('',announcementRoute);
 
-
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));  

@@ -15,6 +15,15 @@ const getAnnouncement = async(res) => {
 // add all announcement into database
 const addAnnouncement = async(announcement,res) => {
     try{
+        // https://stackoverflow.com/questions/10211145/getting-current-date-and-time-in-javascript
+        var currentdate = new Date(); 
+        var datetime = currentdate.getDate() + "/"
+                + (currentdate.getMonth()+1)  + "/" 
+                + currentdate.getFullYear()+" "  
+                + currentdate.getHours() + ":"  
+                + currentdate.getMinutes() + ":" 
+                + currentdate.getSeconds();
+        announcement.dateandtime = datetime;
         const values = [announcement.text,announcement.media_filename,announcement.dateandtime,announcement.userssn];
         const sql = "INSERT INTO announcement VALUES (null,?,?,?,?)";
         const [result] = await promisePool.query(sql, values);
