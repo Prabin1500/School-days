@@ -9,5 +9,6 @@ const upload = multer({dest: 'uploads/'});
 
 router.get('/announcement',announcementController.getAnnouncement)
 router.post('/announcement',upload.single('media_filename'),announcementController.addAnnouncement)
+router.delete('/announcement/:announcementId',announcementController.deleteAnnouncement)
 
 module.exports = router;

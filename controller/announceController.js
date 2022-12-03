@@ -13,8 +13,18 @@ const addAnnouncement = async(req,res) =>{
     const announcementId = await announcementModel.addAnnouncement(announcement,res);
     res.status(201);
 };
+const deleteAnnouncement = async(req,res) => {
+    console.log(req.params.announcementId);
+    const announcement = await announcementModel.deleteAnnouncement(res,req.params.announcementId);
+    if(!announcement){
+        res.json(announcement);
+    }else{
+        res.sendStatus(404);
+    }
+};
 
 module.exports = {
     getAnnouncement,
     addAnnouncement,
+    deleteAnnouncement,
 };

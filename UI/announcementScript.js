@@ -8,6 +8,7 @@ const getAnnouncement = async() =>{
     const announcements = await response.json();
     console.log(announcements);
     for (const announcement of announcements) {
+        console.log("Announcement id is :"+announcement.announcementid);
         ul.innerHTML += `
     <li>
         <h1>WORKS</h1>
@@ -17,6 +18,8 @@ const getAnnouncement = async() =>{
         </figure>
         <p>Uploaddate: ${announcement.dateandtime}</p>
         <p>${announcement.first_name} ${announcement.last_name}</p>
+</form>
+    </form>
     </li>
     `;
     }
