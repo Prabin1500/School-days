@@ -5,48 +5,28 @@ const url = 'http://localhost:3000'; // change url when uploading to server
 // select existing html elements
 const ul = document.querySelector('#list');
 const h1 = document.querySelector('#userType');
-const main = document.querySelector('main');
+const main = document.querySelector('.main');
 const logOut = document.querySelector('#log-out');
-const loginForm = document.querySelector('#login-form');
-const loginWrapper = document.querySelector('#login-wrapper');
+const loginForm = document.querySelector('.form-wrapper');
 const register = document.querySelector('.register');
 const userForm = document.querySelector('#addUserForm');
 const studentForm = document.querySelector('#addStudentForm');
-const addUserButton = document.querySelector('#add-user');
 const frontPage = document.querySelector('#front-page');
 const topSection = document.querySelector('section');
 
-let user = JSON.parse(sessionStorage.getItem('user'));
-
 const startApp = (logged) => {
+  let user = JSON.parse(sessionStorage.getItem('user'));
   console.log("logged :" + logged);
-  loginWrapper.style.display = logged ? 'none' : 'block';
   main.style.display = logged ? 'block' : 'none';
-  register.style.display = 'none';
 
   if (logged) {
     if(user.ROLE === 'admin'){
-      addUserButton.style.display='inline-block';
-
-      frontPage.addEventListener('click',() =>{
-        topSection.style.display='block';
-        register.style.display = 'none';
-      });
-
-      addUserButton.addEventListener('click', () => {
-        topSection.style.display='none';
-        register.style.display = 'flex';
-      });
-
-      h1.innerHTML = 'List of Users';
-      getAllUsers();
-
+      location.href='../admin_pages/admin_userlist/admin_userlist.html';
     }else if(user.ROLE === 'parent'){
-      h1.innerHTML = 'List of Teachers';
-      getTeacherList();
+      location.href='../parent_pages/parent_announcement/parent_announcement.html';
 
     }else if(user.ROLE === 'teacher'){
-
+      location.href='../teacher_pages/teacher_announcement/teacher_announcement.html';
     }
   };
 };
@@ -123,40 +103,40 @@ const getAllUsers = async () => {
 };
 
 // submit add user form
-userForm.addEventListener('submit', async (evt) => {
-  evt.preventDefault();
-  const data = serializeJson(addUserForm);
-  const fetchOptions = {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(data),
-  };
-  const response = await fetch(url + '/auth/registerUser', fetchOptions);
-  const json = await response.json();
-  alert(json.message);
-  location.href = 'front.html';
-});
+// userForm.addEventListener('submit', async (evt) => {
+//   evt.preventDefault();
+//   const data = serializeJson(addUserForm);
+//   const fetchOptions = {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//     body: JSON.stringify(data),
+//   };
+//   const response = await fetch(url + '/auth/registerUser', fetchOptions);
+//   const json = await response.json();
+//   alert(json.message);
+//   location.href = 'front.html';
+// });
 
-// submit add Student form
-studentForm.addEventListener('submit', async (evt) => {
-  evt.preventDefault();
-  const data = serializeJson(addStudentForm);
+// // submit add Student form
+// studentForm.addEventListener('submit', async (evt) => {
+//   evt.preventDefault();
+//   const data = serializeJson(addStudentForm);
 
-  const fetchOptions = {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(data), // body data type must match "Content-Type" header
-  };
+//   const fetchOptions = {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//     body: JSON.stringify(data), // body data type must match "Content-Type" header
+//   };
 
-  const response = await fetch(url + '/auth/registerStudent', fetchOptions);
-  const json = await response.json();
-  alert(json.message);
-  location.href = 'front.html';
-});
+//   const response = await fetch(url + '/auth/registerStudent', fetchOptions);
+//   const json = await response.json();
+//   alert(json.message);
+//   location.href = 'front.html';
+// });
 
 // login
 loginForm.addEventListener('submit', async (evt) => {
@@ -171,6 +151,7 @@ loginForm.addEventListener('submit', async (evt) => {
   };
 
   const response = await fetch(url + '/auth/login', fetchOptions);
+  console.log("login");
   const json = await response.json();
   if (!json.user) {
     alert(json.message);
@@ -178,7 +159,8 @@ loginForm.addEventListener('submit', async (evt) => {
     // save token
     sessionStorage.setItem('token', json.token);
     sessionStorage.setItem('user', JSON.stringify(json.user));
-    location.href = 'front.html';
+    console.log("login1");
+    startApp(true);
   }
 });
 
