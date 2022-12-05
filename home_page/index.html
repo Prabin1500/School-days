@@ -6,38 +6,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My School</title>
     <link rel="stylesheet" href="style.css" />
+	<link rel="stylesheet" href="default.css" />
     
   </head>
   <body>
     <main>
-      <div class="box" id="frontInformation">
-            <div class="News">
-             
-              <p class="info"><img class="round_image" src="https://upload.wikimedia.org/wikipedia/commons/8/84/Lake_Bled_from_the_Mountain.jpg">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet totam, molestias ut perspiciatis officia cum debitis unde ipsa, repudiandae quis dolore minima velit nam consequuntur laborum excepturi? Porro, voluptatum asperiores!Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet totam, molestias ut perspiciatis officia cum debitis unde ipsa, repudiandae quis dolore minima velit nam consequuntur laborum excepturi? Porro, voluptatum asperiores!Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet totam, molestias ut perspiciatis officia cum debitis unde ipsa, repudiandae quis dolore minima velit nam consequuntur laborum excepturi? Porro, voluptatum asperiores!</p>
+      <div class="home-wrapper">
+				<div class="home__left">
+					<section class="home-section home-news">
+						<div class="home-news-wrapper">
+							<h2 class="home-section-title">News</h2>
+						</div>
+					</section>
+					<section class="home-section home-announcement">
+						<div class="home-announcement-wrapper">
+							<h2 class="home-section-title">Announcement</h2>
+						</div>
+					</section>
+					<section class="home-section home-vacancy">
+						<div class="home-vacancy-wrapper">
+							<h2 class="home-section-title">Vacancy</h2>
+						</div>
+					</section>
+					<section class="home-section home-about">
+						<div class="home-about-wrapper">
+							<h2 class="home-section-title">About</h2>
+						</div>
+					</section>
+				</div>
 
-                    
-            </div>
-            <div class="Announcement">Announcement</div>
-            <div class="Vacancy">Vacancy</div>
-            <div class="About">About</div>
-      </div>
-      <div class="box" id="loginSide">
-        <div class="loginBox">
-            <div class="appName"><h1>School Time</h1></div>
-            <div class="loginForm">
-                <form action="/action_page.php">
-                    <label for="uname">User Name</label>
-                    <input type="text" name="username" placeholder="Your Username here..."/>
+				<div class="home__right">
+					<div class="home-right-wrapper">
+						<div class="login-wrapper">
+							<h2 class="login-title">School Time</h2>
+							<form class="form-wrapper">
+								<label for="username" class="form-label">
+									<span>Username</span>
+									<input
+										type="text"
+										id="username"
+										class="form-input input__username"
+										name="username"
+										placeholder="Your username here..."
+									/>
+								</label>
+								<label for="password" class="form-label">
+									<span>Password</span>
+									<input
+										type="password"
+										id="password"
+										class="form-input input__password"
+										name="password"
+										placeholder="Your password here..."
+									/>
+								</label>
 
-                    <label for="passwd">Password</label>
-                    <input type="text" name="password" placeholder="Your password here...">
-
-                    <input type="submit" value="Log in" />
-                </form>
-            </div>
-        </div>
-
-      </div>
+								<input type="submit" class="form-btn btn" value="Login" />
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
     </main>
   </body>
 </html>
