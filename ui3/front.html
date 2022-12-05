@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf8">
+    <title>School Days</title>
+    <link href="./css/ui3.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+         
+        <main style="display: none" >
+            <div>              
+                <button id="front-page">Frontpage</button>
+                <button style="display: none" id="add-user">Add User/Student</button>
+                <button id="log-out" width="20">Logout</button>
+            </div>
+            
+            <section>
+                <h1 id="userType"></h1>
+                <ul id="list">
+                    <!-- js creates list here -->
+                </ul>
+            </section> 
+        </main>  
+
+        <div class="form-wrapper" id="login-wrapper">
+            <h3>Login</h3>
+            <form id="login-form" class="light-border" action="http://localhost:3000/auth/login" method="post">
+                <div>
+                    <label>Email:</label>
+                    <input class="light-border" type="text" name="username" />
+                </div>
+                <div>
+                    <label>Password:</label>
+                    <input class="light-border" type="password" name="password" />
+                </div>
+                <div>
+                    <button class="light-border" type="submit">Log In</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="register" style="display: none" >
+            <div class="forms">
+                <div class="form-wrapper">
+                    <h3>Add User</h3>
+                    <form action="http://localhost:3000/" method="post" class="light-border"
+                        enctype="multipart/form-data" id="addUserForm">
+                        <input class="light-border" type="text" name="userssn" placeholder="UserSSN">
+                        <input class="light-border" type="text" name="firstName" placeholder="FirstName">
+                        <input class="light-border" type="text" name="lastName" placeholder="LastName">
+                        <input class="light-border" type="text" name="email" placeholder="Email">
+                        <input class="light-border" type="text" name="phoneNumber" placeholder="PhoneNumber">
+                        <input class="light-border" type="text" name="role" placeholder="Role">
+                        <input class="light-border" type="text" name="username" placeholder="UserName">
+                        <input class="light-border" type="text" name="password" placeholder="Password">
+                        <input class="light-border" type="text" name="class" placeholder="Class">
+                        <button class="light-border" type="submit">Save</button>
+                    </form>
+                </div>
+
+                <div class="form-wrapper">
+
+                    <h3>Add Student</h3>
+                    <form class="light-border" id="addStudentForm">
+                        <input class="light-border" type="text" name="childssn" placeholder="ChindSSN">
+                        <input class="light-border" type="text" name="firstname" placeholder="FirstName">
+                        <input class="light-border" type="text" name="lastname" placeholder="LastName">
+                        <input class="light-border" type="number" name="class" placeholder="Class">
+                        <input class="light-border" type="text" name="parentssn" placeholder="ParentSSN">
+                        <button class="light-border" type="submit">Save</button>
+                    </form>
+                </div>
+            </div> 
+        </div>
+
+    </div>
+
+    <script src="./js/serialize.js"></script>
+    <script src="./js/front.js"></script>
+</body>
+
+</html>
