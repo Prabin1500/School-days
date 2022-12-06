@@ -17,7 +17,6 @@ const topSection = document.querySelector('section');
 const startApp = (logged) => {
   let user = JSON.parse(sessionStorage.getItem('user'));
   console.log("logged :" + logged);
-  main.style.display = logged ? 'block' : 'none';
 
   if (logged) {
     if(user.ROLE === 'admin'){
@@ -32,8 +31,8 @@ const startApp = (logged) => {
 };
 
 
-// create cat cards
-const createTeacherCards = (users) => {
+// create  cards
+const createUserCards = (users) => {
   // clear ul
   ul.innerHTML = '';
   users.forEach((user) => {
@@ -79,7 +78,7 @@ const getTeacherList = async () => {
     };
     const response = await fetch(url + '/teacher', fetchOptions);
     const users = await response.json();
-    createTeacherCards(users);
+    createUserCards(users);
   } catch (e) {
     console.log("Message " + e.message);
   }
@@ -96,7 +95,7 @@ const getAllUsers = async () => {
     const response = await fetch(url + '/', fetchOptions);
     const users = await response.json();
     console.log(users);
-    createTeacherCards(users);
+    createUserCards(users);
   } catch (e) {
     console.log("Message " + e.message);
   }
@@ -165,26 +164,26 @@ loginForm.addEventListener('submit', async (evt) => {
 });
 
 //logout
-logOut.addEventListener('click', async (evt) => {
-  evt.preventDefault();
-  try {
-    const options = {
-      headers: {
-        Authorization: 'Bearer ' + sessionStorage.getItem('token'),
-      },
-    };
-    const response = await fetch(url + '/auth/logout', options);
-    const json = await response.json();
-    console.log(json);
-    // remove token
-    sessionStorage.removeItem('token');
-    sessionStorage.removeItem('user');
-    alert('You have logged out');
-    startApp(false);
-  } catch (e) {
-    console.log(e.message);
-  }
-});
+// logOut.addEventListener('click', async (evt) => {
+//   evt.preventDefault();
+//   try {
+//     const options = {
+//       headers: {
+//         Authorization: 'Bearer ' + sessionStorage.getItem('token'),
+//       },
+//     };
+//     const response = await fetch(url + '/auth/logout', options);
+//     const json = await response.json();
+//     console.log(json);
+//     // remove token
+//     sessionStorage.removeItem('token');
+//     sessionStorage.removeItem('user');
+//     alert('You have logged out');
+//     startApp(false);
+//   } catch (e) {
+//     console.log(e.message);
+//   }
+// });
 
 //when app starts, check if token exists and hide login form, show logout button and main content
 (async () => {

@@ -12,6 +12,11 @@ const getAllUsers = async(req,res) => {
 const getTeacherList = async (req,res) => {
     const users = await userModel.getTeacherList();
     res.json(users);
+};
+
+const getStudentList = async (req,res) => {
+    const students = await userModel.getStudentList();
+    res.json(students);
 }
 
 const createUser = async (req, res) => {
@@ -36,5 +41,6 @@ module.exports ={
     getTeacherList,
     createUser,
     createStudent,
+    getStudentList,
     checkToken,
 };
