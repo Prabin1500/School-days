@@ -20,3 +20,13 @@
   padding: 10px;
   flex: 2;
 }
+
+.dropdown-btn{
+  display: flex;
+  margin: auto;
+}
+
+.dropdown p{
+  margin: auto;
+  padding-right: 20px;
+}

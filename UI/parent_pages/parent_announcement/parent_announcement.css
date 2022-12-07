@@ -3,21 +3,33 @@
 	display: flex;
 	min-height: 100vh;
 	flex-direction: column;
-   }
-   .announcementbox{
-	   min-height: fit-content;
-	   border: solid black;
-	   display: flex;
-	   flex-direction: row;
-   }
-   .round_image{
-	   float:left;
-	   height: 200px;
-	   width: 100px;
-	   padding: 200px;
-	   flex:1
-   }  
-   .info {
-	 padding: 10px;
-	 flex:2
-   }
+}
+.announcementbox{
+	min-height: fit-content;
+	border: solid black;
+	display: flex;
+	flex-direction: row;
+}
+
+.round_image{
+	float:left;
+	height: 200px;
+	width: 100px;
+	padding: 200px;
+	flex:1
+}  
+
+.info {
+	padding: 10px;
+	flex:2
+}
+
+.dropdown-btn{
+    display: flex;
+    margin: auto;
+}
+
+.dropdown p{
+    margin: auto;
+    padding-right: 20px;
+}

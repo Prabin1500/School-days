@@ -1,5 +1,6 @@
 'use strict';
 
+
 const url = 'http://localhost:3000';
 
 const ul = document.querySelector('#listTeacher');
@@ -8,22 +9,34 @@ const addUser = document.querySelector('.addUser');
 const registerForm = document.querySelector('.forms');
 const main = document.querySelector('.main');
 const userForm = document.querySelector('#addUserForm');
+const userList = document.querySelector('.select-user');
 const studentForm = document.querySelector('#addStudentForm');
 const classFilter = document.querySelector('#class');
+const btnTeacher = document.querySelector('#teacherList');
+const btnParent = document.querySelector('#ParentList');
+const btnStudent = document.querySelector('#StudentList');
 
-let toggleButton = false;
+let toggleAddUser = false;
+let toggleList = false;
 
+
+btnTeacher.addEventListener('click', () =>{
+  if(!toggleList){
+    main.style.display = 'block';
+    toggleList = true;
+  }else{
+    main.style.display = 'none';
+    toggleList = false;
+  }
+});
 //toogle for AddUser button
 addUser.addEventListener('click',() =>{
-  console.log(toggleButton);
-  if(!toggleButton){
+  if(!toggleAddUser){
     registerForm.style.display = 'inline-block';
-    main.style.display = 'none';
-    toggleButton = true;
+    toggleAddUser = true;
   }else{
     registerForm.style.display = 'none';
-    main.style.display = 'block';
-    toggleButton = false;
+    toggleAddUser = false;
   }
     
 });
@@ -72,38 +85,43 @@ const createUserCards = (users) => {
   ul.innerHTML = '';
   users.forEach((user) => {
     // create li with DOM methods
-
+  
     
     const img = document.createElement('img');
-
+    img.src='../../../cat.jpeg'
+  
     const div = document.createElement('div');
     div.className='imgClass';
     div.appendChild(img);
-
+  
     const h2 = document.createElement('h2');
     h2.innerHTML = user.first_name +" " + user.last_name;
-
+  
     const p1 = document.createElement('p');
     p1.innerHTML = `Email: ${user.email}`;
-
+  
     const p2 = document.createElement('p');
     p2.innerHTML = `Class: ${user.class}`;
-
+  
     const p3 = document.createElement('p');
     p3.innerHTML = `Phone Number: ${user.phone_number}`;
-
+  
+    const p4 = document.createElement('p');
+    p4.innerHTML = `Role: Teacher`;
+  
     const li = document.createElement('li');
     li.classList.add('light-border');
-
+  
     li.appendChild(h2);
     li.appendChild(div)
     li.appendChild(p1);
     li.appendChild(p2);
     li.appendChild(p3);
+    li.appendChild(p4);
     ul.appendChild(li);
-
+  
   });
-};
+  };
 
 const createStudentCard = (students) => {
 
@@ -135,7 +153,7 @@ const createStudentCard = (students) => {
 
 }
 
-// AJAX call
+// get list of teachers
 const getTeacherList = async () => {
   try {
     const fetchOptions = {
@@ -151,9 +169,13 @@ const getTeacherList = async () => {
   }
 };
 
+//get name of parents in student from option
+//Not working atm
+// s
 
 //get List of Users
 const getAllUsers = async () => {
+  const userOption = [];
   try {
     const fetchOptions = {
       headers: {
@@ -162,8 +184,13 @@ const getAllUsers = async () => {
     };
     const response = await fetch(url + '/', fetchOptions);
     const users = await response.json();
-    console.log(users);
-    createUserCards(users);
+    
+    for (let i = 0; i < users.length; i++) {
+      if(users[i].role === 'parent'){
+        userOption.push(users[i]);
+      }
+    };
+    createUserOptions(userOption)
   } catch (e) {
     console.log("Message " + e.message);
   }
@@ -188,6 +215,7 @@ const getAllStudents = async() => {
 
 getTeacherList();
 getAllStudents();
+getAllUsers();
 
 // submit add user form
 userForm.addEventListener('submit', async (evt) => {
@@ -203,7 +231,7 @@ userForm.addEventListener('submit', async (evt) => {
   const response = await fetch(url + '/auth/registerUser', fetchOptions);
   const json = await response.json();
   alert(json.message);
-  location.href = 'front.html';
+  location.href = 'admin_userList.html';
 });
 
 //submit student form
@@ -222,5 +250,5 @@ studentForm.addEventListener('submit', async (evt) => {
   const response = await fetch(url + '/auth/registerStudent', fetchOptions);
   const json = await response.json();
   alert(json.message);
-  location.href = 'front.html';
+  location.href = 'admin_userList.html';
 });

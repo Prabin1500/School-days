@@ -21,96 +21,112 @@
             <a href="javascript:void(0)">Messages</a>
             <a class="active" href="javascript:void(0)">User list</a>
         </div>
+        
         <div class="dropdown">
+            
             <button class="dropdown-btn">
+                <p>Welcome admin</p>
                 <i class="fa-sharp fa-solid fa-user"></i>
+                
                 <i class="fa fa-caret-down"></i>
+                
             </button>
             <div class="dropdown-content">
                 <a href="#">Link 1</a>
                 <a href="#">Link 2</a>
                 <a id="log-out" href="#">Log out</a>
             </div>
-        </div>
+            
+        </div>   
     </nav>
-    <div>
-      <label for="class-select">Choose class:</label>
-      <div class="class-filter">
-              <select id="class" name="classes">
-                <option value="0" selected>Select All</option>
-                <option value="1">one</option>
-                <option value="2">two</option> 
-                <option value="3">three</option>
-                <option value="4">four</option>
-                <option value="5">five</option> 
-                <option value="6">six</option>
-                <option value="7">seven</option>
-                <option value="8">eight</option> 
-                <option value="9">nine</option>
-                <option value="10">ten</option>
-              </select>
-        </div>
-    </div>
 
-      <div class="addbutton">
-        <button class="addUser"><i class="fa-solid fa-user-plus"> Add User</i></button>
+    <div class="divider"> 
+      <div class="leftpane">
+        <div>
+          <label for="class-select">Choose class:</label>
+          <div class="class-filter">
+                  <select id="class" name="classes">
+                    <option value="0" selected>Select All</option>
+                    <option value="1">one</option>
+                    <option value="2">two</option> 
+                    <option value="3">three</option>
+                    <option value="4">four</option>
+                    <option value="5">five</option> 
+                    <option value="6">six</option>
+                    <option value="7">seven</option>
+                    <option value="8">eight</option> 
+                    <option value="9">nine</option>
+                    <option value="10">ten</option>
+                  </select>
+            </div>
+          </div>
+           <div class= "vertical"></div>
+          <div class="addbutton">
+            <button class="addUser"><i class="fa-solid fa-user-plus"> Add User</i></button>
+          </div>
+          <button id="teacherList"><h2>List of Teachers</h2></button>
+          <button id="parentList"><h2>List of Parents</h2></button>
+          <button id="studentList"><h2>List of Students</h2></button>
+          
       </div>
 
-      <div class="main"  >
-        <h1 id="teacherList">List of Teachers</h1>
-          <ul id="listTeacher">
-            <!-- js creates list here -->
-          </ul>
-      </div>
+      <div class= "vertical"></div>
 
-      <div>
-        <h1 id="parentList">List of Parents</h1>
-          <ul id="listParent">
-            <!-- js creates list here -->
-          </ul>
-      </div>
+      <div class="middlepane">
+        <div class="main" style="display: none;"  >
+          
+            <ul id="listTeacher">
+              
+            </ul>
 
-      <div>
-        <h1 id="studentList">List of Students</h1>
-          <ul id="listStudent">
-            <!-- js creates list here -->
-          </ul>
+
       </div>
+        
+        <div class="register"  >
+          <div class="forms" style="display: none;">
+              <div class="form-wrapper">
+                  <h2>Add User</h2>
+                  <form action="http://localhost:3000/" method="post" class="light-border"
+                      enctype="multipart/form-data" id="addUserForm">
+                      <input class="light-border" type="text" name="userssn" placeholder="UserSSN">
+                      <input class="light-border" type="text" name="firstName" placeholder="FirstName">
+                      <input class="light-border" type="text" name="lastName" placeholder="LastName">
+                      <input class="light-border" type="text" name="email" placeholder="Email">
+                      <input class="light-border" type="text" name="phoneNumber" placeholder="PhoneNumber">
+                      <input class="light-border" type="text" name="role" placeholder="Role">
+                      <input class="light-border" type="text" name="username" placeholder="UserName">
+                      <input class="light-border" type="text" name="password" placeholder="Password">
+                      <input class="light-border" type="text" name="class" placeholder="Class">
+                      <button class="light-border" type="submit">Save</button>
+                  </form>
+              </div>
     
+              <div class="form-wrapper">
+    
+                  <h2>Add Student</h2>
+                  <form class="light-border" id="addStudentForm">
+                      <input class="light-border" type="text" name="childssn" placeholder="ChindSSN">
+                      <input class="light-border" type="text" name="firstname" placeholder="FirstName">
+                      <input class="light-border" type="text" name="lastname" placeholder="LastName">
+                      <input class="light-border" type="number" name="class" placeholder="Class">
+                      <input class="light-border" type="number" name="userssn" placeholder="ParentSSN">
+                      <!--<select class="light-border select-user" type="text" name="parentssn">
+                        <option value="">Select Parent</option>
+                      </select> -->
+                      <button class="light-border" type="submit">Save</button>
+                  </form>
+              </div>
+          </div> 
+        </div>
 
-    <div class="register"  >
-      <div class="forms" style="display: none;">
-          <div class="form-wrapper">
-              <h2>Add User</h2>
-              <form action="http://localhost:3000/" method="post" class="light-border"
-                  enctype="multipart/form-data" id="addUserForm">
-                  <input class="light-border" type="text" name="userssn" placeholder="UserSSN">
-                  <input class="light-border" type="text" name="firstName" placeholder="FirstName">
-                  <input class="light-border" type="text" name="lastName" placeholder="LastName">
-                  <input class="light-border" type="text" name="email" placeholder="Email">
-                  <input class="light-border" type="text" name="phoneNumber" placeholder="PhoneNumber">
-                  <input class="light-border" type="text" name="role" placeholder="Role">
-                  <input class="light-border" type="text" name="username" placeholder="UserName">
-                  <input class="light-border" type="text" name="password" placeholder="Password">
-                  <input class="light-border" type="text" name="class" placeholder="Class">
-                  <button class="light-border" type="submit">Save</button>
-              </form>
-          </div>
+      </div>
 
-          <div class="form-wrapper">
+      <div class= "vertical"></div>
+      <div class="rightpane">
+          
+      </div>
 
-              <h2>Add Student</h2>
-              <form class="light-border" id="addStudentForm">
-                  <input class="light-border" type="text" name="childssn" placeholder="ChindSSN">
-                  <input class="light-border" type="text" name="firstname" placeholder="FirstName">
-                  <input class="light-border" type="text" name="lastname" placeholder="LastName">
-                  <input class="light-border" type="number" name="class" placeholder="Class">
-                  <input class="light-border" type="text" name="parentssn" placeholder="ParentSSN">
-                  <button class="light-border" type="submit">Save</button>
-              </form>
-          </div>
-      </div> 
-  </div>
+    </div>
 
     <script src="admin_userlist.js"></script>
     <script src="../../js/serialize.js"></script>
