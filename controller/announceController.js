@@ -24,6 +24,7 @@ const addAnnouncement = async (req, res) => {
 const addAnnouncementNoImage = async(req,res) =>{
       const data = req.body; 
       const announcementId=await announcementModel.addAnnouncementNoImage(data,res);
+      console.log(data);
 }   
 
 const deleteAnnouncement = async (req, res) => {

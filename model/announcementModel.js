@@ -66,7 +66,7 @@ const addAnnouncementNoImage = async(data,res) => {
     const sql =
   "INSERT INTO announcement(text,dateandtime,userssn) VALUES (?,?,?)";
   const[rows]=  await promisePool.query(sql, [text, datetime, userssn]);
-  return res.redirect("http://127.0.0.1:5501/UI/announcement.html");
+  return res.redirect("http://127.0.0.1:5501/announcement.html");
   }catch(e){
     res.status(500).send(e.message);
   }
