@@ -48,3 +48,18 @@ button{
     background-color: #ccc;
     color: #fff;
 }
+
+li{
+  padding: 50px;
+  background-color: green;
+  transition: transform .2s;
+  width: 300px;
+  height: fit-content;
+  margin: 10 auto;
+}
+
+li:hover{
+    transform: scale(1.5);
+    height: fit-content;
+
+}

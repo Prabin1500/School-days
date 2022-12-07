@@ -5,22 +5,21 @@ const url = 'http://localhost:3000'; // change url when uploading to server
 const ul = document.querySelector('ul');
 
 const createAnnouncementCards = (announcements) =>{
-    announcement.innerHTML = '';
+    ul.innerHTML = '';
 
     for(let i = 0; i<=announcements.length; i++ ){
         const img = document.createElement('img');
         img.src = '../uploads/' + announcements[i].media_filename;
         img.alt = announcements[i].text;
         img.classList.add('resp');
-    
         const figure = document.createElement('figure').appendChild(img);
     
-        const h2 = document.createElement('h2');
-        h2.innerHTML = `${announcements[i].first_name} ${announcements[i].last_name}`;
+        const h2 = document.createElement('h3');
+        h2.innerHTML = `${announcements[i].text}`;
     
     
-        const p1 = document.createElement('p');
-        p1.innerHTML = `${announcements[i].announcementid}`;
+        const p1 = document.createElement('h5');
+        p1.innerHTML = `Added on: ${announcements[i].dateandtime}`;
     
         // modify button
         const modButton = document.createElement('a');
@@ -28,7 +27,7 @@ const createAnnouncementCards = (announcements) =>{
         modButton.href = `updateAnnouncement.html?id=${announcements[i].announcementid}`;
         modButton.classList.add('button');
     
-        // delete selected 
+        // delete selected cat
         const delButton = document.createElement('button');
         delButton.innerHTML = 'Delete';
         delButton.classList.add('button');
@@ -50,11 +49,14 @@ const createAnnouncementCards = (announcements) =>{
         li.classList.add('light-border');
     
         li.appendChild(h2);
-        li.appendChild(figure);
-        li.appendChild(p1);
+        
+        if(announcements[i].media_filename != null){
+          li.appendChild(figure);
+        };
         li.appendChild(modButton);
         li.appendChild(delButton);
-        announcement.appendChild(li);
+        li.appendChild(p1);
+        ul.appendChild(li);
       };
     };  
     
@@ -84,9 +86,11 @@ let selected = () => {
         document.getElementById("withImage").style.display = "none";
     }else if(selectedButton == "Image"){
         document.getElementById("withoutImage").style.display = "none";
-        document.getElementById("withImage").style.display = "flex";
+        document.getElementById("withImage").style.display = "initial";
     }
 }
 radioButtons.forEach(radioButton => {
     radioButton.addEventListener("change", selected)   
 })
+
+
