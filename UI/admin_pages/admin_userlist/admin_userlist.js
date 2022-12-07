@@ -31,7 +31,6 @@ btnTeacher.addEventListener('click', () =>{
       main.style.display = 'block';
       toggleList = true;
     }
-    
   }else{
     main.style.display = 'none';
     toggleList = false;
@@ -168,7 +167,7 @@ const createStudentCard = (students) => {
 
   });
 
-}
+};
 
 // get list of teachers
 const getTeacherList = async () => {
