@@ -85,3 +85,47 @@ loginForm.addEventListener('submit', async (evt) => {
     startApp(false);
   }
 })();
+
+//getting newsDiv by id 
+const newsDiv = document.getElementById("newsDiv");
+
+const createAnnouncementCards = (announcements) =>{
+  newsDiv.innerHTML='';
+
+  for(let i = 0; i<=announcements.length; i++ ){
+    const newsImage = document.createElement('img');
+      newsImage.src = '../../uploads/' + announcements[i].media_filename;
+      newsImage.classList.add('resp');
+      const figure = document.createElement('figure').appendChild(newsImage);
+
+    if(announcements[i].media_filename != null){
+      newsDiv.appendChild(figure);
+    }
+    
+    const heading = document.createElement('h1');
+    heading.innerHTML = `${announcements[i].text}`;
+    
+    const datetime = document.createElement('h2');
+    datetime.innerHTML = `Uploaded at: ${announcements[i].dateandtime}`;
+
+    const postedBy = document.createElement('h3');
+    postedBy.innerHTML = `Posted By: ${announcements[i].first_name} ${announcements[i].last_name}`;
+
+    newsDiv.appendChild(document.createElement('br'))
+    newsDiv.appendChild(heading);
+    newsDiv.appendChild(datetime);
+    newsDiv.appendChild(postedBy);
+  }
+}
+
+//AJAX CALL 
+const getAnnouncement = async() =>{
+  try{
+      const response = await fetch(url + '/announcement');
+      const announcements = await response.json();
+      createAnnouncementCards(announcements);
+  }catch(e){
+      console.log(e.message);
+  };
+};
+getAnnouncement();
