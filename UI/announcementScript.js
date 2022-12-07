@@ -5,7 +5,7 @@ const url = 'http://localhost:3000'; // change url when uploading to server
 const ul = document.querySelector('ul');
 
 const createAnnouncementCards = (announcements) =>{
-    ul.innerHTML = '';
+    announcement.innerHTML = '';
 
     for(let i = 0; i<=announcements.length; i++ ){
         const img = document.createElement('img');
@@ -28,7 +28,7 @@ const createAnnouncementCards = (announcements) =>{
         modButton.href = `updateAnnouncement.html?id=${announcements[i].announcementid}`;
         modButton.classList.add('button');
     
-        // delete selected cat
+        // delete selected 
         const delButton = document.createElement('button');
         delButton.innerHTML = 'Delete';
         delButton.classList.add('button');
@@ -54,7 +54,7 @@ const createAnnouncementCards = (announcements) =>{
         li.appendChild(p1);
         li.appendChild(modButton);
         li.appendChild(delButton);
-        ul.appendChild(li);
+        announcement.appendChild(li);
       };
     };  
     
