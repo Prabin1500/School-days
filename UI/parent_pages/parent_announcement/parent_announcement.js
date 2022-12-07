@@ -59,4 +59,8 @@ const getAllStudents = async() => {
   
   };
 
+  createAnnouncementCard = (announcement) =>{
+
+  }
+
   getAllStudents();
