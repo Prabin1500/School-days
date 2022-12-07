@@ -22,8 +22,16 @@ let toggleList = false;
 
 btnTeacher.addEventListener('click', () =>{
   if(!toggleList){
-    main.style.display = 'block';
-    toggleList = true;
+    if(toggleAddUser){
+      registerForm.style.display = 'none';
+      main.style.display = 'block';
+      toggleList = true;
+      toggleAddUser = false;
+    }else{
+      main.style.display = 'block';
+      toggleList = true;
+    }
+    
   }else{
     main.style.display = 'none';
     toggleList = false;
@@ -32,8 +40,17 @@ btnTeacher.addEventListener('click', () =>{
 //toogle for AddUser button
 addUser.addEventListener('click',() =>{
   if(!toggleAddUser){
-    registerForm.style.display = 'inline-block';
-    toggleAddUser = true;
+    if(toggleList){
+      main.style.display = 'none';
+      registerForm.style.display = 'inline-block';
+      toggleAddUser = true;
+      toggleList = false;
+    }else{
+      registerForm.style.display = 'inline-block';
+      toggleAddUser = true;
+    }
+    
+    
   }else{
     registerForm.style.display = 'none';
     toggleAddUser = false;
