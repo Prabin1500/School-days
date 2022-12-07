@@ -16,9 +16,21 @@
       <!-- js creates list here -->
     </ul>
     <h2>Add Announcement</h3>
-    <form action="http://localhost:3000/announcement" method="post" enctype="multipart/form-data" class="light-border">
+    <form class="light-border">
+      <input type = "radio" id = "Image" name = "radio" value = "Image" checked>
+      <label for ="Image">Image</label>
+      <input type = "radio" id = "noImage" name = "radio" value = "noImage">
+      <label for ="noImage">No Image</label>
+    </form>  
+
+    <form action="http://localhost:3000/announcement" method="post" enctype="multipart/form-data" class="light-border" id = "withImage">
       <input class="light-border" type="text" name="text" placeholder="TEXT">
       <input class="light-border" type="file" name="media_filename">
+      <input class="light-border" type="text" name="userssn" placeholder="USSERSSN">
+      <button class="light-border" type="submit">Save</button>
+    </form>
+    <form action="http://localhost:3000/noimage" method="post" enctype="multipart/form-data" class="light-border" id = "withoutImage">
+      <input class="light-border" type="text" name="text" placeholder="TEXT">
       <input class="light-border" type="text" name="userssn" placeholder="USSERSSN">
       <button class="light-border" type="submit">Save</button>
     </form>

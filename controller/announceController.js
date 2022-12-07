@@ -1,30 +1,51 @@
-'use strict';
+"use strict";
 
-const announcementModel = require('../model/announcementModel');
+const announcementModel = require("../model/announcementModel");
 
-const getAnnouncement = async(req,res) =>{
-    const announcement = await announcementModel.getAnnouncement();
+const getAnnouncement = async (req,res) => {
+  const announcement = await announcementModel.getAnnouncement();
+  res.json(announcement);
+};
+const getAnnouncementById = async(req,res) =>{
+  try{
+    const announcement = await announcementModel.getAnnouncementById(req.params.announcementId);
     res.json(announcement);
+  }catch(e){
+    res.sendStatus(404);
+  }
+}
+
+const addAnnouncement = async (req, res) => {
+  const announcement = req.body;
+  announcement.media_filename = req.file.filename;
+  const announcementId = await announcementModel.addAnnouncement(announcement,res);
 };
 
-const addAnnouncement = async(req,res) =>{
-    const announcement = req.body;
-    announcement.media_filename = req.file.filename;
-    const announcementId = await announcementModel.addAnnouncement(announcement,res);
-    res.status(201);
-};
-const deleteAnnouncement = async(req,res) => {
-    console.log(req.params.announcementId);
-    const announcement = await announcementModel.deleteAnnouncement(res,req.params.announcementId);
-    if(!announcement){
-        res.json(announcement);
-    }else{
-        res.sendStatus(404);
+const addAnnouncementNoImage = async(req,res) =>{
+      const data = req.body; 
+      const announcementId=await announcementModel.addAnnouncementNoImage(data,res);
+}   
+
+const deleteAnnouncement = async (req, res) => {
+    const announcement = await announcementModel.deleteAnnouncement(req.params.announcementId, res);
+    if (announcement.affectedRows > 0) {
+      res.json({message: 'announcement deleted'});
+    } else {
+      res.status(404).json({message: 'announcement was already deleted'});
     }
 };
 
+const updateAnnouncement = async (req,res) =>{
+  let data = req.body;
+  console.log(data);
+  const result = await announcementModel.updateAnnouncement(data,res);
+}
+
 module.exports = {
-    getAnnouncement,
-    addAnnouncement,
-    deleteAnnouncement,
+  getAnnouncement,
+  getAnnouncementById,
+  addAnnouncement,
+  addAnnouncementNoImage,
+  deleteAnnouncement,
+  updateAnnouncement,
 };
