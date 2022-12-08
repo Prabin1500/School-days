@@ -89,6 +89,7 @@ loginForm.addEventListener('submit', async (evt) => {
 
 //getting newsDiv by id 
 const newsDiv = document.getElementById("newsDiv");
+const newsList = document.getElementById('newsList');
 
 const createAnnouncementCards = (announcements) =>{
   newsDiv.innerHTML='';
@@ -98,10 +99,6 @@ const createAnnouncementCards = (announcements) =>{
       newsImage.src = '../../uploads/' + announcements[i].media_filename;
       newsImage.classList.add('resp');
       const figure = document.createElement('figure').appendChild(newsImage);
-
-    if(announcements[i].media_filename != null){
-      newsDiv.appendChild(figure);
-    }
     
     const heading = document.createElement('h1');
     heading.innerHTML = `${announcements[i].text}`;
@@ -112,10 +109,18 @@ const createAnnouncementCards = (announcements) =>{
     const postedBy = document.createElement('h3');
     postedBy.innerHTML = `Posted By: ${announcements[i].first_name} ${announcements[i].last_name}`;
 
-    newsDiv.appendChild(document.createElement('br'))
-    newsDiv.appendChild(heading);
-    newsDiv.appendChild(datetime);
-    newsDiv.appendChild(postedBy);
+    const li = document.createElement('li');
+    li.classList.add('light-border');
+    li.appendChild(document.createElement('br'));
+    if(announcements[i].media_filename != null){
+      li.appendChild(figure);
+    }
+    li.appendChild(heading);
+    li.appendChild(datetime);
+    li.appendChild(postedBy);
+
+    newsList.appendChild(li);
+    newsDiv.appendChild(newsList);
   }
 }
 
