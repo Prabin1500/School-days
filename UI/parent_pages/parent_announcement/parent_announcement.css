@@ -13,6 +13,14 @@
 	flex:1
 }  
 
+h1{
+	background-color: rgb(227, 232, 236);
+	width: 100%;
+	height: auto;
+	border: 1px solid black;
+	margin-left: 15px;
+}
+
 .info {
 	padding: 10px;
 	flex:2
@@ -30,7 +38,6 @@
 
 li div p{
 	margin-left: 750px;
-	
 }
 
 .divider{
@@ -44,7 +51,6 @@ li div p{
 .leftbox{
     width: 20%;
 	min-height: fit-content;
-	border: 1px solid black;
 	display: flex;
 	flex-direction: row;
 }
@@ -58,7 +64,6 @@ li div p{
 
 .vertical {
     border-left: 1px solid black;
-	height: auto;
 }
 
 .rightbox ul{

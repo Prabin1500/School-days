@@ -45,7 +45,8 @@ const addAnnouncement = async (announcement, res) => {
     ];
     const sql = "INSERT INTO announcement VALUES (null,?,?,?,?)";
     const [result] = await promisePool.query(sql, values);
-    return result.insertId;
+    return res.redirect("http://127.0.0.1:5501/UI/teacher_pages/teacher_announcement/teacher_announcement.html");
+    
   } catch (e) {
     res.status(500).send(e.message);
   }
@@ -66,7 +67,7 @@ const addAnnouncementNoImage = async(data,res) => {
     const sql =
   "INSERT INTO announcement(text,dateandtime,userssn) VALUES (?,?,?)";
   const[rows]=  await promisePool.query(sql, [text, datetime, userssn]);
-  return res.redirect("http://127.0.0.1:5501/UI/parent_pages/parent_announcement/parent_announcement.html");
+  return res.redirect("http://127.0.0.1:5501/UI/teacher_pages/teacher_announcement/teacher_announcement.html");
   }catch(e){
     res.status(500).send(e.message);
   }
@@ -99,7 +100,7 @@ const updateAnnouncement = async (announcement,res) => {
     currentdate.getSeconds();
     const{text,announcementid} = announcement;
     const [rows] =  await promisePool.query("UPDATE announcement SET text =?, dateandtime=? where announcementid = ?",[text,datetime,announcementid]); 
-    return res.redirect("http://127.0.0.1:5501/UI/parent_pages/parent_announcement/parent_announcement.html");
+    return res.redirect("http://127.0.0.1:5501/UI/teacher_pages/teacher_announcement/teacher_announcement.html");
   }catch(e){
     console.error("error", e.message);
     res.status(500).json({'error': e.message});
