@@ -6,6 +6,11 @@ const getAnnouncement = async (req,res) => {
   const announcement = await announcementModel.getAnnouncement();
   res.json(announcement);
 };
+const announcementFiltered = async (req,res) => {
+  const announcement = await announcementModel.announcementFiltered(req.params.userssn);
+  res.json(announcement);
+};
+
 const getAnnouncementById = async(req,res) =>{
   try{
     const announcement = await announcementModel.getAnnouncementById(req.params.announcementId);
@@ -49,4 +54,5 @@ module.exports = {
   addAnnouncementNoImage,
   deleteAnnouncement,
   updateAnnouncement,
+  announcementFiltered
 };

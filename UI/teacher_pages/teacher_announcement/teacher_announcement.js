@@ -8,10 +8,20 @@ const childclass = document.querySelector('.childrenClass');
 const announcement = document.querySelector('.announcementbox');
 
 let user = JSON.parse(sessionStorage.getItem('user'));
+console.log("USERSSN IS: "+user.USERSSN);
+
+document.getElementById('submit').onclick= onclickL();
+document.getElementById('submit1').onclick= onclickR();
+function onclickL(){
+  document.getElementById('userssn').value = user.USERSSN;
+  console.log(document.getElementById('userssn'));
+}
+function onclickR(){
+  document.getElementById('userssn2').value = user.USERSSN;
+  console.log(document.getElementById('userssn2'));
+}
 
 welcome.innerHTML ='Welcome ' + user.FIRST_NAME;
-
-
 const createAnnouncementCards = (announcements) =>{
   announcement.innerHTML = '';
 
@@ -87,8 +97,9 @@ const createAnnouncementCards = (announcements) =>{
 //AJAX CALL 
 const getAnnouncement = async() =>{
   try{
-      const response = await fetch(url + '/announcement');
+      const response = await fetch(url + '/announcementFiltered/'+user.USERSSN);
       const announcements = await response.json();
+      console.log(announcements);
       createAnnouncementCards(announcements);
   }catch(e){
       console.log(e.message);

@@ -12,6 +12,8 @@
       src="https://kit.fontawesome.com/0fb84f1994.js"
       crossorigin="anonymous"
     ></script>
+    <script defer src="../../js/logout.js"></script>
+      <script defer src="./teacher_announcement.js"></script>
 </head>
 <body>
     <nav class="top_menu">
@@ -57,13 +59,13 @@
                     <form action="http://localhost:3000/announcement" method="post" enctype="multipart/form-data" class="light-border" id = "withImage">
                     <input class="light-border" type="text" name="text" placeholder="TEXT">
                     <input class="light-border" type="file" name="media_filename">
-                    <input class="light-border" type="text" name="userssn" placeholder="USSERSSN">
-                    <button class="light-border" type="submit">Save</button>
+                    <input class="light-border" type="hidden" name="userssn" placeholder="USSERSSN" id = "userssn">
+                    <button class="light-border" type="submit" id = "submit">Save</button>
                     </form>
-                    <form action="http://localhost:3000/noimage" method="post" enctype="multipart/form-data" class="light-border" id = "withoutImage">
+                    <form action="http://localhost:3000/noimage" method="post" enctype="multipart/form-data" class="light-border" id = "withoutImage" style="display:none;">
                     <input class="light-border" type="text" name="text" placeholder="TEXT">
-                    <input class="light-border" type="text" name="userssn" placeholder="USSERSSN">
-                    <button class="light-border" type="submit">Save</button>
+                    <input class="light-border" type="hidden" name="userssn" placeholder="USSERSSN" id = "userssn2">
+                    <button class="light-border" type="submit" id ="submit1" >Save</button>
                     </form>
                 </div>
               </div>
@@ -74,7 +76,7 @@
 
             </ul>
         </div>
-      <script src="../../js/logout.js"></script>
-      <script src="./teacher_announcement.js"></script>
+      
+      
 </body>
 </html>

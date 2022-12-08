@@ -6,7 +6,7 @@ const promisePool = pool.promise();
 const getAnnouncement = async () => {
   try {
     const [rows] = await promisePool.query(
-      "select announcement.announcementid,announcement.text,announcement.media_filename, announcement.dateandtime, users.first_name, users.last_name from announcement,users where announcement.userssn = users.userssn;"
+      "select announcement.announcementid,announcement.text,announcement.media_filename, announcement.dateandtime, users.first_name, users.last_name from announcement,users where announcement.userssn = users.userssn order by announcementid desc;"
     );
     return rows;
   } catch (e) {
@@ -17,6 +17,12 @@ const getAnnouncement = async () => {
 const getAnnouncementById = async(announcementID) => {
   const [rows]= await promisePool.query("SELECT * FROM announcement where announcementid =?",announcementID); 
   return rows[0];
+}
+
+const announcementFiltered = async(userssn) =>{
+  const [rows] = await promisePool.query("SELECT announcement.announcementid,announcement.text,announcement.media_filename, announcement.dateandtime, users.first_name, users.last_name from announcement,users where announcement.userssn=users.userssn and announcement.userssn = ? order by announcementid desc; ",[userssn]);
+  console.log(rows);
+  return rows;
 }
 
 // add all announcement into database
@@ -114,4 +120,5 @@ module.exports = {
   addAnnouncementNoImage,
   deleteAnnouncement,
   updateAnnouncement,
+  announcementFiltered,
 };
