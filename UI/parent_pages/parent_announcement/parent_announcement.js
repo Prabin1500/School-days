@@ -62,65 +62,38 @@ getAllStudents();
 const createAnnouncementCards = (announcements) =>{
   announcement.innerHTML = '';
 
+
+
   for(let i = 0; i<=announcements.length; i++ ){
-      const img = document.createElement('img');
-      img.src = '../uploads/' + announcements[i].media_filename;
-      img.alt = announcements[i].text;
-      img.classList.add('resp');
-  
-      const figure = document.createElement('figure').appendChild(img);
-  
-      const div1 = document.createElement('div');
 
-      const div2 = document.createElement('div');
-      div2.className ='button';
+    const div1 = document.createElement('div');
 
-      const h2 = document.createElement('h2');
-      h2.innerHTML = `${announcements[i].first_name} ${announcements[i].last_name}`;
+    const div2 = document.createElement('div');
+    div2.className ='button';
+
+    const newsImage = document.createElement('img');
+      newsImage.src = '../../../uploads/' + announcements[i].media_filename;
+      newsImage.classList.add('resp');
+      const figure = document.createElement('figure').appendChild(newsImage);
+      figure.style.width = '200px';
+      figure.style.height = '200px';
+      figure.style.marginLeft='20px';
+
+    if(announcements[i].media_filename != null){
+      div1.appendChild(figure);
+    }
+
+    const h2 = document.createElement('h3');
+    h2.innerHTML = `${announcements[i].text}`;
   
-  
-      const p1 = document.createElement('p');
-      p1.innerHTML = `${announcements[i].announcementid}`;
-  
-      // modify button
-      const modButton = document.createElement('button');
-      modButton.innerHTML = 'Modify';
-      modButton.addEventListener('click', async() => {
-        location.href =`../../updateAnnouncement.html?id=${announcements[i].announcementid}`;
-      });
-      modButton.classList.add('button');
-  
-      // delete selected 
-      const delButton = document.createElement('button');
-      delButton.innerHTML = 'Delete';
-      delButton.classList.add('button');
-      delButton.addEventListener('click', async () => {
-        const fetchOptions = {
-          method: 'DELETE',
-        };
-        try {
-          const response = await fetch(url + '/announcement/' + announcements[i].announcementid, fetchOptions);
-          const json = await response.json();
-          console.log('delete response', json);
-          getAnnouncement();
-        } catch (e) {
-          console.log(e.message);
-        }
-      });
+    const p1 = document.createElement('p');
+    p1.innerHTML = `Posted by ${announcements[i].first_name} ${announcements[i].last_name}  at ${announcements[i].dateandtime}`;
   
       const li = document.createElement('li');
       li.classList.add('light-border');
   
       div1.appendChild(h2);
-      div1.appendChild(figure);
       div1.appendChild(p1);
-      div2.appendChild(modButton);
-      div2.appendChild(delButton);
-      // li1.appendChild(h2);
-      // li1.appendChild(figure);
-      // li1.appendChild(p1);
-      // li2.appendChild(modButton);
-      // li2.appendChild(delButton);
       li.appendChild(div1);
       li.appendChild(div2);
       announcement.appendChild(li);

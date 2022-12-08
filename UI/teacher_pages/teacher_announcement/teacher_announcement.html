@@ -33,20 +33,47 @@
             </div>
         </div>
     </nav>
-    <div class="announcement">
-        <div class="announcementbox">
-          <p class="info"><img class="round_image" src="https://upload.wikimedia.org/wikipedia/commons/8/84/Lake_Bled_from_the_Mountain.jpg">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet totam, molestias ut perspiciatis officia cum debitis unde ipsa, repudiandae quis dolore minima velit nam consequuntur laborum excepturi? Porro, voluptatum asperiores!Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet totam, molestias ut perspiciatis officia cum debitis unde ipsa, repudiandae quis dolore minima velit nam consequuntur
-             laborum excepturi? Porro, voluptatum asperiores!Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet totam, molestias ut 
-             perspiciatis officia cum debitis unde ipsa, repudiandae quis dolore minima velit nam consequuntur laborum excepturi? Porro,
-             voluptatum asperiores!</p>
+    <div class="divider">
+        <div class="leftbox">
+          <ul class="studentList">
+
+          </ul>
         </div>
-        <div class="announcementbox">
-          <p class="info"><img class="round_image" src="https://upload.wikimedia.org/wikipedia/commons/8/84/Lake_Bled_from_the_Mountain.jpg">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet totam, molestias ut perspiciatis officia cum debitis unde ipsa, repudiandae quis dolore minima velit nam consequuntur laborum excepturi? Porro, voluptatum asperiores!Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet totam, molestias ut perspiciatis officia cum debitis unde ipsa, repudiandae quis dolore minima velit nam consequuntur
-             laborum excepturi? Porro, voluptatum asperiores!Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet totam, molestias ut 
-             perspiciatis officia cum debitis unde ipsa, repudiandae quis dolore minima velit nam consequuntur laborum excepturi? Porro,
-             voluptatum asperiores!</p>
+
+        <div class= "vertical"></div>
+        <div class="rightbox">
+
+            <div class="container">
+                <h2>Post Announcement</h2>
+                <div class="addannouncement">
+                    
+                    <form class="light-border">
+                    <input type = "radio" id = "Image" name = "radio" value = "Image" checked>
+                    <label for ="Image">Image</label>
+                    <input type = "radio" id = "noImage" name = "radio" value = "noImage">
+                    <label for ="noImage">No Image</label>
+                    </form>  
+                
+                    <form action="http://localhost:3000/announcement" method="post" enctype="multipart/form-data" class="light-border" id = "withImage">
+                    <input class="light-border" type="text" name="text" placeholder="TEXT">
+                    <input class="light-border" type="file" name="media_filename">
+                    <input class="light-border" type="text" name="userssn" placeholder="USSERSSN">
+                    <button class="light-border" type="submit">Save</button>
+                    </form>
+                    <form action="http://localhost:3000/noimage" method="post" enctype="multipart/form-data" class="light-border" id = "withoutImage">
+                    <input class="light-border" type="text" name="text" placeholder="TEXT">
+                    <input class="light-border" type="text" name="userssn" placeholder="USSERSSN">
+                    <button class="light-border" type="submit">Save</button>
+                    </form>
+                </div>
+              </div>
+            
+            <h1>Announcement</h1>
+            <ul class="announcementbox">
+                
+
+            </ul>
         </div>
-      </div>
       <script src="../../js/logout.js"></script>
       <script src="./teacher_announcement.js"></script>
 </body>
