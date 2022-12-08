@@ -2,7 +2,7 @@
 
 
 const url = 'http://localhost:3000';
-
+const welcome = document.querySelector('.welcome');
 const ul = document.querySelector('#listTeacher');
 const listStudent = document.querySelector('#listStudent');
 const addUser = document.querySelector('.addUser');
@@ -14,11 +14,14 @@ const studentForm = document.querySelector('#addStudentForm');
 const classFilter = document.querySelector('#class');
 const btnTeacher = document.querySelector('#teacherList');
 const btnParent = document.querySelector('#ParentList');
-const btnStudent = document.querySelector('#StudentList');
+const userListOption = document.querySelector('#selectuser');
 
 let toggleAddUser = false;
 let toggleList = false;
+let user = JSON.parse(sessionStorage.getItem('user'));
 
+welcome.innerHTML ='Welcome ' + user.FIRST_NAME;
+main.style.display = 'block';
 
 btnTeacher.addEventListener('click', () =>{
   if(!toggleList){
@@ -38,6 +41,7 @@ btnTeacher.addEventListener('click', () =>{
 });
 //toogle for AddUser button
 addUser.addEventListener('click',() =>{
+  main.style.display = 'none';
   if(!toggleAddUser){
     if(toggleList){
       main.style.display = 'none';
@@ -226,6 +230,21 @@ const getAllStudents = async() => {
   } catch (e) {
     console.log("Message " + e.message);
   }
+};
+
+//create user option
+const createUserOptions = (users) => {
+  userListOption.innerHTML = '';
+
+  users.forEach((user) => {
+    
+    console.log(user.userssn);
+    const option = document.createElement('option');
+    option.value = user.userssn;
+    option.innerHTML = user.first_name + " " + user.last_name;
+    option.classList.add('light-border');
+    userListOption.appendChild(option);
+  });
 };
 
 

@@ -8,6 +8,10 @@
   display: flex;
   flex-direction: row;
 }
+
+h3{
+
+}
 .round_image {
   float: left;
   height: 200px;
@@ -15,6 +19,7 @@
   padding: 200px;
   flex: 1;
 }
+
 .info {
   padding: 10px;
   flex: 2;
@@ -50,7 +55,9 @@ h1, .container{
   width: 20%;
   min-height: fit-content;
   display: flex;
-  flex-direction: row;
+  gap: 20px;
+  flex-direction: column;
+  background-color: olivedrab;
 }
 
 .rightbox {
@@ -118,12 +125,68 @@ display: inline-block;
 
 }
 
+#listparent li{
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  align-items: center;
+  gap: 10px;
+  width: 200px;
+  flex-direction: column;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 1);
+  background: linear-gradient(121deg, rgba(212, 198, 198, 0) 13%, rgb(119, 186, 228) 100%);
+
+}
+
+.parentlist ul{
+  display: flex;
+  flex-direction: row;
+  margin-top: 60px;
+  margin-left: 20px;
+  padding: 0;
+  list-style-type: none;
+  gap: 20px;
+}
+
+#liststudent li{
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  align-items: center;
+  gap: 10px;
+  width: 200px;
+  flex-direction: column;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 1);
+  background: linear-gradient(121deg, rgba(212, 198, 198, 0) 13%, rgb(119, 186, 228) 100%);
+
+}
+
+.studentlist ul{
+  display: flex;
+  flex-direction: row;
+  margin-top: 60px;
+  margin-left: 20px;
+  padding: 0;
+  list-style-type: none;
+  gap: 20px;
+}
+
+#listparent img{
+  background-color: #eee;
+  border-radius: 50%;
+  height: 100px;
+  margin-left: 20px;
+  width:100px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+} 
+
 .button {
   display: flex;
   flex-wrap: nowrap;
   flex-direction: column-reverse;
   margin-top: auto;
   width: fit-content;
+  height: fit-content;
   padding-right: 10px;
   margin-left: auto;
 }
@@ -142,4 +205,10 @@ ul div p{
   align-self: flex-end;
   margin-left: 15px;
 
+}
+
+.leftbox button{
+  margin-top: 20px;
+  width: 100%;
+  font-size: 20px;
 }

@@ -4,7 +4,7 @@ const promisePool = pool.promise();
 
 const getAllUsers = async(req,res) =>{
     try{
-        const [rows] = await promisePool.query("select users.first_name,users.last_name,users.email,users.phone_number, users.class, users.role from users");
+        const [rows] = await promisePool.query("select users.first_name,users.last_name,users.email,users.phone_number, users.class, users.role, users.userssn from users");
         return rows;
     }catch(e){
         console.log("error", e.message);
@@ -44,7 +44,7 @@ const addUser = async(user, res) => {
 const addStudent = async(user, res) => {
     
     try{
-        const [rows] = await promisePool.query('INSERT INTO students(CHILDSSN, FIRST_NAME, LAST_NAME, CLASS, USERSSN) VALUES (?,?,?,?,?)', [user.childssn, user.firstname, user.lastname, user.class, user.userssn]);
+        const [rows] = await promisePool.query('INSERT INTO students(CHILDSSN, FIRST_NAME, LAST_NAME, CLASS, USERSSN) VALUES (?,?,?,?,?)', [user.childssn, user.firstname, user.lastname, user.class, user.parentssn]);
             return rows.insertId;
     }catch(e){
         console.error('user model, add student error', e.message);

@@ -25,8 +25,8 @@
         <div class="dropdown">
             
             <button class="dropdown-btn">
-                <i class="fa-sharp fa-solid fa-user"></i>
-                
+                <p class="welcome"></p>
+                <i class="fa-sharp fa-solid fa-user"></i>              
                 <i class="fa fa-caret-down"></i>
                 
             </button>
@@ -41,21 +41,23 @@
 
     <div class="divider"> 
       <div class="leftpane">
-        <div>
-          <label for="class-select">Choose class:</label>
+        <div class="chooseclass">
+          <div> 
+            <p>Choose class:</p>
+          </div>
           <div class="class-filter">
                   <select id="class" name="classes">
                     <option value="0" selected>Select All</option>
-                    <option value="1">one</option>
-                    <option value="2">two</option> 
-                    <option value="3">three</option>
-                    <option value="4">four</option>
-                    <option value="5">five</option> 
-                    <option value="6">six</option>
-                    <option value="7">seven</option>
-                    <option value="8">eight</option> 
-                    <option value="9">nine</option>
-                    <option value="10">ten</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option> 
+                    <option value="3">Three</option>
+                    <option value="4">Four</option>
+                    <option value="5">Five</option> 
+                    <option value="6">Six</option>
+                    <option value="7">Seven</option>
+                    <option value="8">Eight</option> 
+                    <option value="9">Nine</option>
+                    <option value="10">Ten</option>
                   </select>
             </div>
           </div>
@@ -63,9 +65,9 @@
           <div class="addbutton">
             <button class="addUser"><i class="fa-solid fa-user-plus"> Add User</i></button>
           </div>
-          <button id="teacherList"><h2>List of Teachers</h2></button>
-          <button id="parentList"><h2>List of Parents</h2></button>
-          <button id="studentList"><h2>List of Students</h2></button>
+          <div><button id="teacherList"><h2>List of Teachers</h2></button></div>
+          <div><button id="parentList"><h2>List of Parents</h2></button></div>
+          <div><button id="studentList"><h2>List of Students</h2></button></div>
           
       </div>
 
@@ -77,8 +79,6 @@
             <ul id="listTeacher">
               
             </ul>
-
-
       </div>
         
         <div class="register"  >
@@ -92,10 +92,26 @@
                       <input class="light-border" type="text" name="lastName" placeholder="LastName">
                       <input class="light-border" type="text" name="email" placeholder="Email">
                       <input class="light-border" type="text" name="phoneNumber" placeholder="PhoneNumber">
-                      <input class="light-border" type="text" name="role" placeholder="Role">
+                      <select class="light-border" name="role">
+                        <option value="0" selected>Select Role</option>
+                        <option value="teacher">Teacher</option>
+                        <option value="parent">Parent</option> 
+                      </select>
                       <input class="light-border" type="text" name="username" placeholder="UserName">
                       <input class="light-border" type="text" name="password" placeholder="Password">
-                      <input class="light-border" type="text" name="class" placeholder="Class">
+                      <select class="light-border" name="class">
+                        <option value="Null" selected>Select Class</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option> 
+                        <option value="3">Three</option>
+                        <option value="4">Four</option>
+                        <option value="5">Five</option> 
+                        <option value="6">Six</option>
+                        <option value="7">Seven</option>
+                        <option value="8">Eight</option> 
+                        <option value="9">Nine</option>
+                        <option value="10">Ten</option>
+                      </select>
                       <button class="light-border" type="submit">Save</button>
                   </form>
               </div>
@@ -107,11 +123,22 @@
                       <input class="light-border" type="text" name="childssn" placeholder="ChildSSN">
                       <input class="light-border" type="text" name="firstname" placeholder="FirstName">
                       <input class="light-border" type="text" name="lastname" placeholder="LastName">
-                      <input class="light-border" type="number" name="class" placeholder="Class">
-                      <input class="light-border" type="text" name="userssn" placeholder="ParentSSN">
-                      <!--<select class="light-border select-user" type="text" name="parentssn">
-                        <option value="">Select Parent</option>
-                      </select> -->
+                      <select class="light-border" name="class">
+                        <option value="0" selected>Select Class</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option> 
+                        <option value="3">Three</option>
+                        <option value="4">Four</option>
+                        <option value="5">Five</option> 
+                        <option value="6">Six</option>
+                        <option value="7">Seven</option>
+                        <option value="8">Eight</option> 
+                        <option value="9">Nine</option>
+                        <option value="10">Ten</option>
+                      </select>
+                      <select class="light-border" id="selectuser"type="text" name="parentssn">
+                        <option  value="" selected>Select Parent</option>
+                      </select>
                       <button class="light-border" type="submit">Save</button>
                   </form>
               </div>
@@ -132,3 +159,6 @@
     <script src="../../js/logout.js"></script>
   </body>
 </html>
+
+
+
