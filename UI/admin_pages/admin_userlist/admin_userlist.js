@@ -237,8 +237,7 @@ const createUserOptions = (users) => {
   userListOption.innerHTML = '';
 
   users.forEach((user) => {
-    
-    console.log(user.userssn);
+  
     const option = document.createElement('option');
     option.value = user.userssn;
     option.innerHTML = user.first_name + " " + user.last_name;
@@ -266,7 +265,7 @@ userForm.addEventListener('submit', async (evt) => {
   const response = await fetch(url + '/auth/registerUser', fetchOptions);
   const json = await response.json();
   alert(json.message);
-  location.href = 'admin_userList.html';
+  location.href = './admin_userList.html';
 });
 
 //submit student form

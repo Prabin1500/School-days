@@ -13,7 +13,6 @@ const topsection = document.querySelector('.topsection');
 const displayparentlist = document.querySelector('.parentlist');
 const displaystudentlist = document.querySelector('.studentlist');
 const btnannouncement = document.querySelector('.active');
-const homebtn = document.querySelector('#home');
 
 let showhide = false;
 
@@ -31,21 +30,12 @@ function onclickR(){
   document.getElementById('userssn2').value = user.USERSSN;
 };
 
-btnannouncement.addEventListener('click', () => {
-  getAnnouncement();
-  displayparentlist.style.display='none';
-  topsection.style.display='block';
-});
+
 
 btnparent.addEventListener('click', () => {
   displayparentlist.style.display='block';
   topsection.style.display='none';
   getAllUsers();
-});
-
-homebtn.addEventListener('click', () => {
-  topsection.style.display='block';
-  displayparentlist.style.display='none';
 });
 
 
