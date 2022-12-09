@@ -49,7 +49,7 @@
                 <h2>Post Announcement</h2>
                 <div class="addannouncement">
                     
-                    <form class="light-border">
+                    <form class="radiobutton">
                     <input type = "radio" id = "Image" name = "radio" value = "Image" checked>
                     <label for ="Image">Image</label>
                     <input type = "radio" id = "noImage" name = "radio" value = "noImage">
@@ -57,15 +57,15 @@
                     </form>  
                 
                     <form action="http://localhost:3000/announcement" method="post" enctype="multipart/form-data" class="light-border" id = "withImage">
-                    <input class="light-border" type="text" name="text" placeholder="TEXT">
-                    <input class="light-border" type="file" name="media_filename">
+                    <input class="light-border" type="text" name="text" placeholder="Description of post here..." style="height:70px;width: 300px;">
+                    <input class="light-border" type="file" name="media_filename" >
                     <input class="light-border" type="hidden" name="userssn" placeholder="USSERSSN" id = "userssn">
-                    <button class="light-border" type="submit" id = "submit">Save</button>
+                    <button class="light-border" type="submit" id = "submit" style="width:70px">Save</button>
                     </form>
                     <form action="http://localhost:3000/noimage" method="post" enctype="multipart/form-data" class="light-border" id = "withoutImage" style="display:none;">
-                    <input class="light-border" type="text" name="text" placeholder="TEXT">
+                    <input class="light-border" type="text" name="text" placeholder="Description of post here..." style="height:70px;width: 300px;">
                     <input class="light-border" type="hidden" name="userssn" placeholder="USSERSSN" id = "userssn2">
-                    <button class="light-border" type="submit" id ="submit1" >Save</button>
+                    <button class="light-border" type="submit" id ="submit1" style="width:70px" >Save</button>
                     </form>
                 </div>
               </div>

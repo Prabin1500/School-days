@@ -86,7 +86,11 @@ h1, .container{
 }
 
 .light-border{
-display: inline-block;
+display: flex;
+flex-direction: column;
+gap: 10px;
+justify-content: left;
+border-radius: 10px 10px 10px 10px;
 }
 
 .studentList li{
@@ -126,6 +130,8 @@ display: inline-block;
   width: fit-content;
   padding-right: 10px;
   margin-left: auto;
+  align-items: flex-end;
+
 }
 
 .text{
@@ -142,4 +148,7 @@ ul div p{
   align-self: flex-end;
   margin-left: 15px;
 
+}
+.radiobutton{
+  display: inline-block;
 }
