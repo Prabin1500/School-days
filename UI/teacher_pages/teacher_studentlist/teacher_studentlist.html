@@ -4,33 +4,64 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <link rel="stylesheet" href="../../navigation.css">
+    <link rel="stylesheet" href="./teacher_studentlist.css">
     <script
       defer
       src="https://kit.fontawesome.com/0fb84f1994.js"
       crossorigin="anonymous"
     ></script>
-    <title>Document</title>
+    <script defer src="../../js/logout.js"></script>
+      <script defer src="./teacher_studentlist.js"></script>
 </head>
 <body>
     <nav class="top_menu">
         <div class="top_menu_link">
-            <a   href="javascript:void(0)">Announcement</a>
-            <a href="javascript:void(0)">Messages</a>
-            <a class="active" href="javascript:void(0)">Parents list</a>
+            <a  id="btnannouncement" href="javascript:void(0)">Announcement</a>
+            <a  id="btnmessage" href="javascript:void(0)">Messages</a>
+            <a class="active" id="btnparent" href="javascript:void(0)">Parents list</a>
         </div>
         <div class="dropdown">
             <button class="dropdown-btn">
+                <p class="welcome"> Name</p>
                 <i class="fa-sharp fa-solid fa-user"></i>
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-                <a href="#">Username</a>
-                <a href="#">Log out</a>
+                <a href="#" id = "username">Username</a>
+                <a id="log-out" href="#">Log out</a>
                 
             </div>
         </div>
     </nav>
-    
+    <div class="divider">
+        <div class="leftbox">
+          
+        </div>
+
+        <div class= "vertical"></div>
+
+        <div class="rightbox">
+           
+            <div class="parentlist" >
+                <h1>List of parents</h1>
+                <ul id="listparent">
+                    
+                </ul>
+            </div>
+
+            <div class="studentlist" style="display: none;">
+                <h1 id="studentsparent"></h1>
+                <ul id="liststudent">
+                    
+                </ul>
+            </div>
+            
+        </div>
+        
+    </div>
+      
+      
 </body>
 </html>
