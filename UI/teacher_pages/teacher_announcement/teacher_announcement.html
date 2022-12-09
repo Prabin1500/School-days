@@ -20,7 +20,7 @@
         <div class="top_menu_link">
             <a class="active"  href="javascript:void(0)">Announcement</a>
             <a href="javascript:void(0)">Messages</a>
-            <a href="javascript:void(0)">Parents list</a>
+            <a id="btnparent" href="javascript:void(0)">Parents list</a>
         </div>
         <div class="dropdown">
             <button class="dropdown-btn">
@@ -37,45 +37,92 @@
     </nav>
     <div class="divider">
         <div class="leftbox">
-          <ul class="studentList">
-
-          </ul>
+          <button id="home">Home</button>
+          <button id="listofparents">List of Parents</button>
+          <button id="listofstudents">List of Students</button>
+          <button id="announcement">Announcement</button>
         </div>
 
         <div class= "vertical"></div>
+
         <div class="rightbox">
+            <div class="topsection">
 
-            <div class="container">
-                <h2>Post Announcement</h2>
-                <div class="addannouncement">
+                <div class="container">
+                    <h2>Post Announcement</h2>
+                    <div class="addannouncement">
+
+                        <form class="light-border">
+                        <input type = "radio" id = "Image" name = "radio" value = "Image" checked>
+                        <label for ="Image">Image</label>
+                        <input type = "radio" id = "noImage" name = "radio" value = "noImage">
+                        <label for ="noImage">No Image</label>
+                        </form>  
                     
-                    <form class="radiobutton">
-                    <input type = "radio" id = "Image" name = "radio" value = "Image" checked>
-                    <label for ="Image">Image</label>
-                    <input type = "radio" id = "noImage" name = "radio" value = "noImage">
-                    <label for ="noImage">No Image</label>
-                    </form>  
+                        <form action="http://localhost:3000/announcement" method="post" enctype="multipart/form-data" class="light-border" id = "withImage">
+                        <input class="light-border" type="text" name="text" placeholder="TEXT">
+                        <input class="light-border" type="file" name="media_filename">
+                        <input class="light-border" type="hidden" name="userssn" placeholder="USSERSSN" id = "userssn">
+                        <p>Class: <select name ="class">
+                            <option value=0>Select Class</option>
+                            <option value=1>1</option>
+                            <option value=2>2</option>
+                            <option value=3>3</option>
+                            <option value=4>4</option>
+                            <option value=5>5</option>
+                            <option value=6>6</option>
+                            <option value=7>7</option>
+                            <option value=8>8</option>
+                            <option value=9>9</option>
+                            <option value=10>10</option>
+                        </select> </p> 
+                        <button class="light-border" type="submit" id = "submit">Save</button>
+                        </form>
+                        <form action="http://localhost:3000/noimage" method="post" enctype="multipart/form-data" class="light-border" id = "withoutImage" style="display:none;">
+                        <input class="light-border" type="text" name="text" placeholder="TEXT">
+                        <input class="light-border" type="hidden" name="userssn" placeholder="USSERSSN" id = "userssn2">
+                        <p>Class: <select name ="class">
+                            <option value=0>Select Class</option>
+                            <option value=1>1</option>
+                            <option value=2>2</option>
+                            <option value=3>3</option>
+                            <option value=4>4</option>
+                            <option value=5>5</option>
+                            <option value=6>6</option>
+                            <option value=7>7</option>
+                            <option value=8>8</option>
+                            <option value=9>9</option>
+                            <option value=10>10</option>
+                        </select> </p> 
+                        <button class="light-border" type="submit" id ="submit1" >Save</button>
+                        </form>
+                    </div>
                 
-                    <form action="http://localhost:3000/announcement" method="post" enctype="multipart/form-data" class="light-border" id = "withImage">
-                    <input class="light-border" type="text" name="text" placeholder="Description of post here..." style="height:70px;width: 300px;">
-                    <input class="light-border" type="file" name="media_filename" >
-                    <input class="light-border" type="hidden" name="userssn" placeholder="USSERSSN" id = "userssn">
-                    <button class="light-border" type="submit" id = "submit">Save</button>
-                    </form>
-                    <form action="http://localhost:3000/noimage" method="post" enctype="multipart/form-data" class="light-border" id = "withoutImage" style="display:none;">
-                    <input class="light-border" type="text" name="text" placeholder="Description of post here..." style="height:70px;width: 300px;">
-                    <input class="light-border" type="hidden" name="userssn" placeholder="USSERSSN" id = "userssn2">
-                    <button class="light-border" type="submit" id ="submit1" >Save</button>
-                    </form>
-                </div>
-              </div>
-            
-            <h1>Announcement</h1>
-            <ul class="announcementbox">
-                
+                    <h1>Announcement</h1>
+                    <ul class="announcementbox">
+                    
 
-            </ul>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="parentlist" style="display: none;">
+                <h1>List of parents</h1>
+                <ul id="listparent">
+                    
+                </ul>
+            </div>
+
+            <div class="studentlist" style="display: none;">
+                <h1 id="studentsparent"></h1>
+                <ul id="liststudent">
+                    
+                </ul>
+            </div>
+            
         </div>
+        
+    </div>
       
       
 </body>
