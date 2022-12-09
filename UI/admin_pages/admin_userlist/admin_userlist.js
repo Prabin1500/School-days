@@ -39,6 +39,7 @@ btnTeacher.addEventListener('click', () =>{
     toggleList = false;
   }
 });
+
 //toogle for AddUser button
 addUser.addEventListener('click',() =>{
   main.style.display = 'none';
@@ -52,7 +53,6 @@ addUser.addEventListener('click',() =>{
       registerForm.style.display = 'inline-block';
       toggleAddUser = true;
     }
-    
     
   }else{
     registerForm.style.display = 'none';

@@ -38,9 +38,9 @@ btnannouncement.addEventListener('click', () => {
 });
 
 btnparent.addEventListener('click', () => {
-  getAllUsers();
   displayparentlist.style.display='block';
   topsection.style.display='none';
+  getAllUsers();
 });
 
 homebtn.addEventListener('click', () => {
