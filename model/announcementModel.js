@@ -6,7 +6,7 @@ const promisePool = pool.promise();
 const getAnnouncement = async () => {
   try {
     const [rows] = await promisePool.query(
-      "select announcement.announcementid,announcement.text,announcement.media_filename, announcement.dateandtime, users.first_name, users.last_name from announcement,users where announcement.userssn = users.userssn order by announcementid desc;"
+      "select announcement.announcementid,announcement.text,announcement.media_filename, announcement.dateandtime, users.first_name, users.last_name from announcement,users where announcement.class = 0 and announcement.userssn = users.userssn  order by announcementid desc;"
     );
     return rows;
   } catch (e) {
@@ -48,8 +48,9 @@ const addAnnouncement = async (announcement, res) => {
       announcement.media_filename,
       announcement.dateandtime,
       announcement.userssn,
+      announcement.class,
     ];
-    const sql = "INSERT INTO announcement VALUES (null,?,?,?,?)";
+    const sql = "INSERT INTO announcement VALUES (null,?,?,?,?,?)";
     const [result] = await promisePool.query(sql, values);
     return res.redirect("http://127.0.0.1:5501/UI/teacher_pages/teacher_announcement/teacher_announcement.html");
     
@@ -61,7 +62,6 @@ const addAnnouncement = async (announcement, res) => {
 
 const addAnnouncementNoImage = async(data,res) => {
   try{
-    const {text,userssn} = data;
     // https://stackoverflow.com/questions/10211145/getting-current-date-and-time-in-javascript
     var currentdate = new Date(); 
     var datetime = currentdate.getDate() + "/"
@@ -71,8 +71,8 @@ const addAnnouncementNoImage = async(data,res) => {
       + currentdate.getMinutes() + ":" 
       + currentdate.getSeconds();
     const sql =
-  "INSERT INTO announcement(text,dateandtime,userssn) VALUES (?,?,?)";
-  const[rows]=  await promisePool.query(sql, [text, datetime, userssn]);
+  "INSERT INTO announcement(text,dateandtime,userssn,class) VALUES (?,?,?,?)";
+  const[rows]=  await promisePool.query(sql, [data.text, datetime,data.userssn, data.class]);
   return res.redirect("http://127.0.0.1:5501/UI/teacher_pages/teacher_announcement/teacher_announcement.html");
   }catch(e){
     res.status(500).send(e.message);

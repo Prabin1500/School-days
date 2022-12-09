@@ -8,7 +8,7 @@ const childclass = document.querySelector('.childrenClass');
 const announcement = document.querySelector('.announcementbox');
 
 let user = JSON.parse(sessionStorage.getItem('user'));
-console.log("USERSSN IS: "+user.USERSSN);
+console.log("USERSSN IS: "+user.USERNAME);
 
 document.getElementById('submit').onclick= onclickL();
 document.getElementById('submit1').onclick= onclickR();
@@ -21,7 +21,8 @@ function onclickR(){
   console.log(document.getElementById('userssn2'));
 }
 
-welcome.innerHTML ='Welcome ' + user.FIRST_NAME;
+welcome.innerHTML = user.FIRST_NAME+" "+user.LAST_NAME;
+document.getElementById('username').innerText = user.USERNAME;
 const createAnnouncementCards = (announcements) =>{
   announcement.innerHTML = '';
 
