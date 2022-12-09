@@ -69,16 +69,20 @@ const createAnnouncementCards = (announcements) =>{
   
     // modify button
     const modButton = document.createElement('button');
-    modButton.innerHTML = 'Modify';
+    modButton.classList.add('button');
+    modButton.id = 'modbutton';
+    modButton.innerHTML = '<i class="fa-solid fa-pen-to-square"></i>';
     modButton.addEventListener('click', async() => {
       location.href =`../../updateAnnouncement.html?id=${announcements[i].announcementid}`;
     });
-    modButton.classList.add('button');
+    
+
   
     // delete selected 
     const delButton = document.createElement('button');
-    delButton.innerHTML = 'Delete';
+    delButton.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
     delButton.classList.add('button');
+    delButton.id = 'delbutton';
     delButton.addEventListener('click', async () => {
       const fetchOptions = {
         method: 'DELETE',
@@ -128,16 +132,12 @@ const createParentCards = (users) => {
   
     const p3 = document.createElement('p');
     p3.innerHTML = `Phone Number: ${user.phone_number}`;
-  
-    const p4 = document.createElement('p');
-    p4.innerHTML = `Role: Teacher`;
 
     const moreButton = document.createElement('button');
     moreButton.innerHTML = 'Show children';
     moreButton.addEventListener('click', async() => {
       if(!showhide){
-        getAllStudents(user.first_name);
-        console.log(user.first_name);
+        getAllStudents(user.userssn);
         document.getElementById('studentsparent').innerHTML = `List of ${user.first_name}'s children`;
         moreButton.innerHTML='Hide children';
         displaystudentlist.style.display='block';
@@ -160,12 +160,12 @@ const createParentCards = (users) => {
     li.appendChild(div)
     li.appendChild(p1);
     li.appendChild(p3);
-    li.appendChild(p4);
     li.appendChild(moreButton);
     parentlist.appendChild(li);
   
   });
 };
+
 
 //create student card
 const createStudentCard = (students) => {
@@ -221,7 +221,8 @@ const getAllUsers = async () => {
 };
 
 //get all students
-const getAllStudents = async() => {
+const getAllStudents = async(userId) => {
+  let usersChildren = [];
   try {
     const fetchOptions = {
       headers: {
@@ -230,8 +231,13 @@ const getAllStudents = async() => {
     };
     const response = await fetch(url + '/student', fetchOptions);
     const students = await response.json();
+    for (let i = 0; i < students.length; i++) {
+      if(userId == students[i].userssn){
+        usersChildren.push(students[i]);
+      } 
+    };
     console.log(students);
-    createStudentCard(students);
+    createStudentCard(usersChildren);
   } catch (e) {
     console.log("Message " + e.message);
   }

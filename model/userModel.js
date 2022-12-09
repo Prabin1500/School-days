@@ -23,7 +23,7 @@ const getTeacherList = async(req,res) =>{
 
 const getStudentList = async(req,res) =>{
     try{
-        const [rows] = await promisePool.query("select students.first_name, students.last_name, students.class from students");
+        const [rows] = await promisePool.query("select students.first_name, students.last_name, students.class, students.userssn from students");
         return rows;
     }catch(e){
         res.status(500).send(e.message);
