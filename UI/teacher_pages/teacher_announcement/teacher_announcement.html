@@ -37,7 +37,14 @@
     </nav>
     <div class="divider">
         <div class="leftbox">
-          
+            <div class="card">
+                
+                <div class="container">
+                    <img src="https://placekitten.com/200/300" alt="Avatar" style="width:100%">
+                  <h4><b>John Doe</b></h4> 
+                  <p>Class teacher</p> 
+                </div>
+              </div>
         </div>
 
         <div class= "vertical"></div>
@@ -57,7 +64,7 @@
                         </form>  
                     
                         <form action="http://localhost:3000/announcement" method="post" enctype="multipart/form-data" class="light-border" id = "withImage">
-                        <input class="light-border" type="text" name="text" placeholder="TEXT">
+                        <input class="light-border" type="text" name="text" placeholder="Your text here...." style="height: 70px; width:250px">
                         <input class="light-border" type="file" name="media_filename">
                         <input class="light-border" type="hidden" name="userssn" placeholder="USSERSSN" id = "userssn">
                         <p>Class: <select name ="class">
@@ -73,10 +80,10 @@
                             <option value=9>9</option>
                             <option value=10>10</option>
                         </select> </p> 
-                        <button class="light-border" type="submit" id = "submit">Save</button>
+                        <button class="light-border" type="submit" id = "submit" style="width: 50px;">Save</button>
                         </form>
                         <form action="http://localhost:3000/noimage" method="post" enctype="multipart/form-data" class="light-border" id = "withoutImage" style="display:none;">
-                        <input class="light-border" type="text" name="text" placeholder="TEXT">
+                            <input class="light-border" type="text" name="text" placeholder="Your text here...." style="height: 70px; width:250px">
                         <input class="light-border" type="hidden" name="userssn" placeholder="USSERSSN" id = "userssn2">
                         <p>Class: <select name ="class">
                             <option value=0>Select Class</option>
@@ -91,7 +98,7 @@
                             <option value=9>9</option>
                             <option value=10>10</option>
                         </select> </p> 
-                        <button class="light-border" type="submit" id ="submit1" >Save</button>
+                        <button class="light-border" type="submit" id = "submit" style="width: 50px;">Save</button>
                         </form>
                     </div>
                 
