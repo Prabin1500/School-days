@@ -14,6 +14,7 @@ welcome.innerHTML ='Welcome ' + user.FIRST_NAME;
 
 //get List of Students
 const getAllStudents = async() => {
+  let usersChildren = [];
     try {
       const fetchOptions = {
         headers: {
@@ -22,8 +23,13 @@ const getAllStudents = async() => {
       };
       const response = await fetch(url + '/student', fetchOptions);
       const students = await response.json();
-      console.log(students);
-      createStudentCard(students);
+      for (let i = 0; i < students.length; i++) {
+        if(user.USERSSN == students[i].userssn){
+          usersChildren.push(students[i]);
+        } 
+      };
+      console.log(usersChildren);
+      createStudentCard(usersChildren);
     } catch (e) {
       console.log("Message " + e.message);
     }
@@ -34,11 +40,6 @@ const createStudentCard = (students) => {
   listStudent.innerHTML = '';
   students.forEach((student) => {
       // create li with DOM methods 
-    const img = document.createElement('img');
-  
-    const div = document.createElement('div');
-    div.className='imgClass';
-    div.appendChild(img);
   
     const h2 = document.createElement('h2');
     console.log("Student name " + student.first_name)
@@ -48,8 +49,9 @@ const createStudentCard = (students) => {
     p1.innerHTML = `Class: ${student.class}`;
   
     const li = document.createElement('li');
-    li.classList.add('light-border');        li.appendChild(h2);
-    li.appendChild(div)
+    li.classList.add('light-border');     
+
+    li.appendChild(h2);
     li.appendChild(p1);
     listStudent.appendChild(li);
   
@@ -112,23 +114,7 @@ const getAnnouncement = async() =>{
 };
 getAnnouncement();
 
-//check if user wants to upload only text or image and text as announcement
-const radioButtons = document.querySelectorAll("input[name='radio']");
-document.getElementById("withoutImage").style.display = "none";
-let selected = () => {
-  let selectedButton = document.querySelector("input[name='radio']:checked").value;
-  console.log(selectedButton);
-  if(selectedButton == "noImage"){
-      document.getElementById("withoutImage").style.display = "flex";
-      document.getElementById("withImage").style.display = "none";
-  }else if(selectedButton == "Image"){
-      document.getElementById("withoutImage").style.display = "none";
-      document.getElementById("withImage").style.display = "flex";
-  }
-}
-radioButtons.forEach(radioButton => {
-  radioButton.addEventListener("change", selected)   
-})
+
 
 
 

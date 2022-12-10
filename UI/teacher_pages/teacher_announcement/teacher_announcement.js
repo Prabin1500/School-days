@@ -173,11 +173,6 @@ const createStudentCard = (students) => {
   studentlist.innerHTML = '';
   students.forEach((student) => {
     // create li with DOM methods 
-    const img = document.createElement('img');
-
-    const div = document.createElement('div');
-    div.className='imgClass';
-    div.appendChild(img);
 
     const h2 = document.createElement('h2');
     h2.innerHTML = student.first_name +" " + student.last_name;
@@ -189,7 +184,6 @@ const createStudentCard = (students) => {
     li.classList.add('light-border');
 
     li.appendChild(h2);
-    li.appendChild(div)
     li.appendChild(p1);
     studentlist.appendChild(li);
 

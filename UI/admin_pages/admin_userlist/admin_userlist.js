@@ -234,12 +234,13 @@ const getAllStudents = async() => {
 
 //create user option
 const createUserOptions = (users) => {
-  userListOption.innerHTML = '';
+  userListOption.innerHTML = 'Select Parent';
 
   users.forEach((user) => {
   
     const option = document.createElement('option');
     option.value = user.userssn;
+    
     option.innerHTML = user.first_name + " " + user.last_name;
     option.classList.add('light-border');
     userListOption.appendChild(option);
