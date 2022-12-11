@@ -6,7 +6,8 @@ const welcome = document.querySelector('.welcome');
 const listStudent = document.querySelector('.studentList');
 const childclass = document.querySelector('.childrenClass');
 const announcement = document.querySelector('.announcementbox');
-
+const announcementheader = document.querySelector('#announcementheader');
+let showhide = false;
 let user = JSON.parse(sessionStorage.getItem('user'));
 
 welcome.innerHTML ='Welcome ' + user.FIRST_NAME;
@@ -35,11 +36,11 @@ const getAllStudents = async() => {
 };
 
 const createStudentCard = (students) => {
-
+ 
   listStudent.innerHTML = '';
   students.forEach((student) => {
       // create li with DOM methods 
-  
+      console.log(student.class);
     const h2 = document.createElement('h2');
     console.log("Student name " + student.first_name)
     h2.innerHTML = student.first_name +" " + student.last_name;
@@ -47,14 +48,34 @@ const createStudentCard = (students) => {
     const p1 = document.createElement('p');
     p1.innerHTML = `Class: ${student.class}`;
   
+    const moreButton = document.createElement('button');
+    moreButton.innerHTML = 'Show Info';
+    moreButton.addEventListener('click', async() => {
+      if(!showhide){
+        announcementheader.innerHTML = `Announcements for Class ${student.class}`;
+        getAnnouncement(student.class);
+        moreButton.innerHTML='Hide Info';
+        showhide=true;
+      }else{
+        if(moreButton.innerHTML=='Hide Info'){
+          moreButton.innerHTML = 'Show Info';
+          showhide=false;
+        }
+        
+      }
+    });
+
     const li = document.createElement('li');
     li.classList.add('light-border');     
 
     li.appendChild(h2);
     li.appendChild(p1);
+    li.appendChild(moreButton);
     listStudent.appendChild(li);
   
   });
+  announcementheader.innerHTML=`Announcements for Class ${students[0].class}`;
+  getAnnouncement(students[0].class);
   
 };
  
@@ -62,6 +83,7 @@ getAllStudents();
 
 const createAnnouncementCards = (announcements) =>{
   announcement.innerHTML = '';
+  console.log
   for(let i = 0; i<=announcements.length; i++ ){
 
     const div1 = document.createElement('div');
@@ -98,14 +120,14 @@ const createAnnouncementCards = (announcements) =>{
 };  
 
 //AJAX CALL 
-const getAnnouncement = async() =>{
+const getAnnouncement = async(studentsClass) =>{
   try{
     const fetchOptions = {
       headers: {
         Authorization: 'Bearer ' + sessionStorage.getItem('token'),
       },
     };
-    const response = await fetch(url + '/announcementFiltered/124375689-2', fetchOptions);
+    const response = await fetch(url + `/announcementFilteredByClass/ ${studentsClass}`, fetchOptions);
     const announcements = await response.json();
     console.log(announcements);
     createAnnouncementCards(announcements);
@@ -113,7 +135,7 @@ const getAnnouncement = async() =>{
       console.log(e.message);
   };
 };
-getAnnouncement();
+
 
 
 

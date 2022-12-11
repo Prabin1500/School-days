@@ -5,6 +5,7 @@ const Strategy = require('passport-local').Strategy;
 const passportJWT = require('passport-jwt');
 const JWTStrategy = passportJWT.Strategy;
 const ExtractJWT = passportJWT.ExtractJwt;
+const bcrypt = require('bcryptjs');
 const {getUserLogin} = require('../model/userModel');
 const dotenv = require('dotenv');
 dotenv.config();
@@ -13,6 +14,7 @@ dotenv.config();
 passport.use(
     new Strategy(async(username, password, done) => {
         const params = [username];
+        console.log(username);
         try{
             const [user] = await getUserLogin(params);
             console.log('local strategy', user);
@@ -20,7 +22,9 @@ passport.use(
                 return done(null, false, {message: 'Incorrect email'});
             }
 
-            if(user.PASSWORD !== password){
+            //Hash login password and compare it with the password hash in database. 
+            const hashedPassword = await bcrypt.compare(password, user.PASSWORD);
+            if(!hashedPassword){
                 return done(null, false, {message: 'Incorrect password'});
             }
             return done(null, {...user}, {message:'Logged in successfully'});

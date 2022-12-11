@@ -110,7 +110,7 @@ li div p{
 	width: 80%;
 	text-align: center;
     align-items: center;
-	border-radius: 50%;
+	border-radius: 20px 20px 20px 20px;
 	margin: auto;
     flex-direction: column;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 1);

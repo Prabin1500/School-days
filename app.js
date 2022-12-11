@@ -17,5 +17,4 @@ app.use('', userRoute);
 app.use('',announcementRoute);
 app.use("/auth", authRoute);
 
-
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));  
