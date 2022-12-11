@@ -19,17 +19,17 @@ const getStudentList = async (req,res) => {
     res.json(students);
 }
 
-const createUser = async (req, res) => {
-    const newUser = req.body;
-    const result = await userModel.addUser(newUser, res);
-    res.json(result);
-};
+// const createUser = async (req, res) => {
+//     const newUser = req.body;
+//     const result = await userModel.addUser(newUser, res);
+//     res.json(result);
+// };
 
-const createStudent = async (req, res) => {
-    const newStudent = req.body;
-    const result = await userModel.addStudent(newStudent, res);
-    res.json(result);
-};
+// const createStudent = async (req, res) => {
+//     const newStudent = req.body;
+//     const result = await userModel.addStudent(newStudent, res);
+//     res.json(result);
+// };
 
 const checkToken = (req, res) => {
     
@@ -39,8 +39,6 @@ const checkToken = (req, res) => {
 module.exports ={
     getAllUsers,
     getTeacherList,
-    createUser,
-    createStudent,
     getStudentList,
     checkToken,
 };

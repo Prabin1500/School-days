@@ -6,8 +6,9 @@ const welcome = document.querySelector('.welcome');
 const ul = document.querySelector('#listTeacher');
 const listStudent = document.querySelector('#listStudent');
 const addUser = document.querySelector('.addUser');
-const registerForm = document.querySelector('.forms');
-const main = document.querySelector('.main');
+const addStudent = document.querySelector('.addStudent');
+const registerFormUser = document.querySelector('.formsUser');
+const registerFormStudent = document.querySelector('.formsStudent');
 const userForm = document.querySelector('#addUserForm');
 const userList = document.querySelector('.select-user');
 const studentForm = document.querySelector('#addStudentForm');
@@ -15,94 +16,49 @@ const classFilter = document.querySelector('#class');
 const btnTeacher = document.querySelector('#teacherList');
 const btnParent = document.querySelector('#ParentList');
 const userListOption = document.querySelector('#selectuser');
+const announcementbtn = document.querySelector('#announcement');
 
 let toggleAddUser = false;
 let toggleList = false;
 let user = JSON.parse(sessionStorage.getItem('user'));
 
 welcome.innerHTML ='Welcome ' + user.FIRST_NAME;
-main.style.display = 'block';
-
-btnTeacher.addEventListener('click', () =>{
-  if(!toggleList){
-    if(toggleAddUser){
-      registerForm.style.display = 'none';
-      main.style.display = 'block';
-      toggleList = true;
-      toggleAddUser = false;
-    }else{
-      main.style.display = 'block';
-      toggleList = true;
-    }
-  }else{
-    main.style.display = 'none';
-    toggleList = false;
-  }
-});
 
 //toogle for AddUser button
 addUser.addEventListener('click',() =>{
-  main.style.display = 'none';
-  if(!toggleAddUser){
-    if(toggleList){
-      main.style.display = 'none';
-      registerForm.style.display = 'inline-block';
+  if(!toggleAddUser){   
+      registerFormUser.style.display = 'inline-block';
       toggleAddUser = true;
-      toggleList = false;
-    }else{
-      registerForm.style.display = 'inline-block';
-      toggleAddUser = true;
-    }
-    
+      toggleList = false;     
   }else{
-    registerForm.style.display = 'none';
+    registerFormUser.style.display = 'none';
     toggleAddUser = false;
   }
     
 });
 
-//select classes
-classFilter.onchange = function(){
-  const output = this.value;
-  getFilteredUsers(output);
-  return false;
-};
-
-
-
-const getFilteredUsers = async (output) => {
-  const filtereduser = [];
-  try {
-    const fetchOptions = {
-      headers: {
-        Authorization: 'Bearer ' + sessionStorage.getItem('token'),
-      },
-    };
-    const response = await fetch(url + '/teacher', fetchOptions);
-    const users = await response.json();
-
-    if(output == 0){
-      createUserCards(users);
-      console.log("Bye");
-    }else{
-      for (let i = 0; i < users.length; i++) {
-        if(users[i].class == output){
-          console.log("Output " + output);
-          filtereduser.push(users[i]);
-        }
-      }
-      createUserCards(filtereduser);
-    }
-   
-  } catch (e) {
-    console.log("Message " + e.message);
+//toogle for AddUser button
+addStudent.addEventListener('click',() =>{
+  if(!toggleAddUser){   
+      registerFormStudent.style.display = 'inline-block';
+      toggleAddUser = true;
+      toggleList = false;     
+  }else{
+    registerFormStudent.style.display = 'none';
+    toggleAddUser = false;
   }
-};
+    
+});
+
+announcementbtn.addEventListener('click', () => {
+  location.href= '../admin_announcement/admin_announcement.html';
+});
 
 // create User cards
 const createUserCards = (users) => {
   // clear ul
   ul.innerHTML = '';
+  console.log(users);
   users.forEach((user) => {
     // create li with DOM methods
   
@@ -141,7 +97,7 @@ const createUserCards = (users) => {
     ul.appendChild(li);
   
   });
-  };
+};
 
 const createStudentCard = (students) => {
 
@@ -174,24 +130,22 @@ const createStudentCard = (students) => {
 };
 
 // get list of teachers
-const getTeacherList = async () => {
-  try {
-    const fetchOptions = {
-      headers: {
-        Authorization: 'Bearer ' + sessionStorage.getItem('token'),
-      },
-    };
-    const response = await fetch(url + '/teacher', fetchOptions);
-    const users = await response.json();
-    createUserCards(users);
-  } catch (e) {
-    console.log("Message " + e.message);
-  }
-};
+// const getTeacherList = async () => {
+//   try {
+//     const fetchOptions = {
+//       headers: {
+//         Authorization: 'Bearer ' + sessionStorage.getItem('token'),
+//       },
+//     };
+//     const response = await fetch(url + '/teacher', fetchOptions);
+//     const users = await response.json();
+//     createUserCards(users);
+//   } catch (e) {
+//     console.log("Message " + e.message);
+//   }
+// };
 
 //get name of parents in student from option
-//Not working atm
-// s
 
 //get List of Users
 const getAllUsers = async () => {
@@ -204,13 +158,17 @@ const getAllUsers = async () => {
     };
     const response = await fetch(url + '/', fetchOptions);
     const users = await response.json();
-    
+
     for (let i = 0; i < users.length; i++) {
       if(users[i].role === 'parent'){
         userOption.push(users[i]);
       }
     };
-    createUserOptions(userOption)
+
+    console.log(users);
+    createUserOptions(userOption);
+    createUserCards(users);
+    
   } catch (e) {
     console.log("Message " + e.message);
   }
@@ -232,6 +190,8 @@ const getAllStudents = async() => {
   }
 };
 
+
+
 //create user option
 const createUserOptions = (users) => {
   userListOption.innerHTML = 'Select Parent';
@@ -247,10 +207,9 @@ const createUserOptions = (users) => {
   });
 };
 
-
-getTeacherList();
-getAllStudents();
 getAllUsers();
+getAllStudents();
+
 
 // submit add user form
 userForm.addEventListener('submit', async (evt) => {

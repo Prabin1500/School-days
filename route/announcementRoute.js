@@ -14,4 +14,5 @@ router.delete('/announcement/:announcementId',announcementController.deleteAnnou
 router.post('/announcementUpdate',upload.single(''),announcementController.updateAnnouncement)
 router.post('/noimage',upload.single(''),announcementController.addAnnouncementNoImage)
 router.get('/announcementFiltered/:userssn',announcementController.announcementFiltered)
+router.get('/announcementFilteredByClass/:class',announcementController.announcementFilteredByClass)
 module.exports = router;

@@ -2,6 +2,7 @@
 
 const jwt = require("jsonwebtoken");
 const passport = require("passport");
+const bcrypt = require('bcryptjs');
 const {addUser, addStudent} = require('../model/userModel');
 require("dotenv").config();
 
@@ -20,7 +21,6 @@ const login = (req, res) => {
             }
             const token = jwt.sign(user, process.env.JWT_SECRET);
             return res.json({user, token});
-            console.log("Welcome");
         });
     })(req, res);
 };
@@ -28,9 +28,11 @@ const login = (req, res) => {
 const registerUser = async (req, res) => {
     console.log('Creating a new user:', req.body);
     const newUser = req.body;      
-    
+    const salt = await bcrypt.genSalt();
+    const passworrdHash = await bcrypt.hash(newUser.password, salt);
+    newUser.password = passworrdHash;
     const result = await addUser(newUser, res);
-    //res.status(201).json({ message: 'user created', userId: result });
+    res.status(201).json({ message: 'user created', userId: result });
     
 };
 
