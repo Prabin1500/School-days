@@ -24,6 +24,12 @@ const announcementFiltered = async(userssn) =>{
   console.log(rows);
   return rows;
 }
+const announcementFilteredByClass = async(Class) =>{
+  const [rows] = await promisePool.query("SELECT announcement.announcementid,announcement.text,announcement.media_filename, announcement.dateandtime, users.first_name, users.last_name from announcement,users where announcement.class=users.class and announcement.class=? order by announcementid desc; ",[Class]);
+  console.log(rows);
+  return rows;
+}
+
 
 // add all announcement into database
 const addAnnouncement = async (announcement, res) => {
@@ -121,4 +127,5 @@ module.exports = {
   deleteAnnouncement,
   updateAnnouncement,
   announcementFiltered,
+  announcementFilteredByClass
 };
