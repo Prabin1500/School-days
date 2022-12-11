@@ -14,3 +14,5 @@ btnlist.addEventListener('click', () => {
     location.href="../admin_announcement/admin_announcement.html"
     getAllUsers();
   });
+
+  
