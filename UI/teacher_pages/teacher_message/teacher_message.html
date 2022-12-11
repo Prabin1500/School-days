@@ -5,9 +5,61 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../navigation.css">
+    <link rel="stylesheet" href="../../admin_pages/admin_message/admin_message.css">
+    <script
+      defer
+      src="https://kit.fontawesome.com/0fb84f1994.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Document</title>
 </head>
 <body>
-    
+    <nav class="top_menu">
+        <div class="top_menu_link">
+            <a id="btnannouncement"   href="javascript:void(0)">Announcement</a>
+            <a id="btnmessage"  class="active" href="javascript:void(0)">Messages</a>
+            <a id="btnlist" href="javascript:void(0)">Parents list</a>
+        </div>
+        <div class="dropdown">
+            <button class="dropdown-btn">
+                <p class="welcome"></p>
+                <i class="fa-sharp fa-solid fa-user"></i>
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="#">Username</a>
+                <a id="log-out" href="#">Log out</a>
+                
+            </div>
+        </div>
+    </nav>
+    <div class="divider">
+        <div class="leftbox">
+           
+          <ul class="messagetype">Inbox</ul>
+          <ul class="messagetype">Outbox</ul>
+          <ul class="messagetype">Sent Items</ul>
+          <ul class="messagetype">Deleted</ul>
+          <ul class="messagetype">Junk Emails</ul>
+
+        </div>
+
+        <div class= "vertical"></div>
+        <div class="rightbox">
+            
+            <h1>Messages</h1>
+            <ul class="announcementbox">        
+                 
+            </ul>
+            <ul class="announcementbox">        
+                
+           </ul>
+
+        </div>
+          
+    </div>
+      <script src="../../js/logout.js"></script>
+      <script src="../../js/serialize.js"></script>
+      <script src="./teacher_message.js"></script>
 </body>
 </html>

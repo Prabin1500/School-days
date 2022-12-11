@@ -9,6 +9,7 @@ const announcement = document.querySelector('.announcementbox');
 const parentlist = document.querySelector('#listparent');
 const studentlist = document.querySelector('#liststudent');
 const btnparent = document.querySelector('#btnparent');
+const btnmessage=document.querySelector('#btnmessage')
 const topsection = document.querySelector('.topsection');
 const displayparentlist = document.querySelector('.parentlist');
 const displaystudentlist = document.querySelector('.studentlist');
@@ -32,6 +33,10 @@ function onclickR(){
 
 btnparent.addEventListener('click', () => {
   location.href="../teacher_studentlist/teacher_studentlist.html"
+  getAllUsers();
+});
+btnmessage.addEventListener('click', () => {
+  location.href="../teacher_message/teacher_message.html"
   getAllUsers();
 });
 

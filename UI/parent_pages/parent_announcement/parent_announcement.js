@@ -7,10 +7,17 @@ const listStudent = document.querySelector('.studentList');
 const childclass = document.querySelector('.childrenClass');
 const announcement = document.querySelector('.announcementbox');
 const announcementheader = document.querySelector('#announcementheader');
+const btnmessage = document.querySelector('#btnmessage');
 let showhide = false;
 let user = JSON.parse(sessionStorage.getItem('user'));
 
 welcome.innerHTML ='Welcome ' + user.FIRST_NAME;
+
+
+btnmessage.addEventListener('click', () => {
+  location.href="../parent_message/parent_message.html"
+  getAllUsers();
+});
 
 
 //get List of Students
