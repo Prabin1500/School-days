@@ -103,6 +103,7 @@ const getFilteredUsers = async (output) => {
 const createUserCards = (users) => {
   // clear ul
   ul.innerHTML = '';
+  console.log(users);
   users.forEach((user) => {
     // create li with DOM methods
   
@@ -141,7 +142,7 @@ const createUserCards = (users) => {
     ul.appendChild(li);
   
   });
-  };
+};
 
 const createStudentCard = (students) => {
 
@@ -174,28 +175,25 @@ const createStudentCard = (students) => {
 };
 
 // get list of teachers
-const getTeacherList = async () => {
-  try {
-    const fetchOptions = {
-      headers: {
-        Authorization: 'Bearer ' + sessionStorage.getItem('token'),
-      },
-    };
-    const response = await fetch(url + '/teacher', fetchOptions);
-    const users = await response.json();
-    createUserCards(users);
-  } catch (e) {
-    console.log("Message " + e.message);
-  }
-};
+// const getTeacherList = async () => {
+//   try {
+//     const fetchOptions = {
+//       headers: {
+//         Authorization: 'Bearer ' + sessionStorage.getItem('token'),
+//       },
+//     };
+//     const response = await fetch(url + '/teacher', fetchOptions);
+//     const users = await response.json();
+//     createUserCards(users);
+//   } catch (e) {
+//     console.log("Message " + e.message);
+//   }
+// };
 
 //get name of parents in student from option
-//Not working atm
-// s
 
 //get List of Users
 const getAllUsers = async () => {
-  const userOption = [];
   try {
     const fetchOptions = {
       headers: {
@@ -204,13 +202,9 @@ const getAllUsers = async () => {
     };
     const response = await fetch(url + '/', fetchOptions);
     const users = await response.json();
+    console.log(users);
+    createUserOptions(users);
     
-    for (let i = 0; i < users.length; i++) {
-      if(users[i].role === 'parent'){
-        userOption.push(users[i]);
-      }
-    };
-    createUserOptions(userOption)
   } catch (e) {
     console.log("Message " + e.message);
   }
@@ -232,6 +226,8 @@ const getAllStudents = async() => {
   }
 };
 
+getAllUsers();
+
 //create user option
 const createUserOptions = (users) => {
   userListOption.innerHTML = 'Select Parent';
@@ -247,10 +243,8 @@ const createUserOptions = (users) => {
   });
 };
 
-
-getTeacherList();
 getAllStudents();
-getAllUsers();
+
 
 // submit add user form
 userForm.addEventListener('submit', async (evt) => {

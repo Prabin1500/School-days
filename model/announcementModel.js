@@ -25,7 +25,7 @@ const announcementFiltered = async(userssn) =>{
   return rows;
 }
 const announcementFilteredByClass = async(Class) =>{
-  const [rows] = await promisePool.query("SELECT announcement.announcementid,announcement.text,announcement.media_filename, announcement.dateandtime, announcement.class, users.first_name, users.last_name from announcement,users where announcement.class=users.class and announcement.class=?; ",[Class]);
+  const [rows] = await promisePool.query("SELECT announcement.announcementid,announcement.text,announcement.media_filename, announcement.dateandtime, users.first_name, users.last_name from announcement,users where announcement.class=? and announcement.userssn = users.userssn  order by announcementid desc;", [Class]);
   console.log(rows);
   return rows;
 }
