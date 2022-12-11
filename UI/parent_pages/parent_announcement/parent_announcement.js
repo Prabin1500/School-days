@@ -28,7 +28,6 @@ const getAllStudents = async() => {
           usersChildren.push(students[i]);
         } 
       };
-      console.log(usersChildren);
       createStudentCard(usersChildren);
     } catch (e) {
       console.log("Message " + e.message);
@@ -63,9 +62,6 @@ getAllStudents();
 
 const createAnnouncementCards = (announcements) =>{
   announcement.innerHTML = '';
-
-
-
   for(let i = 0; i<=announcements.length; i++ ){
 
     const div1 = document.createElement('div');
@@ -91,29 +87,33 @@ const createAnnouncementCards = (announcements) =>{
     const p1 = document.createElement('p');
     p1.innerHTML = `Posted by ${announcements[i].first_name} ${announcements[i].last_name}  at ${announcements[i].dateandtime}`;
   
-      const li = document.createElement('li');
-      li.classList.add('light-border');
-  
-      div1.appendChild(h2);
-      div1.appendChild(p1);
-      li.appendChild(div1);
-      li.appendChild(div2);
-      announcement.appendChild(li);
-    };
-  };  
+    const li = document.createElement('li');
+    li.classList.add('light-border');
+    div1.appendChild(h2);
+    div1.appendChild(p1);
+    li.appendChild(div1);
+    li.appendChild(div2);
+    announcement.appendChild(li);  
+  };
+};  
 
 //AJAX CALL 
 const getAnnouncement = async() =>{
   try{
-      const response = await fetch(url + '/announcement');
-      const announcements = await response.json();
-      createAnnouncementCards(announcements);
+    const fetchOptions = {
+      headers: {
+        Authorization: 'Bearer ' + sessionStorage.getItem('token'),
+      },
+    };
+    const response = await fetch(url + '/announcementFiltered/2', fetchOptions);
+    const announcements = await response.json();
+    console.log(announcements);
+    createAnnouncementCards(announcements);
   }catch(e){
       console.log(e.message);
   };
 };
 getAnnouncement();
-
 
 
 
