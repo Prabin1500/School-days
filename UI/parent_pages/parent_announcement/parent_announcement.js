@@ -105,7 +105,7 @@ const getAnnouncement = async() =>{
         Authorization: 'Bearer ' + sessionStorage.getItem('token'),
       },
     };
-    const response = await fetch(url + '/announcementFiltered/2', fetchOptions);
+    const response = await fetch(url + '/announcementFiltered/124375689-2', fetchOptions);
     const announcements = await response.json();
     console.log(announcements);
     createAnnouncementCards(announcements);
