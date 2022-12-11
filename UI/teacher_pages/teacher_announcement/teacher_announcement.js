@@ -30,8 +30,6 @@ function onclickR(){
   document.getElementById('userssn2').value = user.USERSSN;
 };
 
-
-
 btnparent.addEventListener('click', () => {
   location.href="../teacher_studentlist/teacher_studentlist.html"
   getAllUsers();
