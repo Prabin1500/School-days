@@ -11,6 +11,11 @@ const announcementFiltered = async (req,res) => {
   res.json(announcement);
 };
 
+const announcementFilteredByClass = async (req,res) => {
+  const announcement = await announcementModel.announcementFilteredByClass(req.params.class);
+  res.json(announcement);
+};
+
 const getAnnouncementById = async(req,res) =>{
   try{
     const announcement = await announcementModel.getAnnouncementById(req.params.announcementId);
@@ -54,5 +59,6 @@ module.exports = {
   addAnnouncementNoImage,
   deleteAnnouncement,
   updateAnnouncement,
-  announcementFiltered
+  announcementFiltered,
+  announcementFilteredByClass
 };
