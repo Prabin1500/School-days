@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../../navigation.css">
-    <link rel="stylesheet" href="./teacher_studentlist.css">
+    <link rel="stylesheet" href="./teacher_announcement.css">
     <script
       defer
       src="https://kit.fontawesome.com/0fb84f1994.js"
@@ -49,8 +49,67 @@
         <div class= "vertical"></div>
 
         <div class="rightbox">
-           
-            <div class="parentlist" >
+            <div class="topsection">
+
+                <div class="container">
+                    <h2>Post Announcement</h2>
+                    <div class="addannouncement">
+
+                        <form class="light-border">
+                        <input type = "radio" id = "Image" name = "radio" value = "Image" checked>
+                        <label for ="Image">Image</label>
+                        <input type = "radio" id = "noImage" name = "radio" value = "noImage">
+                        <label for ="noImage">No Image</label>
+                        </form>  
+                    
+                        <form action="http://localhost:3000/announcement" method="post" enctype="multipart/form-data" class="light-border" id = "withImage">
+                        <input class="light-border" type="text" name="text" placeholder="TEXT">
+                        <input class="light-border" type="file" name="media_filename">
+                        <input class="light-border" type="hidden" name="userssn" placeholder="USSERSSN" id = "userssn">
+                        <p>Class: <select name ="class">
+                            <option value=0>Select Class</option>
+                            <option value=1>1</option>
+                            <option value=2>2</option>
+                            <option value=3>3</option>
+                            <option value=4>4</option>
+                            <option value=5>5</option>
+                            <option value=6>6</option>
+                            <option value=7>7</option>
+                            <option value=8>8</option>
+                            <option value=9>9</option>
+                            <option value=10>10</option>
+                        </select> </p> 
+                        <button class="light-border" type="submit" id = "submit">Save</button>
+                        </form>
+                        <form action="http://localhost:3000/noimage" method="post" enctype="multipart/form-data" class="light-border" id = "withoutImage" style="display:none;">
+                        <input class="light-border" type="text" name="text" placeholder="TEXT">
+                        <input class="light-border" type="hidden" name="userssn" placeholder="USSERSSN" id = "userssn2">
+                        <p>Class: <select name ="class">
+                            <option value=0>Select Class</option>
+                            <option value=1>1</option>
+                            <option value=2>2</option>
+                            <option value=3>3</option>
+                            <option value=4>4</option>
+                            <option value=5>5</option>
+                            <option value=6>6</option>
+                            <option value=7>7</option>
+                            <option value=8>8</option>
+                            <option value=9>9</option>
+                            <option value=10>10</option>
+                        </select> </p> 
+                        <button class="light-border" type="submit" id ="submit1" >Save</button>
+                        </form>
+                    </div>
+                
+                    <h1>Announcement</h1>
+                    <ul class="announcementbox">
+                    
+
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="parentlist" style="display: none;">
                 <h1>List of parents</h1>
                 <ul id="listparent">
                     

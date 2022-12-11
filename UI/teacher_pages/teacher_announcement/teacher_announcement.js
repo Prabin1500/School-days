@@ -13,7 +13,6 @@ const topsection = document.querySelector('.topsection');
 const displayparentlist = document.querySelector('.parentlist');
 const displaystudentlist = document.querySelector('.studentlist');
 const btnannouncement = document.querySelector('.active');
-const homebtn = document.querySelector('#home');
 
 let showhide = false;
 
@@ -31,11 +30,7 @@ function onclickR(){
   document.getElementById('userssn2').value = user.USERSSN;
 };
 
-btnannouncement.addEventListener('click', () => {
-  getAnnouncement();
-  displayparentlist.style.display='none';
-  topsection.style.display='block';
-});
+
 
 btnparent.addEventListener('click', () => {
   location.href="../teacher_studentlist/teacher_studentlist.html"
@@ -72,16 +67,20 @@ const createAnnouncementCards = (announcements) =>{
   
     // modify button
     const modButton = document.createElement('button');
-    modButton.innerHTML = 'Modify';
+    modButton.classList.add('button');
+    modButton.id = 'modbutton';
+    modButton.innerHTML = '<i class="fa-solid fa-pen-to-square"></i>';
     modButton.addEventListener('click', async() => {
       location.href =`../../updateAnnouncement.html?id=${announcements[i].announcementid}`;
     });
-    modButton.classList.add('button');
+    
+
   
     // delete selected 
     const delButton = document.createElement('button');
-    delButton.innerHTML = 'Delete';
+    delButton.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
     delButton.classList.add('button');
+    delButton.id = 'delbutton';
     delButton.addEventListener('click', async () => {
       const fetchOptions = {
         method: 'DELETE',
@@ -131,16 +130,12 @@ const createParentCards = (users) => {
   
     const p3 = document.createElement('p');
     p3.innerHTML = `Phone Number: ${user.phone_number}`;
-  
-    const p4 = document.createElement('p');
-    p4.innerHTML = `Role: Teacher`;
 
     const moreButton = document.createElement('button');
     moreButton.innerHTML = 'Show children';
     moreButton.addEventListener('click', async() => {
       if(!showhide){
-        getAllStudents(user.first_name);
-        console.log(user.first_name);
+        getAllStudents(user.userssn);
         document.getElementById('studentsparent').innerHTML = `List of ${user.first_name}'s children`;
         moreButton.innerHTML='Hide children';
         displaystudentlist.style.display='block';
@@ -163,12 +158,12 @@ const createParentCards = (users) => {
     li.appendChild(div)
     li.appendChild(p1);
     li.appendChild(p3);
-    li.appendChild(p4);
     li.appendChild(moreButton);
     parentlist.appendChild(li);
   
   });
 };
+
 
 //create student card
 const createStudentCard = (students) => {
@@ -176,11 +171,6 @@ const createStudentCard = (students) => {
   studentlist.innerHTML = '';
   students.forEach((student) => {
     // create li with DOM methods 
-    const img = document.createElement('img');
-
-    const div = document.createElement('div');
-    div.className='imgClass';
-    div.appendChild(img);
 
     const h2 = document.createElement('h2');
     h2.innerHTML = student.first_name +" " + student.last_name;
@@ -192,7 +182,6 @@ const createStudentCard = (students) => {
     li.classList.add('light-border');
 
     li.appendChild(h2);
-    li.appendChild(div)
     li.appendChild(p1);
     studentlist.appendChild(li);
 
@@ -224,7 +213,8 @@ const getAllUsers = async () => {
 };
 
 //get all students
-const getAllStudents = async() => {
+const getAllStudents = async(userId) => {
+  let usersChildren = [];
   try {
     const fetchOptions = {
       headers: {
@@ -233,8 +223,13 @@ const getAllStudents = async() => {
     };
     const response = await fetch(url + '/student', fetchOptions);
     const students = await response.json();
+    for (let i = 0; i < students.length; i++) {
+      if(userId == students[i].userssn){
+        usersChildren.push(students[i]);
+      } 
+    };
     console.log(students);
-    createStudentCard(students);
+    createStudentCard(usersChildren);
   } catch (e) {
     console.log("Message " + e.message);
   }
