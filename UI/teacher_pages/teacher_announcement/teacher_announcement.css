@@ -1,12 +1,10 @@
-*{
-  
+* {
 }
 
 .announcement {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  
 }
 .announcementbox {
   min-height: fit-content;
