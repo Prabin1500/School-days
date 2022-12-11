@@ -18,7 +18,7 @@ const getAnnouncementById = async(req,res) =>{
   }catch(e){
     res.sendStatus(404);
   }
-}
+};
 
 const addAnnouncement = async (req, res) => {
   const announcement = req.body;

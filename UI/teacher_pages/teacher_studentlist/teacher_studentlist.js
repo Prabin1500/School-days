@@ -1,10 +1,5 @@
 "use strict";
 
-
-
-
- 
-
 const url = 'http://localhost:3000';
 
 const welcome = document.querySelector('.welcome');
@@ -61,7 +56,7 @@ const createParentCards = (users) => {
     moreButton.innerHTML = 'Show children';
     moreButton.addEventListener('click', async() => {
       if(!showhide){
-        getAllStudents(user.first_name);
+        getAllStudents(user.userssn);
         console.log(user.first_name);
         document.getElementById('studentsparent').innerHTML = `List of ${user.first_name}'s children`;
         moreButton.innerHTML='Hide children';
@@ -146,7 +141,8 @@ const getAllUsers = async () => {
 };
 
 //get all students
-const getAllStudents = async() => {
+const getAllStudents = async(userId) => {
+  let usersChildren = [];
   try {
     const fetchOptions = {
       headers: {
@@ -155,8 +151,14 @@ const getAllStudents = async() => {
     };
     const response = await fetch(url + '/student', fetchOptions);
     const students = await response.json();
+    for (let i = 0; i < students.length; i++) {
+      if(userId == students[i].userssn){
+        usersChildren.push(students[i]);
+      } 
+    };
+
     console.log(students);
-    createStudentCard(students);
+    createStudentCard(usersChildren);
   } catch (e) {
     console.log("Message " + e.message);
   }

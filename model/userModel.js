@@ -23,7 +23,7 @@ const getTeacherList = async(req,res) =>{
 
 const getStudentList = async(req,res) =>{
     try{
-        const [rows] = await promisePool.query("select students.first_name, students.last_name, students.class from students");
+        const [rows] = await promisePool.query("select students.first_name, students.last_name, students.class, students.userssn from students");
         return rows;
     }catch(e){
         res.status(500).send(e.message);
@@ -33,8 +33,17 @@ const getStudentList = async(req,res) =>{
 const addUser = async(user, res) => {
     
     try{
-        const [rows] = await promisePool.query('INSERT INTO users(USERSSN, FIRST_NAME, LAST_NAME, EMAIL, PHONE_NUMBER, ROLE, USERNAME, PASSWORD, CLASS) VALUES (?,?,?,?,?,?,?,?,?)', [user.userssn, user.firstName, user.lastName, user.email, user.phoneNumber, user.role, user.username, user.password, user.class]);
-            return rows.insertId;
+        if(user.class === 'Null'){
+            const [rows] = await promisePool.query('INSERT INTO users(USERSSN, FIRST_NAME, LAST_NAME, EMAIL, PHONE_NUMBER, ROLE, USERNAME, PASSWORD) VALUES (?,?,?,?,?,?,?,?)', 
+                            [user.userssn, user.firstName, user.lastName, user.email, user.phoneNumber, user.role, user.username, user.password, null]);
+                            return rows.insertId;
+
+        }else{
+            const [rows] = await promisePool.query('INSERT INTO users(USERSSN, FIRST_NAME, LAST_NAME, EMAIL, PHONE_NUMBER, ROLE, USERNAME, PASSWORD, CLASS) VALUES (?,?,?,?,?,?,?,?,?)', 
+                            [user.userssn, user.firstName, user.lastName, user.email, user.phoneNumber, user.role, user.username, user.password, user.class]);
+                            return rows.insertId;
+        }
+        
     }catch(e){
         console.error('user model, add user error', e.message);
         res.status(500).json({ message: 'something went wrong'});
