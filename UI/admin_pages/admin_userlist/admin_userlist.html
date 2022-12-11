@@ -17,7 +17,7 @@
   <body>
     <nav class="top_menu">
         <div class="top_menu_link">
-            <a href="javascript:void(0)">Announcement</a>
+            <a id="announcement" href="javascript:void(0)">Announcement</a>
             <a href="javascript:void(0)">Messages</a>
             <a class="active" href="javascript:void(0)">User list</a>
         </div>
@@ -40,13 +40,30 @@
 
     <div class="divider"> 
       <div class="leftpane">
-        <div class="chooseclass">
-          <div> 
-            <p>Choose class:</p>
+
+          <div class="addbutton">
+            <button class="addUser"><i class="fa-solid fa-user-plus"> Add User</i></button>
           </div>
-          <div class="class-filter">
-                  <select id="class" name="classes">
-                    <option value="0" selected>Select All</option>
+
+          <div class="formsUser" style="display: none;">
+            <div class="form-wrapper">
+              <h2>Add User</h2>
+              <form action="http://localhost:3000/" method="post" class="light-border"
+                  enctype="multipart/form-data" id="addUserForm">
+                  <input class="light-border" type="text" name="userssn" placeholder="UserSSN">
+                  <input class="light-border" type="text" name="firstName" placeholder="FirstName">
+                  <input class="light-border" type="text" name="lastName" placeholder="LastName">
+                  <input class="light-border" type="text" name="email" placeholder="Email">
+                  <input class="light-border" type="text" name="phoneNumber" placeholder="PhoneNumber">
+                  <select class="light-border" name="role">
+                    <option value="0" selected>Select Role</option>
+                    <option value="teacher">Teacher</option>
+                    <option value="parent">Parent</option> 
+                  </select>
+                  <input class="light-border" type="text" name="username" placeholder="UserName">
+                  <input class="light-border" type="text" name="password" placeholder="Password">
+                  <select class="light-border" name="class">
+                    <option value=Null selected>Select Class</option>
                     <option value="1">One</option>
                     <option value="2">Two</option> 
                     <option value="3">Three</option>
@@ -58,97 +75,71 @@
                     <option value="9">Nine</option>
                     <option value="10">Ten</option>
                   </select>
+                  <button class="light-border" type="submit">Save</button>
+              </form>
             </div>
+
           </div>
-          
-          <div class="addbutton">
-            <button class="addUser"><i class="fa-solid fa-user-plus"> Add User</i></button>
-          </div>
-          <div><button id="teacherList"><h2>List of Teachers</h2></button></div>
-          <div><button id="parentList"><h2>List of Parents</h2></button></div>
-          <div><button id="studentList"><h2>List of Students</h2></button></div>
           
       </div>
 
       <div class= "vertical"></div>
 
       <div class="middlepane">
-        <div class="main" style="display: none;"  >
+
+        <h1>List of Users</h1>
+        <div class="main" >
           
             <ul id="listTeacher">
               
             </ul>
-      </div>
+
+        </div>
         
-        <div class="register"  >
-          <div class="forms" style="display: none;">
-              <div class="form-wrapper">
-                  <h2>Add User</h2>
-                  <form action="http://localhost:3000/" method="post" class="light-border"
-                      enctype="multipart/form-data" id="addUserForm">
-                      <input class="light-border" type="text" name="userssn" placeholder="UserSSN">
-                      <input class="light-border" type="text" name="firstName" placeholder="FirstName">
-                      <input class="light-border" type="text" name="lastName" placeholder="LastName">
-                      <input class="light-border" type="text" name="email" placeholder="Email">
-                      <input class="light-border" type="text" name="phoneNumber" placeholder="PhoneNumber">
-                      <select class="light-border" name="role">
-                        <option value="0" selected>Select Role</option>
-                        <option value="teacher">Teacher</option>
-                        <option value="parent">Parent</option> 
-                      </select>
-                      <input class="light-border" type="text" name="username" placeholder="UserName">
-                      <input class="light-border" type="text" name="password" placeholder="Password">
-                      <select class="light-border" name="class">
-                        <option value=Null selected>Select Class</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option> 
-                        <option value="3">Three</option>
-                        <option value="4">Four</option>
-                        <option value="5">Five</option> 
-                        <option value="6">Six</option>
-                        <option value="7">Seven</option>
-                        <option value="8">Eight</option> 
-                        <option value="9">Nine</option>
-                        <option value="10">Ten</option>
-                      </select>
-                      <button class="light-border" type="submit">Save</button>
-                  </form>
-              </div>
-    
-              <div class="form-wrapper">
-    
-                  <h2>Add Student</h2>
-                  <form class="light-border" id="addStudentForm">
-                      <input class="light-border" type="text" name="childssn" placeholder="ChildSSN">
-                      <input class="light-border" type="text" name="firstname" placeholder="FirstName">
-                      <input class="light-border" type="text" name="lastname" placeholder="LastName">
-                      <select class="light-border" name="class">
-                        <option value="0" selected>Select Class</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option> 
-                        <option value="3">Three</option>
-                        <option value="4">Four</option>
-                        <option value="5">Five</option> 
-                        <option value="6">Six</option>
-                        <option value="7">Seven</option>
-                        <option value="8">Eight</option> 
-                        <option value="9">Nine</option>
-                        <option value="10">Ten</option>
-                      </select>
-                      <select class="light-border" id="selectuser"type="text" name="parentssn">
-                        <option  value="" selected>Select Parent</option>
-                      </select>
-                      <button class="light-border" type="submit">Save</button>
-                  </form>
-              </div>
-          </div> 
+        <div class="studentlist"  >
+          <h1>List of Students</h1>
+          <ul id="listStudent">
+              
+          </ul>
         </div>
 
       </div>
 
       <div class= "vertical"></div>
       <div class="rightpane">
-          
+         
+        <div class="addbutton">
+          <button class="addStudent"><i class="fa-solid fa-user-plus"> Add Student</i></button>
+        </div>
+
+        <div class="formsStudent" style="display: none;">
+          <div class="form-wrapper">             
+              <h2>Add Student</h2>
+              <form class="light-border" id="addStudentForm">
+                  <input class="light-border" type="text" name="childssn" placeholder="ChildSSN">
+                  <input class="light-border" type="text" name="firstname" placeholder="FirstName">
+                  <input class="light-border" type="text" name="lastname" placeholder="LastName">
+                  <select class="light-border" name="class">
+                    <option value="0" selected>Select Class</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option> 
+                    <option value="3">Three</option>
+                    <option value="4">Four</option>
+                    <option value="5">Five</option> 
+                    <option value="6">Six</option>
+                    <option value="7">Seven</option>
+                    <option value="8">Eight</option> 
+                    <option value="9">Nine</option>
+                    <option value="10">Ten</option>
+                  </select>
+                  <select class="light-border" id="selectuser"type="text" name="parentssn">
+                    <option  value="" selected>Select Parent</option>
+                  </select>
+                  <button class="light-border" type="submit">Save</button>
+              </form>
+          </div>
+        </div> 
+
       </div>
 
     </div>

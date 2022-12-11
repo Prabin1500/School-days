@@ -45,7 +45,13 @@ p{
 h2{
     width: fit-content;
     margin: 10px;
-  }
+}
+
+h1{
+    background-color: rgb(227, 232, 236);
+    width: 100%;
+    border: 1px solid black;
+}
   
 ul{
     margin-top: 40px;
@@ -53,9 +59,9 @@ ul{
     list-style-type: none;
     display: flex;
     flex-wrap: wrap;
+    margin-bottom: 50px;
     border-radius: 13px;
 }
-
 
 
 .dropdown-btn{
@@ -81,6 +87,25 @@ li{
 }
 
 
+#listStudent li {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 30%;
+    overflow: hidden;
+    height: 60px;
+    margin: 0.5em;
+}
+
+#listStudent li:hover{
+    background-color: purple;
+    display: flex;
+    visibility: visible;
+    width: 30%;
+    height: auto;
+}
+
 input{
   display: inline-block;
   width: 100%;
@@ -104,13 +129,13 @@ imgClass{
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.5),0 20px 50px 0 rgba(0,0,0,0.5);
 }
 
-.forms{
+.formsStudent, .formsUser{
     display: flex;
     flex-wrap: wrap;
 }
 
 .form-wrapper {
-    width: 40%;
+    width: 100%;
     display: inline-table;
 }
 
@@ -134,7 +159,7 @@ button{
     overflow: hidden;
 }
 
-.addUser{
+.addUser, .addStudent{
     height: 50px;
 }
 
@@ -150,19 +175,21 @@ button{
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    width: 20%;
+    width: 25%;
     height: 100vh;
 }
 
 .middlepane{
-    width: 60%;
+    width: 50%;
     height: 100vh;
 }
 
 .rightpane {
-    width: 20%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 25%;
     height: 100vh;
-    background-color: yellow;
 }
 
 .vertical {
@@ -170,7 +197,7 @@ button{
 }
 
 li:hover {
-    width: 30%;
+    width: 33%;
     height: 530px;
     border-radius: 10px 50px 50px 10px;
     transition: all 1s ease-out;
@@ -181,7 +208,7 @@ li:hover div *{
     display: flex;
     visibility: visible;
     transition: all 1s ease-out;
-    width: 50%;
+    width: 60%;
     height: auto;
 }
 
