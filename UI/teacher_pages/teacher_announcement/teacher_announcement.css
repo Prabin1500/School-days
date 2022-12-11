@@ -1,4 +1,8 @@
 * {
+  
+}
+.body{
+  min-height: 100vh;
 }
 
 .announcement {
@@ -123,7 +127,7 @@ img {
 
 .announcementbox li {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   background-color: lightgoldenrodyellow;
   border: 1px solid black;
   border-radius: 20px 20px 20px 20px;
@@ -240,3 +244,7 @@ ul div p {
   box-shadow: 0 12px 16px 0 rgba(0,0,0,1),0 20px 50px 0 rgba(0,0,0,1);
   border: 3px solid blanchedalmond;
 }
+.footer-wrapper{
+  z-index: 9;
+}
+

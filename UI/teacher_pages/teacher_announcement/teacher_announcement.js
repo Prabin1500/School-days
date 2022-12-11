@@ -254,9 +254,11 @@ let selected = () => {
   console.log(selectedButton);
   if(selectedButton == "noImage"){
       document.getElementById("withoutImage").style.display = "flex";
+      document.getElementById("withoutImage").style.flexDirection="column";
       document.getElementById("withImage").style.display = "none";
   }else if(selectedButton == "Image"){
       document.getElementById("withoutImage").style.display = "none";
+      document.getElementById("withImage").style.flexDirection = "column";
       document.getElementById("withImage").style.display = "flex";
   }
 }

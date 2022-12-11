@@ -3,6 +3,8 @@ footer {
     padding: 3px;
     background-color: grey;
     color:black;
-    z-index: 5;
+    margin-top: auto 0;
+    z-index: 9;
+
   }
  

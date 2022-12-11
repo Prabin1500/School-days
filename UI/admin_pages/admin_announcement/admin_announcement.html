@@ -1,51 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My Website</title>
-    <link rel="stylesheet" href="../../navigation.css">
-    <link rel="stylesheet" href="./admin_announcement.css">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../navigation.css" />
+    <link
+      rel="stylesheet"
+      href="../../teacher_pages/teacher_announcement/teacher_announcement.css"
+    />
+    <link rel="stylesheet" href="../../footer.css" />
     <script
       defer
       src="https://kit.fontawesome.com/0fb84f1994.js"
       crossorigin="anonymous"
     ></script>
+    <script defer src="../../js/logout.js"></script>
+    <script defer src="./admin_announcement.js"></script>
   </head>
   <body>
-    <main>
-      <nav class="top_menu">
-        <div class="top_menu_link">
-            <a class="active" href="javascript:void(0)">Announcement</a>
+    <nav class="top_menu">
+      <div class="top_menu_link">
+        <a id="btnannouncement" class="active" href="javascript:void(0)"
+          >Announcement</a>
+        <a href="javascript:void(0)">Messages</a>
+        <a id="btnparent" href="javascript:void(0)">Users list</a>
+      </div>
+      <div class="dropdown">
+        <button class="dropdown-btn">
+          <p class="welcome">Name</p>
+          <i class="fa-sharp fa-solid fa-user"></i>
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="#" id="username">Username</a>
+          <a id="log-out" href="#">Log out</a>
         </div>
-        <div class="dropdown">
-            <button class="dropdown-btn">
-                <i class="fa-sharp fa-solid fa-user"></i>
-                <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-content">
-              <a href="#">Username</a>
-              <a href="#">Log out</a>
-              
-            </div>
-        </div>
+      </div>
     </nav>
-    <div class="announcement">
-    <div class="announcementbox">
-      <p class="info"><img class="round_image" src="https://upload.wikimedia.org/wikipedia/commons/8/84/Lake_Bled_from_the_Mountain.jpg">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet totam, molestias ut perspiciatis officia cum debitis unde ipsa, repudiandae quis dolore minima velit nam consequuntur laborum excepturi? Porro, voluptatum asperiores!Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet totam, molestias ut perspiciatis officia cum debitis unde ipsa, repudiandae quis dolore minima velit nam consequuntur
-         laborum excepturi? Porro, voluptatum asperiores!Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet totam, molestias ut 
-         perspiciatis officia cum debitis unde ipsa, repudiandae quis dolore minima velit nam consequuntur laborum excepturi? Porro,
-         voluptatum asperiores!</p>
+    <div class="divider">
+      <div class="leftbox">
+        <div class="card">
+          <div class="container">
+            <img
+              src="https://placekitten.com/200/300"
+              alt="Avatar"
+              style="width: 100%"
+            />
+            <h4 class="name"><b>John Doe</b></h4>
+            <p class="role">Class teacher</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="vertical"></div>
+
+      <div class="rightbox">
+        <div class="topsection">
+          <div class="container">
+            <h2>Post Announcement</h2>
+            <div class="addannouncement">
+              <form class="light-border">
+                <input
+                  type="radio"
+                  id="Image"
+                  name="radio"
+                  value="Image"
+                  checked
+                />
+                <label for="Image">Image</label>
+                <input type="radio" id="noImage" name="radio" value="noImage" />
+                <label for="noImage">No Image</label>
+              </form>
+
+              <form
+                action="http://localhost:3000/announcement"
+                method="post"
+                enctype="multipart/form-data"
+                class="light-border"
+                id="withImage"
+              >
+                <input
+                  class="light-border"
+                  type="text"
+                  name="text"
+                  placeholder="Your text here...."
+                  style="height: 70px; width: 250px"
+                />
+                <input class="light-border" type="file" name="media_filename" />
+                <input
+                  class="light-border"
+                  type="hidden"
+                  name="userssn"
+                  placeholder="USSERSSN"
+                  id="userssn"
+                />
+                <p>
+                  Class:
+                  <select name="class">
+                    <option value="0">Select Class</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                  </select>
+                </p>
+                <button
+                  class="light-border"
+                  type="submit"
+                  id="submit"
+                  style="width: 50px"
+                >
+                  Save
+                </button>
+              </form>
+              <form
+                action="http://localhost:3000/noimage"
+                method="post"
+                enctype="multipart/form-data"
+                class="light-border"
+                id="withoutImage"
+                style="display: none"
+              >
+                <input
+                  class="light-border"
+                  type="text"
+                  name="text"
+                  placeholder="Your text here...."
+                  style="height: 70px; width: 250px"
+                />
+                <input
+                  class="light-border"
+                  type="hidden"
+                  name="userssn"
+                  placeholder="USSERSSN"
+                  id="userssn2"
+                />
+                <p>
+                  Class:
+                  <select name="class">
+                    <option value="0">Select Class</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                  </select>
+                </p>
+                <button
+                  class="light-border"
+                  type="submit"
+                  id="submit1"
+                  style="width: 50px"
+                >
+                  Save
+                </button>
+              </form>
+            </div>
+
+            <h1>Announcement</h1>
+            <ul class="announcementbox"></ul>
+          </div>
+        </div>
+
+        <div class="parentlist" style="display: none">
+          <h1>List of parents</h1>
+          <ul id="listparent"></ul>
+        </div>
+
+        <div class="studentlist" style="display: none">
+          <h1 id="studentsparent"></h1>
+          <ul id="liststudent"></ul>
+        </div>
+      </div>
     </div>
-    <div class="announcementbox">
-      <p class="info"><img class="round_image" src="https://upload.wikimedia.org/wikipedia/commons/8/84/Lake_Bled_from_the_Mountain.jpg">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet totam, molestias ut perspiciatis officia cum debitis unde ipsa, repudiandae quis dolore minima velit nam consequuntur laborum excepturi? Porro, voluptatum asperiores!Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet totam, molestias ut perspiciatis officia cum debitis unde ipsa, repudiandae quis dolore minima velit nam consequuntur
-         laborum excepturi? Porro, voluptatum asperiores!Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet totam, molestias ut 
-         perspiciatis officia cum debitis unde ipsa, repudiandae quis dolore minima velit nam consequuntur laborum excepturi? Porro,
-         voluptatum asperiores!</p>
-    </div>
-  </div>
-    </main>
-	<script src="index.js"></script>
+    <footer>
+      <div class="footer-wrapper">
+        <p>
+          Bal-Mandir Secondary school<br />
+          Brooklyn road, 00001, Helsinki<br />
+          <a href="mailto:balmandir@school.fi">balmandir@school.fi</a><br />
+          <i class="fa-solid fa-phone-volume"></i>
+          :52435326467
+        </p>
+      </div>
+    </footer>
   </body>
 </html>
