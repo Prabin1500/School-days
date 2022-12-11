@@ -32,9 +32,10 @@ body {
 	border: 1px solid transparent;
 	background-color: transparent;
 	color: #f2f2f2;
-	font-size: 18px;
+	
 	cursor: pointer;
 }
+
 .dropdown-content {
 	display: none;
 	position: absolute;
