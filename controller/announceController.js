@@ -7,7 +7,7 @@ const getAnnouncement = async (req,res) => {
   res.json(announcement);
 };
 const announcementFiltered = async (req,res) => {
-  const announcement = await announcementModel.announcementFiltered(req.params.class);
+  const announcement = await announcementModel.announcementFiltered(req.params.userssn);
   res.json(announcement);
 };
 

@@ -19,8 +19,8 @@ const getAnnouncementById = async(announcementID) => {
   return rows[0];
 }
 
-const announcementFiltered = async(classId) =>{
-  const [rows] = await promisePool.query("SELECT announcement.announcementid,announcement.text,announcement.media_filename, announcement.dateandtime, users.first_name, users.last_name from announcement,users where announcement.userssn=users.userssn and announcement.class = ? order by announcementid desc; ",[classId]);
+const announcementFiltered = async(userssn) =>{
+  const [rows] = await promisePool.query("SELECT announcement.announcementid,announcement.text,announcement.media_filename, announcement.dateandtime, users.first_name, users.last_name from announcement,users where announcement.userssn=users.userssn and announcement.userssn = ? order by announcementid desc; ",[userssn]);
   console.log(rows);
   return rows;
 }

@@ -236,7 +236,7 @@ const getAllStudents = async(userId) => {
 //AJAX CALL 
 const getAnnouncement = async() =>{
   try{
-      const response = await fetch(url + '/announcementFiltered/'+user.USERSSN);
+      const response = await fetch(url + '/announcementFiltered/' + user.USERSSN);
       const announcements = await response.json();
       console.log(announcements);
       createAnnouncementCards(announcements);
