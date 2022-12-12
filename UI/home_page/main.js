@@ -115,9 +115,6 @@ const createAnnouncementCards = (announcements) =>{
     datetime.classList.add("news-detail__uploaded-at");
     datetime.innerHTML = `Uploaded at: ${announcements[i].dateandtime}`;
 
-
-    
-
     const li = document.createElement('li');
     li.classList.add('light-border');
     li.appendChild(document.createElement('br'));

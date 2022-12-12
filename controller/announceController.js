@@ -25,6 +25,11 @@ const getAnnouncementById = async(req,res) =>{
   }
 };
 
+const getAllAnnouncement = async (req,res) => {
+  const announcement = await announcementModel.getAllAnnouncement();
+  res.json(announcement);
+};
+
 const addAnnouncement = async (req, res) => {
   const announcement = req.body;
   announcement.media_filename = req.file.filename;
@@ -55,6 +60,7 @@ const updateAnnouncement = async (req,res) =>{
 module.exports = {
   getAnnouncement,
   getAnnouncementById,
+  getAllAnnouncement,
   addAnnouncement,
   addAnnouncementNoImage,
   deleteAnnouncement,

@@ -3,6 +3,7 @@
 const url = 'http://localhost:3000';
 
 const welcome = document.querySelector('.welcome');
+const username = document.querySelector('#username');
 const listStudent = document.querySelector('.studentList');
 const childclass = document.querySelector('.childrenClass');
 const announcement = document.querySelector('.announcementbox');
@@ -14,35 +15,34 @@ const topsection = document.querySelector('.topsection');
 const displayparentlist = document.querySelector('.parentlist');
 const displaystudentlist = document.querySelector('.studentlist');
 const btnannouncement = document.querySelector('.active');
-
-
-
-
+const nameofuser = document.querySelector('.name');
+const role = document.querySelector('.role');
 
 let showhide = false;
 
 let user = JSON.parse(sessionStorage.getItem('user'));
 welcome.innerHTML ='Welcome ' + user.FIRST_NAME;
+username.innerHTML = user.USERNAME;
+nameofuser.innerHTML = user.FIRST_NAME + ' ' + user.LAST_NAME;
+role.innerHTML = user.ROLE;
 
-document.getElementById('submit').onclick= onclickL();
-document.getElementById('submit1').onclick= onclickR();
+// document.getElementById('submit').onclick= onclickL();
+// document.getElementById('submit1').onclick= onclickR();
 
-function onclickL(){
-  document.getElementById('userssn').value = user.USERSSN;
-};
+// function onclickL(){
+//   document.getElementById('userssn').value = user.USERSSN;
+// };
 
-function onclickR(){
-  document.getElementById('userssn2').value = user.USERSSN;
-};
+// function onclickR(){
+//   document.getElementById('userssn2').value = user.USERSSN;
+// };
 
 btnparent.addEventListener('click', () => {
   location.href="../admin_userlist/admin_userlist.html"
-  getAllUsers();
 });
 
 btnmessage.addEventListener('click', () => {
   location.href="../admin_message/admin_message.html"
-  getAllUsers();
 });
 
 const createAnnouncementCards = (announcements) =>{
@@ -122,7 +122,7 @@ const createAnnouncementCards = (announcements) =>{
 //AJAX CALL 
 const getAnnouncement = async() =>{
   try{
-      const response = await fetch(url + '/announcementFiltered/' + user.USERSSN);
+      const response = await fetch(url + '/allAnnouncement');
       const announcements = await response.json();
       console.log(announcements);
       createAnnouncementCards(announcements);

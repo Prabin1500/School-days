@@ -17,13 +17,19 @@ const btnTeacher = document.querySelector('#teacherList');
 const btnParent = document.querySelector('#ParentList');
 const userListOption = document.querySelector('#selectuser');
 const announcementbtn = document.querySelector('#announcement');
-const btnmessage = document.querySelector('#btnmessage')
+const btnmessage = document.querySelector('#btnmessage');
+const nameofuser = document.querySelector('.username');
 
 let toggleAddUser = false;
 let toggleList = false;
+
+//stores the list of users and students in the temporary arraylist
+let listofusers = [];
+
 let user = JSON.parse(sessionStorage.getItem('user'));
 
 welcome.innerHTML ='Welcome ' + user.FIRST_NAME;
+nameofuser.innerHTML = user.USERNAME;
 
 //toogle for AddUser button
 addUser.addEventListener('click',() =>{
@@ -61,12 +67,13 @@ btnmessage.addEventListener('click', () => {
 
 // create User cards
 const createUserCards = (users) => {
+  
   // clear ul
   ul.innerHTML = '';
   console.log(users);
   users.forEach((user) => {
     // create li with DOM methods
-  
+    listofusers.push(user);
     
     const img = document.createElement('img');
     img.src='../../../cat.jpeg'
@@ -88,7 +95,7 @@ const createUserCards = (users) => {
     p3.innerHTML = `Phone Number: ${user.phone_number}`;
   
     const p4 = document.createElement('p');
-    p4.innerHTML = `Role: Teacher`;
+    p4.innerHTML = `Role: ${user.role}`;
   
     const li = document.createElement('li');
     li.classList.add('light-border');

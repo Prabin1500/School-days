@@ -8,11 +8,17 @@ const childclass = document.querySelector('.childrenClass');
 const announcement = document.querySelector('.announcementbox');
 const announcementheader = document.querySelector('#announcementheader');
 const btnmessage = document.querySelector('#btnmessage');
+const nameofuser = document.querySelector('.username');
+const username = document.querySelector('.name');
+const role = document.querySelector('.role');
+
 let showhide = false;
 let user = JSON.parse(sessionStorage.getItem('user'));
 
 welcome.innerHTML ='Welcome ' + user.FIRST_NAME;
-
+nameofuser.innerHTML = user.USERNAME;
+username.innerHTML = user.FIRST_NAME + ' ' + user.LAST_NAME;
+role.innerHTML = user.ROLE.toUpperCase();
 
 btnmessage.addEventListener('click', () => {
   location.href="../parent_message/parent_message.html"

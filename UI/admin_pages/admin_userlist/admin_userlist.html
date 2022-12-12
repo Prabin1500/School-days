@@ -32,7 +32,7 @@
                 
             </button>
             <div class="dropdown-content">
-                <a href="#">Username</a>
+                <a class="username" href="#">Username</a>
                 <a id="log-out" href="#">Log out</a>
             </div>
             
@@ -88,26 +88,29 @@
 
       <div class="middlepane">
         <div class="container">
-
-       
-
-        <h1>List of Users</h1>
-        <div class="main" >
+          <div id="searchbar">
+            <form class="example" style="margin:auto;max-width:300px">
+              <input id="searchbar" type="text" placeholder="Search.." name="search">
+              <button id="searchbtn" type="submit"><i class="fa fa-search"></i></button>
+            </form>
+          </div>
           
-            <ul id="listTeacher">
-              
-            </ul>
+          <h1>List of Users</h1>
+          <div class="main" >
+            
+              <ul id="listTeacher">
+                
+              </ul>
 
-        </div>
-      
+          </div>
         
-        <div class="studentlist"  >
-          <h1>List of Students</h1>
-          <ul id="listStudent">
-              
-          </ul>
+          <div class="studentlist"  >
+            <h1>List of Students</h1>
+            <ul id="listStudent">
+                
+            </ul>
+          </div>
         </div>
-      </div>
       </div>
 
       <div class= "vertical"></div>

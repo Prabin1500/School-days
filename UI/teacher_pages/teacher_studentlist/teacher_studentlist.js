@@ -14,13 +14,17 @@ const displaystudentlist = document.querySelector('.studentlist');
 const btnannouncement = document.querySelector('#btnannouncement');
 const btnmessage = document.querySelector('#btnmessage')
 const homebtn = document.querySelector('#home');
+const username = document.querySelector('#username');
+const nameofuser = document.querySelector('.name');
+const role = document.querySelector('.role');
 
 let showhide = false;
 
 let user = JSON.parse(sessionStorage.getItem('user'));
 welcome.innerHTML ='Welcome ' + user.FIRST_NAME;
-
-
+username.innerHTML = user.USERNAME;
+nameofuser.innerHTML = user.FIRST_NAME + ' ' + user.LAST_NAME;
+role.innerHTML = user.ROLE.toUpperCase();
 
 btnannouncement.addEventListener('click', () => {
   location.href="../teacher_announcement/teacher_announcement.html"

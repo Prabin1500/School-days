@@ -15,4 +15,6 @@ router.post('/announcementUpdate',upload.single(''),announcementController.updat
 router.post('/noimage',upload.single(''),announcementController.addAnnouncementNoImage)
 router.get('/announcementFiltered/:userssn',announcementController.announcementFiltered)
 router.get('/announcementFilteredByClass/:class',announcementController.announcementFilteredByClass)
+router.get('/allAnnouncement',announcementController.getAllAnnouncement)
+
 module.exports = router;
