@@ -97,11 +97,12 @@ img {
 .topsection{
   border-left: 1px solid black;
   padding-bottom: 110px;
+  padding-bottom: 110px;
 }
 
 .vertical {
   border-left: 1px solid black;
-  height: auto;
+  
 }
 
 .rightbox ul {
@@ -133,7 +134,7 @@ img {
 .announcementbox li {
   display: flex;
   flex-direction: column;
-  background-color: lightgoldenrodyellow;
+  background-color:silver;
   border: 1px solid black;
   border-radius: 20px 20px 20px 20px;
 }

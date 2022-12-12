@@ -122,7 +122,7 @@ const createAnnouncementCards = (announcements) =>{
     li.classList.add('light-border');
     li.appendChild(document.createElement('br'));
     if(announcements[i].media_filename != null){
-      li.appendChild(figure);
+      li.appendChild(newsImageWrapper);
     }
     li.appendChild(heading);
     li.appendChild(datetime);

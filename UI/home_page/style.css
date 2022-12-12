@@ -57,7 +57,7 @@
 
   min-width: var(--w-item);
   width: var(--w-item);
-  background-color: var(--white);
+ 
   border-radius: calc(2 * var(--borderRadius));
   overflow: hidden;
 }
