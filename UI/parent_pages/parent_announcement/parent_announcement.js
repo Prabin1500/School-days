@@ -100,9 +100,9 @@ const createAnnouncementCards = (announcements) =>{
   for(let i = 0; i<=announcements.length; i++ ){
 
     const div1 = document.createElement('div');
-
     const div2 = document.createElement('div');
-    div2.className ='button';
+    div2.classList.add("desndate")
+
 
     const newsImage = document.createElement('img');
       newsImage.src = '../../../uploads/' + announcements[i].media_filename;
@@ -116,18 +116,19 @@ const createAnnouncementCards = (announcements) =>{
       div1.appendChild(figure);
     }
 
-    const h2 = document.createElement('h3');
-    h2.innerHTML = `${announcements[i].text}`;
+    const description = document.createElement('h3');
+    description.innerHTML = `${announcements[i].text}`;
   
     const p1 = document.createElement('p');
     p1.innerHTML = `Posted by ${announcements[i].first_name} ${announcements[i].last_name}  at ${announcements[i].dateandtime}`;
   
     const li = document.createElement('li');
     li.classList.add('light-border');
-    div1.appendChild(h2);
-    div1.appendChild(p1);
+    div2.appendChild(description);
+    div2.appendChild(p1)
+    
     li.appendChild(div1);
-    li.appendChild(div2);
+    li.appendChild(div2)
     announcement.appendChild(li);  
   };
 };  

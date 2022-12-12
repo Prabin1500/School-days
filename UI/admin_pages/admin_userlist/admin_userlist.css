@@ -82,8 +82,11 @@ li{
     height: 60px;
     margin: 0.5em;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 1);
-    background: linear-gradient(121deg, rgba(255,255,255,0) 13%, rgba(0,159,255,1) 100%);
+    /*TODO*/
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 50%), 0 6px 20px 0 rgb(0 0 0);
+    background: linear-gradient(121deg, rgba(212, 198, 198, 0) 13%, rgb(119, 186, 228) 100%);
 }
+
 
 
 #listStudent li {
@@ -98,7 +101,7 @@ li{
 }
 
 #listStudent li:hover{
-    background-color: purple;
+    background-color: lightblue;
     display: flex;
     visibility: visible;
     width: 30%;
