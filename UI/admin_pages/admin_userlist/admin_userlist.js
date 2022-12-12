@@ -17,6 +17,7 @@ const btnTeacher = document.querySelector('#teacherList');
 const btnParent = document.querySelector('#ParentList');
 const userListOption = document.querySelector('#selectuser');
 const announcementbtn = document.querySelector('#announcement');
+const btnmessage = document.querySelector('#btnmessage')
 
 let toggleAddUser = false;
 let toggleList = false;
@@ -52,6 +53,10 @@ addStudent.addEventListener('click',() =>{
 
 announcementbtn.addEventListener('click', () => {
   location.href= '../admin_announcement/admin_announcement.html';
+});
+btnmessage.addEventListener('click', () => {
+  location.href="../admin_message/admin_message.html"
+  getAllUsers();
 });
 
 // create User cards

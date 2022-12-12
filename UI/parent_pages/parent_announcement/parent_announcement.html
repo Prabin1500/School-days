@@ -1,68 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../navigation.css">
-    <link rel="stylesheet" href="./parent_announcement.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../navigation.css" />
+    <link rel="stylesheet" href="./parent_announcement.css" />
+    <link rel="stylesheet" href="../../footer.css">
     <script
       defer
       src="https://kit.fontawesome.com/0fb84f1994.js"
       crossorigin="anonymous"
     ></script>
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <nav class="top_menu">
-        <div class="top_menu_link">
-            <a class="active" href="javascript:void(0)">Announcement</a>
-            <a href="javascript:void(0)">Messages</a>
+      <div class="top_menu_link">
+        <a class="active" href="javascript:void(0)">Announcement</a>
+        <a id="btnmessage" href="javascript:void(0)">Messages</a>
+      </div>
+      <div class="dropdown">
+        <button class="dropdown-btn">
+          <p class="welcome"></p>
+          <i class="fa-sharp fa-solid fa-user"></i>
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="#">Username</a>
+          <a id="log-out" href="#">Log out</a>
         </div>
-        <div class="dropdown">
-            <button class="dropdown-btn">
-                <p class="welcome"></p>
-                <i class="fa-sharp fa-solid fa-user"></i>
-                <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-content">
-                <a href="#">Username</a>
-                <a id="log-out" href="#">Log out</a>
-                
-            </div>
-        </div>
+      </div>
     </nav>
     <div class="divider">
-        <div class="leftbox">
-            <div class="card">
-                <div class="container">
-                    <img src="https://placekitten.com/200/300" alt="Avatar" style="width:100%">
-                  <h4 class="name"><b>John Doe</b></h4> 
-                  <p class="role">Class teacher</p> 
-                </div>
+      <div class="leftbox">
+        <div class="topsection">
+        <div class="card">
+          <div class="container">
+            <img
+              src="https://placekitten.com/200/300"
+              alt="Avatar"
+              style="width: 100%"
+            />
+            <h4 class="name"><b>John Doe</b></h4>
+            <p class="role">Class teacher</p>
+          </div>
 
-                <div>
-                    <ul class="studentList">
-
-                    </ul>
-                </div>
-      
-            </div>
+          <div>
+            <ul class="studentList"></ul>
+          </div>
         </div>
-
-        <div class= "vertical"></div>
-
-        <div class="rightbox">
-            
-            <h1 id="announcementheader"></h1>
-            <ul class="announcementbox">        
-
-            </ul>
-        </div>
-          
+      </div>
     </div>
-      <script src="../../js/logout.js"></script>
-      <script src="../../js/serialize.js"></script>
-      <script src="./parent_announcement.js"></script>
-</body>
+      <div class="rightbox">
+        <div class="container">
+          <h1 id="announcementheader"></h1>
+          <ul class="announcementbox"></ul>
+        </div>
+        </div>
+     
+      </div>
+    </div>
+    <footer>
+      <div class="footer-wrapper">
+        <p>
+          Bal-Mandir Secondary school<br />
+          Brooklyn road, 00001, Helsinki<br />
+          <a href="mailto:balmandir@school.fi">balmandir@school.fi</a><br />
+          <i class="fa-solid fa-phone-volume"></i>
+          :52435326467
+        </p>
+      </div>
+    </footer>
+    <script src="../../js/logout.js"></script>
+    <script src="../../js/serialize.js"></script>
+    <script src="./parent_announcement.js"></script>
+  </body>
 </html>

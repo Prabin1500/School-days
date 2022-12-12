@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../../navigation.css">
     <link rel="stylesheet" href="admin_userlist.css" />
+    <link rel="stylesheet" href="../../footer.css">
     <link rel="javascript" href="admin_userlist.js" />
     <script
       defer
@@ -18,7 +19,7 @@
     <nav class="top_menu">
         <div class="top_menu_link">
             <a id="announcement" href="javascript:void(0)">Announcement</a>
-            <a href="javascript:void(0)">Messages</a>
+            <a id="btnmessage" href="javascript:void(0)">Messages</a>
             <a class="active" href="javascript:void(0)">User list</a>
         </div>
         
@@ -86,6 +87,9 @@
       <div class= "vertical"></div>
 
       <div class="middlepane">
+        <div class="container">
+
+       
 
         <h1>List of Users</h1>
         <div class="main" >
@@ -95,6 +99,7 @@
             </ul>
 
         </div>
+      
         
         <div class="studentlist"  >
           <h1>List of Students</h1>
@@ -102,7 +107,7 @@
               
           </ul>
         </div>
-
+      </div>
       </div>
 
       <div class= "vertical"></div>
@@ -143,7 +148,17 @@
       </div>
 
     </div>
-
+    <footer>
+      <div class="footer-wrapper">
+        <p>
+          Bal-Mandir Secondary school<br />
+          Brooklyn road, 00001, Helsinki<br />
+          <a href="mailto:balmandir@school.fi">balmandir@school.fi</a><br />
+          <i class="fa-solid fa-phone-volume"></i>
+          :52435326467
+        </p>
+      </div>
+    </footer>
     <script src="admin_userlist.js"></script>
     <script src="../../js/serialize.js"></script>
     <script src="../../js/logout.js"></script>

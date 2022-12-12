@@ -1,10 +1,17 @@
 footer {
     text-align: center;
     padding: 3px;
-    background-color: grey;
-    color:black;
+    background-color:rgb(44, 49, 49);
+    color:white;
     margin-top: auto 0;
     z-index: 9;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
 
+  }
+  a{
+    color: white;
   }
  

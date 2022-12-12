@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../navigation.css">
     <link rel="stylesheet" href="./admin_message.css">
+    <link rel="stylesheet" href="../../footer.css">
     <script
       defer
       src="https://kit.fontawesome.com/0fb84f1994.js"
@@ -16,9 +17,9 @@
 <body>
     <nav class="top_menu">
         <div class="top_menu_link">
-            <a href="javascript:void(0)">Announcement</a>
-            <a class="active" href="javascript:void(0)">Messages</a>
-            <a href="javascript:void(0)">User list</a>
+            <a id="btnannouncement"   href="javascript:void(0)">Announcement</a>
+            <a id="btnmessage"  class="active" href="javascript:void(0)">Messages</a>
+            <a id="btnlist" href="javascript:void(0)">User list</a>
         </div>
         <div class="dropdown">
             <button class="dropdown-btn">
@@ -46,6 +47,7 @@
 
         <div class= "vertical"></div>
         <div class="rightbox">
+            <div class="container"></div>
             
             <h1>Messages</h1>
             <ul class="announcementbox">        
@@ -60,6 +62,18 @@
     </div>
       <script src="../../js/logout.js"></script>
       <script src="../../js/serialize.js"></script>
-      <script src="./parent_announcement.js"></script>
+      <script src="./admin_message.js"></script>
+
+      <footer>
+        <div class="footer-wrapper">
+          <p>
+            Bal-Mandir Secondary school<br />
+            Brooklyn road, 00001, Helsinki<br />
+            <a href="mailto:balmandir@school.fi">balmandir@school.fi</a><br />
+            <i class="fa-solid fa-phone-volume"></i>
+            :52435326467
+          </p>
+        </div>
+      </footer>
 </body>
 </html>

@@ -12,6 +12,7 @@ const btnparent = document.querySelector('#btnparent');
 const topsection = document.querySelector('.topsection');
 const displaystudentlist = document.querySelector('.studentlist');
 const btnannouncement = document.querySelector('#btnannouncement');
+const btnmessage = document.querySelector('#btnmessage')
 const homebtn = document.querySelector('#home');
 
 let showhide = false;
@@ -23,6 +24,9 @@ welcome.innerHTML ='Welcome ' + user.FIRST_NAME;
 
 btnannouncement.addEventListener('click', () => {
   location.href="../teacher_announcement/teacher_announcement.html"
+});
+btnmessage.addEventListener('click', () => {
+  location.href="../teacher_message/teacher_message.html"
 });
 
 
