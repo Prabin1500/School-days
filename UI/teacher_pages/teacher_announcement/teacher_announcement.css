@@ -94,6 +94,11 @@ img {
   flex-direction: column;
 }
 
+.topsection{
+  border-left: 1px solid black;
+  padding-bottom: 110px;
+}
+
 .vertical {
   border-left: 1px solid black;
   height: auto;

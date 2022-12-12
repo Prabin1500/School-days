@@ -39,35 +39,72 @@
 .home-section home-announcemt {
   flex: 1;
 }
-.news-box {
-  min-height: fit-content;
-  border: solid black;
-  gap: var(--spacer);
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: 21%;
+.home-news-wrapper {
+  padding: 1rem;
+}
+.news-list {
+  --gap: 1rem;
+
+  padding: var(--spacerLarger) 0;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--gap);
   overflow-x: auto;
-  overscroll-behavior-inline: contain;
 }
-.media-element {
-  padding: var(--spacer);
-  gap: var(--spacer);
-  grid-template-rows: min-content;
-  padding: var(--spacer);
-  background: lightpink;
-  border-radius: 20%;
+.news-item {
+  --w-item: 270px;
+
+  min-width: var(--w-item);
+  width: var(--w-item);
+  background-color: var(--white);
+  border-radius: calc(2 * var(--borderRadius));
+  overflow: hidden;
 }
-.media-element > img {
-  inline-size: 100%;
-  aspect-ratio: 16/9;
+.news-img-wrapper {
+  --img-height: 200px;
+
+  max-height: var(--img-height);
+  overflow: hidden;
+}
+.news-img {
+  width: 100%;
+  height: var(--img-height);
   object-fit: cover;
+  object-position: top center;
+  transition: transform 0.3s ease-in-out;
 }
-.snaps {
-  scroll-snap-type: inline mandatory;
-  scroll-padding-inline: var(--spacer, 1rem);
+.news-detail {
+  padding: var(--spacerLarger);
 }
-.snaps > * {
-  scroll-snap-align: start;
+.news-detail__title {
+  font-size: 1.3rem;
+  color: var(--blue34);
+}
+.news-detail__posted-by,
+.news-detail__uploaded-at {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--grayC4);
+}
+.news-detail__desc {
+  margin-top: var(--spacerLarge);
+  margin-bottom: var(--spacerLarge);
+  display: -webkit-box;
+  max-width: calc(var(--w-item) - var(--spacerLarger));
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 1.1rem;
+  line-height: 1.2;
+}
+.news-item:hover {
+  cursor: pointer;
+}
+.news-item:hover .news-img {
+  transform: scale(1.1);
 }
 .vacancybox {
   display: flex;
