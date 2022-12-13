@@ -19,6 +19,8 @@ const userListOption = document.querySelector('#selectuser');
 const announcementbtn = document.querySelector('#announcement');
 const btnmessage = document.querySelector('#btnmessage');
 const nameofuser = document.querySelector('.username');
+const searchvalue = document.querySelector('#searchbar');
+const searchbtn = document.querySelector('#searchbtn');
 
 let toggleAddUser = false;
 let toggleList = false;
@@ -43,6 +45,60 @@ addUser.addEventListener('click',() =>{
   }
     
 });
+
+searchvalue.addEventListener('input', (e) => {
+  e.preventDefault();
+  let value = e.target.value;
+
+  if( value && value.trim().length > 0) {
+    value = value.trim().toLowerCase();
+    console.log(value);
+    searchUser(listofusers.filter(p => {
+      let fname = p.first_name + p.last_name;
+      return fname.toLowerCase().includes(value);
+    }));
+  }
+});
+
+function searchUser(results) {
+    ul.innerHTML = '';
+    results.forEach((user) => {
+      // create li with DOM methods
+      
+      const img = document.createElement('img');
+      img.src='../../../cat.jpeg'
+    
+      const div = document.createElement('div');
+      div.className='imgClass';
+      div.appendChild(img);
+    
+      const h2 = document.createElement('h2');
+      h2.innerHTML = user.first_name +" " + user.last_name;
+    
+      const p1 = document.createElement('p');
+      p1.innerHTML = `Email: ${user.email}`;
+    
+      const p2 = document.createElement('p');
+      p2.innerHTML = `Class: ${user.class}`;
+    
+      const p3 = document.createElement('p');
+      p3.innerHTML = `Phone Number: ${user.phone_number}`;
+    
+      const p4 = document.createElement('p');
+      p4.innerHTML = `Role: ${user.role}`;
+    
+      const li = document.createElement('li');
+      li.classList.add('light-border');
+    
+      li.appendChild(h2);
+      li.appendChild(div)
+      li.appendChild(p1);
+      li.appendChild(p2);
+      li.appendChild(p3);
+      li.appendChild(p4);
+      ul.appendChild(li);
+  })
+};
 
 //toogle for AddUser button
 addStudent.addEventListener('click',() =>{
@@ -123,7 +179,6 @@ const createStudentCard = (students) => {
     div.appendChild(img);
 
     const h2 = document.createElement('h2');
-    console.log("Student name " + student.first_name)
     h2.innerHTML = student.first_name +" " + student.last_name;
 
     const p1 = document.createElement('p');
@@ -196,6 +251,7 @@ const getAllStudents = async() => {
     const response = await fetch(url + '/student', fetchOptions);
     const students = await response.json();
     console.log(students);
+
     createStudentCard(students);
   } catch (e) {
     console.log("Message " + e.message);
