@@ -158,3 +158,69 @@
   #right{
     margin-left: 50%;
   }
+  #btn{
+    
+    height: 5vh;
+    margin: 5% 5% 5% 5%;
+  }
+
+ #btn:hover{
+  background-color: green;
+ }
+
+.messagebox{
+  height: 20vh;
+  display: block;
+}
+
+
+#recieverDiv{
+  height: 60vh;
+  display: block;
+}
+
+#messageText{
+  width: 100%;
+}
+#submit{
+  margin-left: 50%;
+  margin-top: 5px;
+  height: 40px;
+  width: 70px;
+  border-radius: 15px;
+}
+
+#right{
+  margin-left: 50%;
+  background-color: aquamarine;
+  display: block;
+  margin-top: 5px;
+  width: 50%;
+  border-top-left-radius:30px;
+  border-top-right-radius:10px;
+  border-bottom-right-radius:30px;
+  border-bottom-left-radius:10px;
+}
+#left{
+  margin: 0px 0px 0px 0px;
+  background-color: rgb(67, 124, 222);
+  display: block;
+  margin-top: 5px;
+  width: 50%;
+  border-top-left-radius:30px;
+  border-top-right-radius:10px;
+  border-bottom-right-radius:30px;
+  border-bottom-left-radius:10px;
+}
+
+p{
+  size: 20px;
+}
+
+#rightItem{
+  margin-left: 30px;
+}
+
+#leftItem{
+  margin-left: 30px;
+}
