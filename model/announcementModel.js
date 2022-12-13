@@ -88,7 +88,13 @@ const addAnnouncementNoImage = async(data,res) => {
     const sql =
   "INSERT INTO announcement(text,dateandtime,userssn,class) VALUES (?,?,?,?)";
   const[rows]=  await promisePool.query(sql, [data.text, datetime,data.userssn, data.class]);
-  return res.redirect("http://127.0.0.1:5501/UI/teacher_pages/teacher_announcement/teacher_announcement.html");
+  
+  if(data.class == null){
+    return res.redirect("http://127.0.0.1:5501/UI/admin_pages/admin_announcement/admin_announcement.html");
+  }else{
+    return res.redirect("http://127.0.0.1:5501/UI/teacher_pages/teacher_announcement/teacher_announcement.html");
+  }
+  
   }catch(e){
     res.status(500).send(e.message);
   }
