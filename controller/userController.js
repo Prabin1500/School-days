@@ -35,10 +35,15 @@ const checkToken = (req, res) => {
     
     res.json({user: req.user});
 };
+const getParentList = async (req,res) => {
+    const users = await userModel.getParentList();
+    res.json(users);
+};
 
 module.exports ={
     getAllUsers,
     getTeacherList,
     getStudentList,
     checkToken,
+    getParentList,
 };

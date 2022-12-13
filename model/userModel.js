@@ -72,6 +72,10 @@ const getUserLogin = async (user) => {
         res.status(500).send(e.message);
     }
 };
+const getParentList = async() =>{
+    const [rows] = await promisePool.query("select users.first_name,users.last_name,users.username,students.first_name as student_fname,students.last_name as student_lname from users,students where users.userssn = students.userssn;");
+    return rows;
+}
 
 
 
@@ -82,4 +86,5 @@ module.exports = {
     addUser,
     addStudent,
     getUserLogin,
+    getParentList,
 };
