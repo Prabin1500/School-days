@@ -59,7 +59,7 @@
 
   min-width: var(--w-item);
   width: var(--w-item);
-
+  background-color: var(--white);
   border-radius: calc(2 * var(--borderRadius));
   overflow: hidden;
 }
@@ -78,6 +78,7 @@
 }
 .news-detail {
   padding: var(--spacerLarger);
+ 
 }
 .news-detail__title {
   font-size: 1.3rem;

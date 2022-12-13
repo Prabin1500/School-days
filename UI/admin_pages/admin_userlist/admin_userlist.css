@@ -45,6 +45,7 @@ p{
 h2{
     width: fit-content;
     margin: 10px;
+    flex-shrink: unset;
 }
 
 h1{
@@ -277,4 +278,28 @@ li img{
         transition: all 1s ease-out;
     }
 }
+@media screen and (max-width: 677px ) {
+    .divider{
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 110px;
+    }
+    #listTeacher{
+        display: flex;
+        flex-direction: column;
+    }
+    .light-border{
+       width: 200px;
+    }
+    .middlepane{
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+    .container{
+        margin: 0;
+        border-radius: 0;
+    }
+    
+    }
     
