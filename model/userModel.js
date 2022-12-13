@@ -4,7 +4,7 @@ const promisePool = pool.promise();
 
 const getAllUsers = async(req,res) =>{
     try{
-        const [rows] = await promisePool.query("select users.first_name,users.last_name,users.email,users.phone_number, users.class, users.role, users.userssn from users");
+        const [rows] = await promisePool.query("select users.first_name,users.last_name,users.email,users.phone_number, users.class, users.role, users.userssn,users.username from users");
         return rows;
     }catch(e){
         console.log("error", e.message);
@@ -14,7 +14,7 @@ const getAllUsers = async(req,res) =>{
 
 const getTeacherList = async(req,res) =>{
     try{
-        const [rows] = await promisePool.query("select users.first_name,users.last_name,users.email,users.phone_number, users.class from users where role = ?","teacher");
+        const [rows] = await promisePool.query("select users.first_name,users.last_name,users.email,users.phone_number, users.class,users.username from users where role = ?","teacher");
         return rows;
     }catch(e){
         res.status(500).send(e.message);
