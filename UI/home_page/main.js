@@ -96,34 +96,35 @@ const createAnnouncementCards = (announcements) =>{
 
   for(let i = 0; i<=announcements.length; i++ ){
     const newsImage = document.createElement('img');
-      newsImage.src = '../../uploads/' + announcements[i].media_filename;
-      newsImage.classList.add('resp news-image');
-      const newsImageWrapper = document
-      .createElement("div")
-      .appendChild(newsImage);
-    newsImageWrapper.classList.add("news-img-wrapper");
-    
+      newsImage.src = '../../cat.jpeg' ;
+      newsImage.classList.add('news-img');
+
+      const figure = document.createElement('div').appendChild(newsImage);
+      figure.classList.add('news-img-wrapper')
+
     const heading = document.createElement('h3');
     heading.classList.add("news-detail__title");
     heading.innerHTML = `${announcements[i].text}`;
 
+    
     const postedBy = document.createElement("span");
-    postedBy.classList.add("news-detail__posted-by");
+    postedBy.classList.add('news-detail__posted-by');
     postedBy.innerHTML = `Posted By: ${announcements[i].first_name} ${announcements[i].last_name}`;
 
-    const datetime = document.createElement("span");
-    datetime.classList.add("news-detail__uploaded-at");
+    const datetime = document.createElement('span');
+    datetime.classList.add('news-detail__uploaded-at');
     datetime.innerHTML = `Uploaded at: ${announcements[i].dateandtime}`;
 
+
     const li = document.createElement('li');
-    li.classList.add('light-border');
+    li.classList.add('news-item');
     li.appendChild(document.createElement('br'));
     if(announcements[i].media_filename != null){
-      li.appendChild(newsImageWrapper);
+      li.appendChild(figure);
     }
     li.appendChild(heading);
-    li.appendChild(datetime);
     li.appendChild(postedBy);
+    li.appendChild(datetime);
 
     newsList.appendChild(li);
     newsDiv.appendChild(newsList);
