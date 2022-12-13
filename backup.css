@@ -100,8 +100,15 @@
     background-color: #008cba;
   }
   
-  .onevacancy:hover .hovertext {
-    opacity: 1;
+  .single-vacancy:hover  {
+    box-shadow: #34495e;
+  }
+  .vacancy-image{
+    height: 70px;
+    
+  }
+  .vacancy-header{
+    text-align: right;
   }
   .text {
     color: white;
@@ -114,6 +121,7 @@
     transform: translate(-50%, -50%);
     text-align: none;
   }
+ 
   
   @media screen and (min-width: 768px) {
     .home-wrapper {
@@ -128,7 +136,7 @@
     .home-right-wrapper {
       margin: 50% auto;
     }
-    .vacancybox {
+    .vacancy-container {
       flex-direction: row;
     }
   }
