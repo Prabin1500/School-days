@@ -5,6 +5,7 @@ const app = express();
 const cors = require('cors');
 const userRoute = require('./route/userRoute');
 const announcementRoute = require('./route/announcementRoute');
+const messageRoute = require('./route/messageRoute');
 const authRoute = require("./route/authRoute");
 const passport = require('./utils/passport')
 const port = 3000; 
@@ -16,5 +17,7 @@ app.use(passport.initialize());
 app.use('', userRoute);
 app.use('',announcementRoute);
 app.use("/auth", authRoute);
+app.use('', messageRoute);
+
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));  

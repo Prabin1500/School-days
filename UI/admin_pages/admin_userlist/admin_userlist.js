@@ -20,13 +20,14 @@ const announcementbtn = document.querySelector('#announcement');
 const btnmessage = document.querySelector('#btnmessage');
 const nameofuser = document.querySelector('.username');
 const searchvalue = document.querySelector('#searchbar');
-const searchbtn = document.querySelector('#searchbtn');
+const searchvaluestudent = document.querySelector('#searchbarstudent');
 
 let toggleAddUser = false;
 let toggleList = false;
 
 //stores the list of users and students in the temporary arraylist
 let listofusers = [];
+let listofstudents = [];
 
 let user = JSON.parse(sessionStorage.getItem('user'));
 
@@ -53,52 +54,26 @@ searchvalue.addEventListener('input', (e) => {
   if( value && value.trim().length > 0) {
     value = value.trim().toLowerCase();
     console.log(value);
-    searchUser(listofusers.filter(p => {
+    createUserCards(listofusers.filter(p => {
       let fname = p.first_name + p.last_name;
       return fname.toLowerCase().includes(value);
     }));
   }
 });
 
-function searchUser(results) {
-    ul.innerHTML = '';
-    results.forEach((user) => {
-      // create li with DOM methods
-      
-      const img = document.createElement('img');
-      img.src='../../../cat.jpeg'
-    
-      const div = document.createElement('div');
-      div.className='imgClass';
-      div.appendChild(img);
-    
-      const h2 = document.createElement('h2');
-      h2.innerHTML = user.first_name +" " + user.last_name;
-    
-      const p1 = document.createElement('p');
-      p1.innerHTML = `Email: ${user.email}`;
-    
-      const p2 = document.createElement('p');
-      p2.innerHTML = `Class: ${user.class}`;
-    
-      const p3 = document.createElement('p');
-      p3.innerHTML = `Phone Number: ${user.phone_number}`;
-    
-      const p4 = document.createElement('p');
-      p4.innerHTML = `Role: ${user.role}`;
-    
-      const li = document.createElement('li');
-      li.classList.add('light-border');
-    
-      li.appendChild(h2);
-      li.appendChild(div)
-      li.appendChild(p1);
-      li.appendChild(p2);
-      li.appendChild(p3);
-      li.appendChild(p4);
-      ul.appendChild(li);
-  })
-};
+searchvaluestudent.addEventListener('input', (e) => {
+  e.preventDefault();
+  let value = e.target.value;
+
+  if( value && value.trim().length > 0) {
+    value = value.trim().toLowerCase();
+    console.log(value);
+    createStudentCard(listofstudents.filter(p => {
+      let fname = p.first_name + p.last_name;
+      return fname.toLowerCase().includes(value);
+    }));
+  }
+});
 
 //toogle for AddUser button
 addStudent.addEventListener('click',() =>{
@@ -129,7 +104,6 @@ const createUserCards = (users) => {
   console.log(users);
   users.forEach((user) => {
     // create li with DOM methods
-    listofusers.push(user);
     
     const img = document.createElement('img');
     img.src='../../../cat.jpeg'
@@ -227,6 +201,7 @@ const getAllUsers = async () => {
     const users = await response.json();
 
     for (let i = 0; i < users.length; i++) {
+      listofusers.push(users[i]);
       if(users[i].role === 'parent'){
         userOption.push(users[i]);
       }
@@ -251,7 +226,10 @@ const getAllStudents = async() => {
     const response = await fetch(url + '/student', fetchOptions);
     const students = await response.json();
     console.log(students);
-
+    for (let i = 0; i < students.length; i++) {
+      listofstudents.push(students[i]);
+      
+    };
     createStudentCard(students);
   } catch (e) {
     console.log("Message " + e.message);
