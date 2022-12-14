@@ -17,7 +17,7 @@ const getAllUsers = async(req,res) =>{
 //get all users info from database where their role is teacher
 const getTeacherList = async(req,res) =>{
     try{
-        const [rows] = await promisePool.query("select users.first_name,users.last_name,users.email,users.phone_number, users.class,users.username from users where role = ?","teacher");
+        const [rows] = await promisePool.query("select users.first_name,users.last_name,users.email,users.phone_number, users.class,users.username from users where role = ? or role=?",["teacher","admin"]);
         return rows;
     }catch(e){
         res.status(500).send(e.message);
