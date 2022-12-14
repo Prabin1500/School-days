@@ -2,6 +2,8 @@
 const pool = require("../database/db");
 const promisePool = pool.promise();
 
+
+//get all users required information from database excluding password.
 const getAllUsers = async(req,res) =>{
     try{
         const [rows] = await promisePool.query("select users.first_name,users.last_name,users.email,users.phone_number, users.class, users.role, users.userssn,users.username from users");
@@ -12,6 +14,7 @@ const getAllUsers = async(req,res) =>{
     }
 };
 
+//get all users info from database where their role is teacher
 const getTeacherList = async(req,res) =>{
     try{
         const [rows] = await promisePool.query("select users.first_name,users.last_name,users.email,users.phone_number, users.class,users.username from users where role = ?","teacher");
@@ -21,6 +24,7 @@ const getTeacherList = async(req,res) =>{
     }
 };
 
+//get all students info from the database
 const getStudentList = async(req,res) =>{
     try{
         const [rows] = await promisePool.query("select students.first_name, students.last_name, students.class, students.userssn from students");
@@ -30,6 +34,7 @@ const getStudentList = async(req,res) =>{
     }
 };
 
+//add users into database (performed using admin)
 const addUser = async(user, res) => {
     
     try{
@@ -50,6 +55,7 @@ const addUser = async(user, res) => {
     }
 };
 
+//add student into database (performed using admin)
 const addStudent = async(user, res) => {
     
     try{
@@ -61,6 +67,7 @@ const addStudent = async(user, res) => {
     }
 };
 
+//for login
 const getUserLogin = async (user) => {
     try{
         const[rows] = await promisePool.query("SELECT * FROM users WHERE users.email = ? or users.username =?",
@@ -72,6 +79,8 @@ const getUserLogin = async (user) => {
         res.status(500).send(e.message);
     }
 };
+
+//getting parent list for teacher
 const getParentList = async() =>{
     const [rows] = await promisePool.query("select users.first_name,users.last_name,users.username,students.first_name as student_fname,students.last_name as student_lname from users,students where users.userssn = students.userssn;");
     return rows;

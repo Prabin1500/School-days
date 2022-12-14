@@ -2,8 +2,8 @@
 const pool = require("../database/db");
 const promisePool = pool.promise();
 
-//getAllMessages
 
+//getAllMessages from database between reciever and sender and viceversa which later can be shown as a chat format conversation
 const recievedMessages = async(data) =>{
     try{    
         const [rows] = await promisePool.query(" select message.description,message.sender,message.dateandtime from message where (reciever=? or sender=?) and (reciever=? or sender=?);",data);
@@ -13,6 +13,7 @@ const recievedMessages = async(data) =>{
     }
 }
 
+// dashboard message is the message that is shown as the message recieved by the user when they open their message tab.
 const dashboardMessages = async(data) =>{
     try{    
         const [rows] = await promisePool.query(" select message.description,message.sender,message.dateandtime from message where reciever=? order by id asc;",data);
@@ -22,6 +23,7 @@ const dashboardMessages = async(data) =>{
     }
 }
 
+//this is for posting message into database.
 const sendMessage = async(data)=>{
     try{   
         const [rows] = await promisePool.query("INSERT INTO message VALUES(null,?,?,?,?);",data);
