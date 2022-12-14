@@ -46,10 +46,11 @@ h2 {
   flex-shrink: unset;
 }
 
-h1 {
-  background-color: rgb(227, 232, 236);
-  width: 100%;
+h1{
+    background-color: rgb(227, 232, 236);
+    width: 100%;
 }
+
 
 ul {
   margin-top: 40px;
@@ -299,3 +300,5 @@ li img {
     border-radius: 0;
   }
 }
+
+

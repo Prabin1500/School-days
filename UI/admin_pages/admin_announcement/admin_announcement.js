@@ -26,11 +26,18 @@ username.innerHTML = user.USERNAME;
 nameofuser.innerHTML = user.FIRST_NAME + " " + user.LAST_NAME;
 role.innerHTML = user.ROLE;
 
-document.getElementById('userssn').value = user.USERSSN;
-document.getElementById('userssn2').value = user.USERSSN;
+document.getElementById('submit').onclick= onclickL();
+document.getElementById('submit1').onclick= onclickR();
 
-console.log(document.getElementById('userssn').value)
+function onclickL(){
+  document.getElementById('userssn').value = user.USERSSN;
+};
 
+function onclickR(){
+  document.getElementById('userssn2').value = user.USERSSN;
+  
+};
+  
 btnparent.addEventListener("click", () => {
   location.href = "../admin_userlist/admin_userlist.html";
 });
