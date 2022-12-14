@@ -48,7 +48,6 @@ const createAnnouncementCards = (announcements) => {
     const div2 = document.createElement("div");
     div2.className = "button";
 
-<<<<<<< HEAD
     const newsImage = document.createElement('img');
       newsImage.src = '../../../uploads/' + announcements[i].media_filename;
       newsImage.classList.add('resp');
@@ -56,15 +55,6 @@ const createAnnouncementCards = (announcements) => {
       figure.style.maxWidth = '100%';
       figure.style.height = 'auto';
       figure.style.borderRadius='20px 20px 20px 20px'
-=======
-    const newsImage = document.createElement("img");
-    newsImage.src = "../../../uploads/" + announcements[i].media_filename;
-    newsImage.classList.add("resp");
-    const figure = document.createElement("figure").appendChild(newsImage);
-    figure.style.width = "200px";
-    figure.style.height = "200px";
-    figure.style.marginLeft = "20px";
->>>>>>> main
 
     if (announcements[i].media_filename != null) {
       div1.appendChild(figure);
