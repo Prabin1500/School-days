@@ -51,7 +51,6 @@ li div p{
 	width: 100%;
 	text-align: end;
 	padding-right: 5px;
-
 }
 
 .divider{
@@ -93,6 +92,7 @@ li div p{
   .container:hover {
 	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   }
+  
   img {
 	height: inherit;
 	width: inherit;
@@ -186,4 +186,3 @@ li div p{
 	height: 70px;
     margin-left: auto;
 }
-

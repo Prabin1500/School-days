@@ -108,9 +108,9 @@ const createAnnouncementCards = (announcements) =>{
       newsImage.src = '../../../uploads/' + announcements[i].media_filename;
       newsImage.classList.add('resp');
       const figure = document.createElement('figure').appendChild(newsImage);
-      figure.style.width = '200px';
-      figure.style.height = '200px';
-      figure.style.marginLeft='20px';
+      figure.style.maxWidth = '100%';
+      figure.style.height = 'auto';
+      figure.style.borderRadius = '20px 20px 20px 20px';
 
     if(announcements[i].media_filename != null){
       div1.appendChild(figure);

@@ -254,3 +254,13 @@ ul div p {
   z-index: 9;
 }
 
+@media screen and (max-width:700px) {
+  .text{
+    flex-direction: column;
+  }
+
+  ul li div img{
+    max-width: 100%;
+  }
+}
+

@@ -59,7 +59,7 @@ ul{
     list-style-type: none;
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 50px;
+    margin-bottom: 110px;
     border-radius: 13px;
 }
 
@@ -185,6 +185,7 @@ button{
 .middlepane{
     width: 50%;
     height: 100vh;
+    padding-bottom: 110px;
 }
 
 .container {
