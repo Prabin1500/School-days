@@ -47,6 +47,7 @@ addUser.addEventListener('click',() =>{
     
 });
 
+//search for the list of users
 searchvalue.addEventListener('input', (e) => {
   e.preventDefault();
   let value = e.target.value;
@@ -61,6 +62,7 @@ searchvalue.addEventListener('input', (e) => {
   }
 });
 
+//search for the student
 searchvaluestudent.addEventListener('input', (e) => {
   e.preventDefault();
   let value = e.target.value;
@@ -169,24 +171,6 @@ const createStudentCard = (students) => {
   });
 
 };
-
-// get list of teachers
-// const getTeacherList = async () => {
-//   try {
-//     const fetchOptions = {
-//       headers: {
-//         Authorization: 'Bearer ' + sessionStorage.getItem('token'),
-//       },
-//     };
-//     const response = await fetch(url + '/teacher', fetchOptions);
-//     const users = await response.json();
-//     createUserCards(users);
-//   } catch (e) {
-//     console.log("Message " + e.message);
-//   }
-// };
-
-//get name of parents in student from option
 
 //get List of Users
 const getAllUsers = async () => {

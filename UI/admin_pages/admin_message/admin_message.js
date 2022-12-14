@@ -9,12 +9,16 @@ const btnmessage = document.querySelector('#btnmessage');
 const ul = document.getElementById("userlist");
 const recievedMessages = document.getElementById("recieverDiv");
 const messagesBox = document.getElementById("messagebox");
+const searchvalue = document.querySelector('#searchbar');
 
 //getting user information when logged in 
 let user = JSON.parse(sessionStorage.getItem('user'));
 let reciever = user.USERNAME;
 let sender;
 nameofuser.innerHTML = user.USERNAME;
+
+//stores the list of users and students in the temporary arraylist
+let listofusers = [ ];
 
 //adding navigation route
 btnlist.addEventListener('click', () => {
@@ -25,8 +29,23 @@ btnlist.addEventListener('click', () => {
     location.href="../admin_announcement/admin_announcement.html"
 });
 
+searchvalue.addEventListener('input', (e) => {
+  e.preventDefault();
+  let value = e.target.value;
+
+  if( value && value.trim().length > 0) {
+    value = value.trim().toLowerCase();
+    console.log(value);
+    createMemberList(listofusers.filter(p => {
+      let fname = p.first_name + p.last_name;
+      return fname.toLowerCase().includes(value);
+    }));
+  }
+});
+
 //members list card which works eith ajax call
 const createMemberList = (members) =>{
+  ul.innerHTML = '';
   for(let i = 0; i<=members.length; i++ ){
       const btn = document.createElement('button');
       btn.id="btn";
@@ -59,6 +78,11 @@ const getUsers = async() =>{
   try{
       const response = await fetch(url + '/');
       const members = await response.json();
+      
+      for (let j = 0; j < members.length; j++) {
+        listofusers.push(members[j]);
+      };
+
       createMemberList(members);
   }catch(e){
       console.log(e.message);
@@ -124,3 +148,8 @@ const dashboardMessages= async() =>{
 }
 
 dashboardMessages();  
+
+//clears the input value in search field while refreshing the page
+window.onload = function() {
+  document.getElementById('searchbar').value = '';
+}
