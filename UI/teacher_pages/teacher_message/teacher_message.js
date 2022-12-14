@@ -28,12 +28,28 @@ btnlist.addEventListener('click', () => {
   });
 
   const createMemberList = (members) =>{
+        const adminbtn =document.getElementById("adminBtn");
+        adminbtn.value="admin";
+        ul.appendChild(adminbtn);
+
+        adminbtn.addEventListener('click',function(){
+            recievedMessages.innerHTML=``;
+            sender=adminbtn.value;
+            getMessages();
+            messagesBox.innerHTML=`
+            <form action="http://localhost:3000/sendMessage" method="post" enctype="multipart/form-data" id ="messageForm">
+              <textarea class="light-border" name="description" rows="5" cols = "50" id="messageText" required></textarea>
+              <input type = "hidden" name="sender" value="${reciever}">
+              <input type = "hidden" name="reciever" value="${members[i].username}">
+              <button type="submit" id="submit">Send</button>
+            </form>
+            `;
+         })
     for(let i = 0; i<=members.length; i++ ){
         const btn = document.createElement('button');
         btn.id="btn";
         btn.value =members[i].username ;
         btn.innerText  = members[i].first_name+" "+members[i].last_name+" (Parent of: "+members[i].student_fname+" "+members[i].student_lname+" )";
-        
         btn.addEventListener('click',function(){
             recievedMessages.innerHTML=``;
             sender=btn.value;
