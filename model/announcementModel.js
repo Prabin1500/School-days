@@ -6,11 +6,11 @@ const promisePool = pool.promise();
 const getAnnouncement = async () => {
   try {
     const [rows] = await promisePool.query(
-      "select announcement.announcementid,announcement.text,announcement.media_filename, announcement.dateandtime, users.first_name, users.last_name from announcement,users where announcement.class = 0 and announcement.userssn = users.userssn  order by announcementid desc;"
+      "select announcement.announcementid,announcement.text,announcement.media_filename, announcement.dateandtime, users.first_name, users.last_name from announcement,users where announcement.userssn = users.userssn and users.role = ? order by announcementid desc;","admin"
     );
     return rows;
   } catch (e) {
-    res.status(500).send(e.message);
+    console.log(e);
   }
 };
 
