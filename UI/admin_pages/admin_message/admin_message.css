@@ -1,186 +1,184 @@
 .announcement {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }
-  .announcementbox {
-    min-height: fit-content;
-    display: flex;
-    flex-direction: row;
-  }
-  .round_image {
-    float: left;
-    height: 200px;
-    width: 100px;
-    padding: 200px;
-    flex: 1;
-  }
-  .info {
-    padding: 10px;
-    flex: 2;
-  }
-  
-  h1, .container{
-      background-color: rgb(227, 232, 236);
-      width: 100%;
-      height: auto;
-      margin-left: 15px;
-  }
-  
-  .dropdown-btn{
-    display: flex;
-    margin: auto;
-  }
-  
-  .dropdown p{
-    margin: auto;
-    padding-right: 20px;
-  }
-  
-  .divider{
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    gap: 10px;
-    margin: 5px;
-  }
-  
-  .leftbox{
-    width: 20%;
-    min-height: fit-content;
-    display: flex;
-    flex-direction: column;
-  }
-  .messagetype{
-    display: flex;
-    flex-direction: column;
-    
-  }
-  
-  .rightbox {
-    width: 80%;
-    min-height: fit-content;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .vertical {
-    border-left: 1px solid black;
-    height: auto;
-  }
-  
-  .rightbox ul{
-    display: flex;
-    flex-direction: row;
-    margin-top: 20px;
-    margin-left: 20px;
-    padding: 0;
-    list-style-type: none;
-    gap: 60px;
-  }
-  
-  .leftbox ul{
-    display: flex;
-    flex-direction: column;
-    
-    padding: 0px;
-    list-style-type: none;
-    
-  }
-  
-  .light-border{
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+.announcementbox {
+  min-height: fit-content;
+  display: flex;
+  flex-direction: row;
+}
+.round_image {
+  float: left;
+  height: 200px;
+  width: 100px;
+  padding: 200px;
+  flex: 1;
+}
+.info {
+  padding: 10px;
+  flex: 2;
+}
+
+h1,
+.container {
+  background-color: rgb(227, 232, 236);
+  width: 100%;
+  height: auto;
+  margin-left: 15px;
+}
+
+.dropdown-btn {
+  display: flex;
+  margin: auto;
+}
+
+.dropdown p {
+  margin: auto;
+  padding-right: 20px;
+}
+
+.divider {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  gap: 10px;
+  margin: 5px;
+}
+
+.leftbox {
+  width: 20%;
+  min-height: fit-content;
+  display: flex;
+  flex-direction: column;
+}
+.messagetype {
+  display: flex;
+  flex-direction: column;
+}
+
+.rightbox {
+  width: 80%;
+  min-height: fit-content;
+  display: flex;
+  flex-direction: column;
+}
+
+.vertical {
+  border-left: 1px solid black;
+  height: auto;
+}
+
+.rightbox ul {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+  margin-left: 20px;
+  padding: 0;
+  list-style-type: none;
+  gap: 60px;
+}
+
+.leftbox ul {
+  display: flex;
+  flex-direction: column;
+
+  padding: 0px;
+  list-style-type: none;
+}
+
+.light-border {
   display: flex;
   flex-direction: column;
   gap: 10px;
   justify-content: left;
   border-radius: 10px 10px 10px 10px;
-  }
-  
-  .studentList li{
-    display: flex;
-    flex-wrap: wrap;
-    width: 250px;
-    height: auto;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 1);
-    background: linear-gradient(121deg, rgba(255,255,255,0) 13%, rgba(0,159,255,1) 100%);
-  
-  }
-  
-  .announcementbox li {
-    display: flex;
-    flex-direction: row;
-    background-color: lightgoldenrodyellow;
-    border: 1px solid black;
-    border-radius: 20px 0px 0px 20px;
-  }
-  
-  .addannouncement{
-    display: flex;
-    flex-direction: column;
-    border: 1px solid black;
-    padding: 1em;
-    box-sizing: border-box;
-  
-  }
-  
-  .button {
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: column-reverse;
-    margin-top: auto;
-    width: fit-content;
-    padding-right: 10px;
-    margin-left: auto;
-    
-  }
-  
-  .text{
-    display: flex;
-    width: 70%;
-    margin-right: 10px;
-  }
-  
-  .text h3 {
-    margin-left: 10px;
-  }
-  
-  ul div p{
-    align-self: flex-end;
-    margin-left: 15px;
-  
-  }
-  .radiobutton{
-    display: inline-block;
-  }
+}
 
-  #btn{
-    
-    height: 5vh;
-    margin: 5% 5% 5% 5%;
-    font-size: 12px;
-  }
+.studentList li {
+  display: flex;
+  flex-wrap: wrap;
+  width: 250px;
+  height: auto;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 1);
+  background: linear-gradient(
+    121deg,
+    rgba(255, 255, 255, 0) 13%,
+    rgba(0, 159, 255, 1) 100%
+  );
+}
 
- #btn:hover{
+.announcementbox li {
+  display: flex;
+  flex-direction: row;
+  background-color: lightgoldenrodyellow;
+  border: 1px solid black;
+  border-radius: 20px 0px 0px 20px;
+}
+
+.addannouncement {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  padding: 1em;
+  box-sizing: border-box;
+}
+
+.button {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column-reverse;
+  margin-top: auto;
+  width: fit-content;
+  padding-right: 10px;
+  margin-left: auto;
+}
+
+.text {
+  display: flex;
+  width: 70%;
+  margin-right: 10px;
+}
+
+.text h3 {
+  margin-left: 10px;
+}
+
+ul div p {
+  align-self: flex-end;
+  margin-left: 15px;
+}
+.radiobutton {
+  display: inline-block;
+}
+
+#btn {
+  height: 5vh;
+  margin: 5% 5% 5% 5%;
+  font-size: 12px;
+}
+
+#btn:hover {
   background-color: green;
- }
+}
 
-.messagebox{
+.messagebox {
   height: 20vh;
   display: block;
 }
 
-#recieverDiv{
+#recieverDiv {
   height: 60vh;
   display: block;
   overflow-x: scroll;
 }
 
-#messageText{
+#messageText {
   width: 100%;
 }
-#submit{
+#submit {
   margin-left: 50%;
   margin-top: 5px;
   height: 40px;
@@ -188,18 +186,18 @@
   border-radius: 15px;
 }
 
-#right{
+#right {
   margin-left: 50%;
-  background-color:#4c66d7;
+  background-color: #4c66d7;
   display: flex;
   flex-direction: column-reverse;
   margin-top: 5px;
   width: 50%;
   padding: 5px;
-  border-top-left-radius:30px;
-  border-top-right-radius:10px;
-  border-bottom-right-radius:30px;
-  border-bottom-left-radius:10px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 10px;
   color: white;
 }
 .right-container {
@@ -213,19 +211,19 @@
   border-radius: 5px;
   flex: 1;
   margin: auto;
-  padding-bottom:110px;
+  padding-bottom: 110px;
 }
-#right h6{
+#right h6 {
   flex: 1;
   margin-left: 15px;
   text-align: end;
 }
-#right p{
-  flex:6;
+#right p {
+  flex: 6;
   margin-left: 15px;
   margin-right: 15px;
 }
-#left{
+#left {
   margin: 0px 0px 0px 0px;
   background-color: rgb(110 105 107);
   color: white;
@@ -234,29 +232,29 @@
   margin-top: 5px;
   padding: 5px;
   width: 50%;
-  border-top-left-radius:30px;
-  border-top-right-radius:10px;
-  border-bottom-right-radius:30px;
-  border-bottom-left-radius:10px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 10px;
 }
-#left h6{
-  flex:1;
+#left h6 {
+  flex: 1;
   margin-left: 15px;
   text-align: end;
 }
-#left p{
+#left p {
   flex: 5;
   text-align: start;
   font-size: 16px;
   margin-left: 15px;
 }
-b{
-  font-weight:100;
+b {
+  font-weight: 100;
   font-size: 16px;
 }
 
 @media screen and (max-width: 550) {
-  #btn{
+  #btn {
     font-size: 10px;
   }
 }

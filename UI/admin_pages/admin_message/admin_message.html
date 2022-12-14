@@ -1,74 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../navigation.css">
-    <link rel="stylesheet" href="./admin_message.css">
-    <link rel="stylesheet" href="../../footer.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../navigation.css" />
+    <link rel="stylesheet" href="./admin_message.css" />
+    <link rel="stylesheet" href="../../footer.css" />
     <script
       defer
       src="https://kit.fontawesome.com/0fb84f1994.js"
       crossorigin="anonymous"
     ></script>
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <nav class="top_menu">
-        <div class="top_menu_link">
-            <a id="btnannouncement"   href="javascript:void(0)">Announcement</a>
-            <a id="btnmessage"  class="active" href="javascript:void(0)">Messages</a>
-            <a id="btnlist" href="javascript:void(0)">User list</a>
+      <div class="top_menu_link">
+        <a id="btnannouncement" href="javascript:void(0)">Announcement</a>
+        <a id="btnmessage" class="active" href="javascript:void(0)">Messages</a>
+        <a id="btnlist" href="javascript:void(0)">User list</a>
+      </div>
+      <div class="dropdown">
+        <button class="dropdown-btn">
+          <p class="welcome"></p>
+          <i class="fa-sharp fa-solid fa-user"></i>
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a class="username" href="#">Username</a>
+          <a id="log-out" href="#">Log out</a>
         </div>
-        <div class="dropdown">
-            <button class="dropdown-btn">
-                <p class="welcome"></p>
-                <i class="fa-sharp fa-solid fa-user"></i>
-                <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-content">
-                <a class="username" href="#">Username</a>
-                <a id="log-out" href="#">Log out</a>
-                
-            </div>
-        </div>
+      </div>
     </nav>
     <div class="divider">
       <div class="leftbox">
-        <h2 style="text-align: center;"><b>Users</b></h2>
-          <ul id = "userlist">
-              
-          </ul>
+        <h2 style="text-align: center"><b>Users</b></h2>
+        <ul id="userlist"></ul>
       </div>
 
-      <div class= "vertical"></div>
+      <div class="vertical"></div>
       <div class="rightbox">
         <div class="right-container">
-          <h1 id ="chatName" style="text-align: start;">Messages</h1>
-          <div id = "recieverDiv">
-          </div>
-        <div id ="messagebox" class="messagebox">
-
-          </div>    
+          <h1 id="chatName" style="text-align: start">Messages</h1>
+          <div id="recieverDiv"></div>
+          <div id="messagebox" class="messagebox"></div>
+        </div>
       </div>
-    </div> 
-  </div>
-  <footer>
-    <div class="footer-wrapper">
-      <p>
-        Bal-Mandir Secondary school<br />
-        Brooklyn road, 00001, Helsinki<br />
-        <a href="mailto:balmandir@school.fi">balmandir@school.fi</a><br />
-        <i class="fa-solid fa-phone-volume"></i>
-        :52435326467
-      </p>
     </div>
-  </footer>
-      <script src="../../js/logout.js"></script>
-      <script src="../../js/serialize.js"></script>
-      <script src="./admin_message.js"></script>
-
-      
-</body>
+    <footer>
+      <div class="footer-wrapper">
+        <p>
+          Bal-Mandir Secondary school<br />
+          Brooklyn road, 00001, Helsinki<br />
+          <a href="mailto:balmandir@school.fi">balmandir@school.fi</a><br />
+          <i class="fa-solid fa-phone-volume"></i>
+          :52435326467
+        </p>
+      </div>
+    </footer>
+    <script src="../../js/logout.js"></script>
+    <script src="../../js/serialize.js"></script>
+    <script src="./admin_message.js"></script>
+  </body>
 </html>
