@@ -22,7 +22,7 @@
 
 h1,
 .container {
-  background-color: rgb(227, 232, 236);
+  background-color: var(--blue);
   width: 100%;
   height: auto;
   margin-left: 15px;
@@ -55,6 +55,9 @@ h1,
 .messagetype {
   display: flex;
   flex-direction: column;
+}
+#searchform{
+  width: auto;
 }
 
 .rightbox {
