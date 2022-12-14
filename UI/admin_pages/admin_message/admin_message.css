@@ -163,15 +163,6 @@ ul div p {
 #btn:hover {
   background-color: green;
 }
-#adminBtn {
-  height: 5vh;
-  margin: 5% 5% 5% 5%;
-  font-size: 12px;
-}
-
-#adminBtn:hover {
-  background-color: green;
-}
 
 .messagebox {
   height: 20vh;
@@ -264,16 +255,9 @@ b {
   font-size: 16px;
 }
 
-#userlist{
-  overflow: scroll;
-  padding-bottom: 110px;
- }
-
 @media screen and (max-width: 550) {
   #btn {
     font-size: 10px;
   }
-  #adminBtn {
-    font-size: 10px;
-  }
 }
+
