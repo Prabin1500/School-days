@@ -46,6 +46,7 @@ li div p{
 	justify-content: flex-start;
 	flex-direction: column;
 	align-items: center;
+	padding-bottom: 110px;
 	
   }
   .card {
@@ -53,7 +54,7 @@ li div p{
 	flex: 1;
 	height: 40%;
 	padding: 16px 0px;
-	padding-bottom: 110px;
+	
   }
   .left-container{
 	background-color: rgb(227, 232, 236);

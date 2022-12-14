@@ -192,7 +192,7 @@
   margin-left: 50%;
   background-color:#4c66d7;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   margin-top: 5px;
   width: 50%;
   padding: 5px;
@@ -218,6 +218,7 @@
 #right h6{
   flex: 1;
   margin-left: 15px;
+  text-align: end;
 }
 #right p{
   flex:6;
@@ -229,7 +230,7 @@
   background-color: rgb(110 105 107);
   color: white;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   margin-top: 5px;
   padding: 5px;
   width: 50%;
@@ -241,6 +242,7 @@
 #left h6{
   flex:1;
   margin-left: 15px;
+  text-align: end;
 }
 #left p{
   flex: 5;
@@ -252,6 +254,7 @@ b{
   font-weight:100;
   font-size: 16px;
 }
+
 @media screen and (max-width: 550) {
   #btn{
     font-size: 10px;
