@@ -9,12 +9,12 @@ const main = document.querySelector('main');
 const getAnnouncement = async() =>{
 const response = await fetch('http://localhost:3000/announcementById/'+userId);
 const announcements = await response.json();
-const article = document.createElement('article');
+const article = document.createElement('div');
     article.innerHTML += `
     <form action="http://localhost:3000/announcementUpdate" method="post" enctype="multipart/form-data" class="light-border">
-      <input class="light-border" type="text" name="text" value="${announcements.TEXT}" >
+      <textarea class="light-border" name="text" rows="5" cols = "50" id="text">${announcements.TEXT}</textarea>
       <input type="hidden" name="announcementid" value ="${announcements.ANNOUNCEMENTID}"> 
-      <button class="light-border" type="submit">Update</button>
+      <button class="light-border" type="submit" id="submit">Update</button>
     </form>
     `;
     main.append(article);
