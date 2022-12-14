@@ -1,6 +1,6 @@
 'use strict';
 
-const url1 = 'http://localhost:3000';
+const url1 = 'https://schooldays.northeurope.cloudapp.azure.com/app';
 const logOut = document.querySelector('#log-out');
 
 logOut.addEventListener('click', async (evt) => {

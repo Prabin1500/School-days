@@ -1,6 +1,6 @@
 'use strict';
 
-const url = 'http://localhost:3000';
+const url = 'https://schooldays.northeurope.cloudapp.azure.com/app';
 const ul = document.getElementById("userlist");
 const nameofuser = document.querySelector('.username');
 const btnannouncement = document.querySelector('#btnannouncement')
@@ -33,7 +33,7 @@ const createMemberList = (members) =>{
           console.log("Sender is: "+sender)
           getMessages();
           messagesBox.innerHTML=`
-          <form action="http://localhost:3000/sendMessage" method="post" enctype="multipart/form-data" id ="messageForm">
+          <form action="https://schooldays.northeurope.cloudapp.azure.com/app/sendMessage" method="post" enctype="multipart/form-data" id ="messageForm">
               <textarea class="light-border" name="description" rows="5" cols = "50" id="messageText" required></textarea>
               <input type = "hidden" name="sender" value="${reciever}">
               <input type = "hidden" name="reciever" value="${members[i].username}">

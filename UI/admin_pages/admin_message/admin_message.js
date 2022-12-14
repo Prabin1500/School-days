@@ -1,6 +1,6 @@
 'use strict';
 
-const url = 'http://localhost:3000';
+const url = 'https://schooldays.northeurope.cloudapp.azure.com/app';
 
 //getting html items into js
 const nameofuser = document.querySelector('.username');

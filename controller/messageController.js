@@ -32,7 +32,7 @@ const sendMessage = async(req,res) =>{
         currentdate.getSeconds();
     const newData = [data.description,data.sender,data.reciever,datetime];
     const message= await messageModel.sendMessage(newData);
-    res.redirect('http://127.0.0.1:5501/UI/admin_pages/admin_message/admin_message.html');
+    res.redirect('https://schooldays.northeurope.cloudapp.azure.com/app/UI/admin_pages/admin_message/admin_message.html');
 }
 
 module.exports={
