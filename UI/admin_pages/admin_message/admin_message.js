@@ -2,18 +2,21 @@
 
 const url = 'http://localhost:3000';
 
+//getting html items into js
 const nameofuser = document.querySelector('.username');
 const btnparent = document.querySelector('#btnparent');
 const btnmessage = document.querySelector('#btnmessage');
 const ul = document.getElementById("userlist");
 const recievedMessages = document.getElementById("recieverDiv");
 const messagesBox = document.getElementById("messagebox");
+
+//getting user information when logged in 
 let user = JSON.parse(sessionStorage.getItem('user'));
 let reciever = user.USERNAME;
 let sender;
-
 nameofuser.innerHTML = user.USERNAME;
 
+//adding navigation route
 btnlist.addEventListener('click', () => {
     location.href="../admin_userlist/admin_userlist.html"
 });
@@ -22,6 +25,7 @@ btnlist.addEventListener('click', () => {
     location.href="../admin_announcement/admin_announcement.html"
 });
 
+//members list card which works eith ajax call
 const createMemberList = (members) =>{
   for(let i = 0; i<=members.length; i++ ){
       const btn = document.createElement('button');
@@ -62,6 +66,7 @@ const getUsers = async() =>{
 };
 getUsers();
 
+//message list which is called in getMessages ajax call
 const createMessageList=(messages)=>{
   recievedMessages.innerHTML=``;
   for(let j=0;j<messages.length;j++){
@@ -84,6 +89,7 @@ const createMessageList=(messages)=>{
   }
 
 }
+//ajax call to get messages
 const getMessages = async() =>{
   try{
       const messageResponse = await fetch(url + '/messages/'+reciever+'&'+sender);
@@ -94,6 +100,8 @@ const getMessages = async() =>{
       console.log(e.message)
   }
 }
+
+//dashboard messages to be displayed when message tab is open and see new messages user recieved.
 const dashboardMessagesList = (allMessages) =>{
   recievedMessages.innerHTML=``;
   for(let k=0;k<allMessages.length;k++){
@@ -104,6 +112,7 @@ const dashboardMessagesList = (allMessages) =>{
 
 }
 
+//ajax call for dashboard message
 const dashboardMessages= async() =>{
   try{
       const allMessageResponse = await fetch(url + '/allMessages/'+reciever);
