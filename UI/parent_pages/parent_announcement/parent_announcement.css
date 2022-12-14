@@ -162,16 +162,6 @@ img {
 }
 
 .button {
-<<<<<<< HEAD
-    display: flex;
-	flex-wrap: nowrap;
-	flex-direction: column-reverse;
-	margin-bottom: auto;
-    width: 70px;
-	height: 70px;
-    margin-left: auto;
-}
-=======
   display: flex;
   flex-wrap: nowrap;
   flex-direction: column-reverse;
@@ -208,4 +198,3 @@ img {
     font-size: 10px;
   }
 }
->>>>>>> 95869a4c00bb49b7714f0ee0f2ce2ab600541aea
