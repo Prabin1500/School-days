@@ -62,7 +62,6 @@
                   id="Image"
                   name="radio"
                   value="Image"
-                  checked
                 />
                 <label for="Image">Image</label>
                 <input type="radio" id="noImage" name="radio" value="noImage" />
@@ -82,8 +81,9 @@
                   name="text"
                   placeholder="Your text here...."
                   style="height: 70px; width: 70%"
+                  required
                 ></textarea>
-                <input class="light-border" type="file" name="media_filename" />
+                <input class="light-border" type="file" name="media_filename"  required/>
                 <input
                   class="light-border"
                   type="hidden"
@@ -130,6 +130,7 @@
                   name="text"
                   placeholder="Your text here...."
                   style="height: 70px; width: 250px"
+                  required
                 />
                 <input
                   class="light-border"
