@@ -217,6 +217,7 @@ ul div p {
   flex: 1;
   margin-left: 15px;
   text-align: end;
+  margin-right: 10px;
 }
 #right p {
   flex: 6;
@@ -241,6 +242,7 @@ ul div p {
   flex: 1;
   margin-left: 15px;
   text-align: end;
+  margin-right: 10px;
 }
 #left p {
   flex: 5;
