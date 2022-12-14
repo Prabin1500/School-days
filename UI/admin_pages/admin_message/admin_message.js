@@ -40,7 +40,7 @@ const createMemberList = (members) =>{
           getMessages();
           messagesBox.innerHTML=`
           <form action="http://localhost:3000/sendMessage" method="post" enctype="multipart/form-data" id ="messageForm">
-              <textarea class="light-border" name="description" rows="5" cols = "50" id="messageText"></textarea>
+              <textarea class="light-border" name="description" rows="5" cols = "50" id="messageText" required></textarea>
               <input type = "hidden" name="sender" value="${reciever}">
               <input type = "hidden" name="reciever" value="${members[i].username}">
               <button type="submit" id="submit">Send</button>

@@ -12,7 +12,7 @@ const announcements = await response.json();
 const article = document.createElement('div');
     article.innerHTML += `
     <form action="http://localhost:3000/announcementUpdate" method="post" enctype="multipart/form-data" class="light-border">
-      <textarea class="light-border" name="text" rows="5" cols = "50" id="text">${announcements.TEXT}</textarea>
+      <textarea class="light-border" name="text" rows="5" cols = "50" id="text"  required>${announcements.TEXT}</textarea>
       <input type="hidden" name="announcementid" value ="${announcements.ANNOUNCEMENTID}"> 
       <button class="light-border" type="submit" id="submit">Update</button>
     </form>
