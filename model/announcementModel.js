@@ -6,25 +6,28 @@ const promisePool = pool.promise();
 const getAnnouncement = async () => {
   try {
     const [rows] = await promisePool.query(
-      "select announcement.announcementid,announcement.text,announcement.media_filename, announcement.dateandtime, users.first_name, users.last_name from announcement,users where announcement.class = 0 and announcement.userssn = users.userssn  order by announcementid desc;"
+      "select announcement.announcementid,announcement.text,announcement.media_filename, announcement.dateandtime, users.first_name, users.last_name from announcement,users where announcement.userssn = users.userssn and users.role = ? order by announcementid desc;","admin"
     );
     return rows;
   } catch (e) {
-    res.status(500).send(e.message);
+    console.log(e);
   }
 };
 
+//get Announcement from database according to Announcement ID (used for updating announcement.)
 const getAnnouncementById = async(announcementID) => {
   const [rows]= await promisePool.query("SELECT * FROM announcement where announcementid =?",announcementID); 
   return rows[0];
 };
 
+//get Announcement from database based on UserSSN
 const announcementFiltered = async(userssn) =>{
   const [rows] = await promisePool.query("SELECT announcement.announcementid,announcement.text,announcement.media_filename, announcement.dateandtime, users.first_name, users.last_name from announcement,users where announcement.userssn=users.userssn and announcement.userssn = ? order by announcementid desc; ",[userssn]);
   console.log(rows);
   return rows;
 };
 
+//get Announcement from database based on class
 const announcementFilteredByClass = async(Class) =>{
   const [rows] = await promisePool.query("SELECT announcement.announcementid,announcement.text,announcement.media_filename, announcement.dateandtime, users.first_name, users.last_name from announcement,users where announcement.class=? and announcement.userssn = users.userssn  order by announcementid desc;", [Class]);
   console.log(rows);
@@ -75,6 +78,7 @@ const addAnnouncement = async (announcement, res) => {
   
 };
 
+//adding announcement into database without image(just text, poster ssn, data and time and class)
 const addAnnouncementNoImage = async(data,res) => {
   try{
     // https://stackoverflow.com/questions/10211145/getting-current-date-and-time-in-javascript
@@ -94,6 +98,7 @@ const addAnnouncementNoImage = async(data,res) => {
   }
 };
 
+//delete announcement from database
 const deleteAnnouncement = async(announcementID, res) => {
   try{
     const [result] = await promisePool.query("DELETE FROM announcement where announcementid = ? ", [announcementID]);
@@ -104,6 +109,7 @@ const deleteAnnouncement = async(announcementID, res) => {
   }
 };
 
+//update announcement already on database (only text and time, no image)
 const updateAnnouncement = async (announcement,res) => {
   try{
   var currentdate = new Date();

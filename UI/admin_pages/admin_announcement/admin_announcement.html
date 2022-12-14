@@ -1,169 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="../../navigation.css" />
-    
-    <link
-      rel="stylesheet"
-      href="../../teacher_pages/teacher_announcement/teacher_announcement.css"
-    />
-    <link rel="stylesheet" href="../../footer.css" />
-    <script
-      defer
-      src="https://kit.fontawesome.com/0fb84f1994.js"
-      crossorigin="anonymous"
-    ></script>
-    <script defer src="../../js/logout.js"></script>
-    <script defer src="./admin_announcement.js"></script>
-  </head>
-  <body>
-    <nav class="top_menu">
-      <div class="top_menu_link">
-        <a id="btnannouncement" class="active" href="javascript:void(0)"
-          >Announcement</a>
-        <a id="btnmessage"href="javascript:void(0)">Messages</a>
-        <a id="btnparent" href="javascript:void(0)">Users list</a>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="../../navigation.css" />
+  <link rel="stylesheet" href="../../teacher_pages/teacher_announcement/teacher_announcement.css" />
+  <link rel="stylesheet" href="../../footer.css" />
+  <script defer src="https://kit.fontawesome.com/0fb84f1994.js" crossorigin="anonymous"></script>
+  <script defer src="../../js/logout.js"></script>
+  <script defer src="./admin_announcement.js"></script>
+</head>
+
+<body>
+  <nav class="top_menu">
+    <div class="top_menu_link">
+      <a id="btnannouncement" class="active" href="javascript:void(0)">Announcement</a>
+      <a id="btnmessage" href="javascript:void(0)">Messages</a>
+      <a id="btnparent" href="javascript:void(0)">Users list</a>
+    </div>
+    <div class="dropdown">
+      <button class="dropdown-btn">
+        <p class="welcome"></p>
+        <i class="fa-sharp fa-solid fa-user"></i>
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="#" id="username"></a>
+        <a id="log-out" href="#">Log out</a>
       </div>
-      <div class="dropdown">
-        <button class="dropdown-btn">
-          <p class="welcome"></p>
-          <i class="fa-sharp fa-solid fa-user"></i>
-          <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-content">
-          <a href="#" id="username"></a>
-          <a id="log-out" href="#">Log out</a>
-        </div>
-      </div>
-    </nav>
-    <div class="divider">
-      <div class="leftbox">
-        <div class="card">
-          <div class="container">
-            <img
-              src="https://placekitten.com/200/300"
-              alt="Avatar"
-              style="width: 100%"
-            />
-            <h4 class="name"><b></b></h4>
-            <p class="role"></p>
-          </div>
-        </div>
-      </div>
-      <div class="rightbox">
-        <div class="topsection">
-          <div class="container">
-            <h2>Post Announcement</h2>
-            <div class="addannouncement">
-              <form class="light-border">
-                <input
-                  type="radio"
-                  id="Image"
-                  name="radio"
-                  value="Image"
-                  checked
-                />
-                <label for="Image">Image</label>
-                <input type="radio" id="noImage" name="radio" value="noImage" />
-                <label for="noImage">No Image</label>
-              </form>
-
-              <form
-                action="http://localhost:3000/announcement"
-                method="post"
-                enctype="multipart/form-data"
-                class="light-border"
-                id="withImage"
-              >
-                <input
-                  class="light-border"
-                  type="text"
-                  name="text"
-                  placeholder="Your text here...."
-                  style="height: 70px; width: 250px"
-                />
-                <input class="light-border" type="file" name="media_filename" />
-                <input
-                  class="light-border"
-                  type="hidden"
-                  name="userssn"
-                  placeholder="USSERSSN"
-                  id="userssn"
-                />
-                
-                <button
-                  class="light-border"
-                  type="submit"
-                  id="submit"
-                  style="width: 50px"
-                >
-                  Save
-                </button>
-              </form>
-              <form
-                action="http://localhost:3000/noimage"
-                method="post"
-                enctype="multipart/form-data"
-                class="light-border"
-                id="withoutImage"
-                style="display: none"
-              >
-                <input
-                  class="light-border"
-                  type="text"
-                  name="text"
-                  placeholder="Your text here...."
-                  style="height: 70px; width: 250px"
-                />
-                <input
-                  class="light-border"
-                  type="hidden"
-                  name="userssn"
-                  placeholder="USSERSSN"
-                  id="userssn2"
-                />
-                
-                <button
-                  class="light-border"
-                  type="submit"
-                  id="submit1"
-                  style="width: 50px"
-                >
-                  Save
-                </button>
-              </form>
-            </div>
-
-            <h1>Announcement</h1>
-            <ul class="announcementbox"></ul>
-          </div>
-        </div>
-
-        <div class="parentlist" style="display: none">
-          <h1>List of parents</h1>
-          <ul id="listparent"></ul>
-        </div>
-
-        <div class="studentlist" style="display: none">
-          <h1 id="studentsparent"></h1>
-          <ul id="liststudent"></ul>
+    </div>
+  </nav>
+  <div class="divider">
+    <div class="leftbox">
+      <div class="card">
+        <div class="container">
+          <img src="https://placekitten.com/200/300" alt="Avatar" style="width: 100%" />
+          <h4 class="name"><b></b></h4>
+          <p class="role"></p>
         </div>
       </div>
     </div>
-    <footer>
-      <div class="footer-wrapper">
-        <p>
-          Bal-Mandir Secondary school<br />
-          Brooklyn road, 00001, Helsinki<br />
-          <a href="mailto:balmandir@school.fi">balmandir@school.fi</a><br />
-          <i class="fa-solid fa-phone-volume"></i>
-          :52435326467
-        </p>
+    <div class="rightbox">
+      <div class="topsection">
+        <div class="container">
+          <h2>Post Announcement</h2>
+          <div class="addannouncement">
+            <form class="light-border">
+              <input type="radio" id="Image" name="radio" value="Image" checked />
+              <label for="Image">Image</label>
+              <input type="radio" id="noImage" name="radio" value="noImage" />
+              <label for="noImage">No Image</label>
+            </form>
+
+            <form action="http://localhost:3000/announcement" method="post" enctype="multipart/form-data"
+              class="light-border" id="withImage">
+              <input class="light-border" type="text" name="text" placeholder="Your text here...."
+                style="height: 70px; width: 250px" required />
+              <input class="light-border" type="file" name="media_filename" required />
+              <input class="light-border" type="hidden" name="userssn" placeholder="USSERSSN" id="userssn" required />
+
+              <button class="light-border" type="submit" id="submit" style="width: 50px">
+                Save
+              </button>
+            </form>
+            <form action="http://localhost:3000/noimage" method="post" enctype="multipart/form-data"
+              class="light-border" id="withoutImage" style="display: none">
+              <input class="light-border" type="text" name="text" placeholder="Your text here...."
+                style="height: 70px; width: 250px" required />
+              <input class="light-border" type="hidden" name="userssn" placeholder="USSERSSN" id="userssn2" required />
+
+              <button class="light-border" type="submit" id="submit1" style="width: 50px">
+                Save
+              </button>
+            </form>
+          </div>
+
+          <h1>Announcement</h1>
+          <ul class="announcementbox"></ul>
+        </div>
       </div>
-    </footer>
-  </body>
+
+      <div class="parentlist" style="display: none">
+        <h1>List of parents</h1>
+        <ul id="listparent"></ul>
+      </div>
+
+      <div class="studentlist" style="display: none">
+        <h1 id="studentsparent"></h1>
+        <ul id="liststudent"></ul>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-wrapper">
+      <p>
+        Bal-Mandir Secondary school<br />
+        Brooklyn road, 00001, Helsinki<br />
+        <a href="mailto:balmandir@school.fi">balmandir@school.fi</a><br />
+        <i class="fa-solid fa-phone-volume"></i>
+        :52435326467
+      </p>
+    </div>
+  </footer>
+</body>
+
 </html>

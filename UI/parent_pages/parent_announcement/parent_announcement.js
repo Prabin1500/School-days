@@ -110,7 +110,7 @@ const createAnnouncementCards = (announcements) =>{
       const figure = document.createElement('figure').appendChild(newsImage);
       figure.style.maxWidth = '100%';
       figure.style.height = 'auto';
-      figure.style.borderRadius = '20px 20px 20px 20px';
+      figure.style.borderRadius='20px 20px 20px 20px'
 
     if(announcements[i].media_filename != null){
       div1.appendChild(figure);

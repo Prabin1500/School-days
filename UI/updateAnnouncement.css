@@ -1,0 +1,33 @@
+div{
+    width: 40%;
+    border: 1px solid black;
+    margin: auto;
+    align-items: center;
+    box-shadow: 5px 5px 20px ;
+    border-radius: 10px;
+    height: 25vh;
+    margin-top: 200px;
+    background-color: white;
+}
+
+#text{
+    margin: 60px;
+    width: 70%;
+    border-radius: 20px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+h1{
+    text-align: center;
+    
+}
+#submit{
+    margin-left: -300px;
+    border-radius: 10px;
+    width: 100px;
+    height: 3vh;
+}
+body{
+    background-color: lightgray;
+}

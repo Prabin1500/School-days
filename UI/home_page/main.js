@@ -96,7 +96,7 @@ const createAnnouncementCards = (announcements) =>{
 
   for(let i = 0; i<=announcements.length; i++ ){
     const newsImage = document.createElement('img');
-      newsImage.src = '../../cat.jpeg' ;
+      newsImage.src = '../../uploads/'+announcements[i].media_filename ;
       newsImage.classList.add('news-img');
 
       const figure = document.createElement('div').appendChild(newsImage);

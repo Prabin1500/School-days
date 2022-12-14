@@ -40,7 +40,7 @@
     <div class="divider">
       <div class="leftbox">
         <div class="card">
-          <div class="container">
+          <div class="left-container">
             <img
               src="https://placekitten.com/200/300"
               alt="Avatar"
@@ -62,7 +62,6 @@
                   id="Image"
                   name="radio"
                   value="Image"
-                  checked
                 />
                 <label for="Image">Image</label>
                 <input type="radio" id="noImage" name="radio" value="noImage" />
@@ -76,14 +75,15 @@
                 class="light-border"
                 id="withImage"
               >
-                <input
+                <textarea
                   class="light-border"
-                  type="text"
+                  type="textarea"
                   name="text"
                   placeholder="Your text here...."
-                  style="height: 70px; width: 250px"
-                />
-                <input class="light-border" type="file" name="media_filename" />
+                  style="height: 70px; width: 70%"
+                  required
+                ></textarea>
+                <input class="light-border" type="file" name="media_filename"  required/>
                 <input
                   class="light-border"
                   type="hidden"
@@ -124,13 +124,14 @@
                 id="withoutImage"
                 style="display: none"
               >
-                <input
-                  class="light-border"
-                  type="text"
-                  name="text"
-                  placeholder="Your text here...."
-                  style="height: 70px; width: 250px"
-                />
+              <textarea
+              class="light-border"
+              type="textarea"
+              name="text"
+              placeholder="Your text here...."
+              style="height: 70px; width: 70%"
+              required
+            ></textarea>
                 <input
                   class="light-border"
                   type="hidden"
