@@ -1,21 +1,25 @@
-div{
-    width: 40%;
-    border: 1px solid black;
+.update-announcement-form-wrapper{
+  width: 60%;
     margin: auto;
     align-items: center;
     box-shadow: 5px 5px 20px ;
-    border-radius: 10px;
-    height: 25vh;
+    border-radius: calc(3 * var(--borderRadius));
+    padding: var(--spacerLarger);
     margin-top: 200px;
-    background-color: white;
+    background-color: var(--blue);
+    display: flex;
+    justify-content: center;
+
 }
 
+
 #text{
-    margin: 60px;
-    width: 70%;
-    border-radius: 20px;
-    text-align: center;
-    margin-bottom: 50px;
+   width: calc(100% - 2 * var(--spacerLarger));
+    border-radius: calc(2 * var(--borderRadius));
+    margin-bottom: var(--spacerLarger);
+  
+    min-height: 250px;
+    padding: var(--spacerLarger);
 }
 
 h1{
@@ -23,11 +27,12 @@ h1{
     
 }
 #submit{
-    margin-left: -300px;
+    padding: var(--spacerLarger);
     border-radius: 10px;
-    width: 100px;
-    height: 3vh;
+    width: 100%;
+    font-size: 1.05rem;
 }
 body{
     background-color: lightgray;
+    height: 100vh;
 }
