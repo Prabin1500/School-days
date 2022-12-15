@@ -1,7 +1,7 @@
 'use strict';
 
 
-const url = 'https://schooldays.northeurope.cloudapp.azure.com/app';
+const url = 'https://schooldays2.northeurope.cloudapp.azure.com/app';
 const welcome = document.querySelector('.welcome');
 const ul = document.querySelector('#listTeacher');
 const listStudent = document.querySelector('#listStudent');
@@ -30,9 +30,9 @@ let listofusers = [];
 let listofstudents = [];
 
 let user = JSON.parse(sessionStorage.getItem('user'));
-
-welcome.innerHTML ='Welcome ' + user.FIRST_NAME;
-nameofuser.innerHTML = user.USERNAME;
+console.log(user);
+welcome.innerHTML ='Welcome ' + user.first_name;
+nameofuser.innerHTML = user.username;
 
 //toogle for AddUser button
 addUser.addEventListener('click',() =>{
@@ -91,10 +91,10 @@ addStudent.addEventListener('click',() =>{
 });
 
 announcementbtn.addEventListener('click', () => {
-  location.href= '../admin_announcement/admin_announcement.html';
+  location.href= '/admin_announcement.html';
 });
 btnmessage.addEventListener('click', () => {
-  location.href="../admin_message/admin_message.html"
+  location.href="/admin_message.html"
   getAllUsers();
 });
 
@@ -108,7 +108,7 @@ const createUserCards = (users) => {
     // create li with DOM methods
     
     const img = document.createElement('img');
-    img.src='../../../cat.jpeg'
+    img.src='https://placekitten.com/200/300'
   
     const div = document.createElement('div');
     div.className='imgClass';
@@ -255,7 +255,7 @@ userForm.addEventListener('submit', async (evt) => {
   const response = await fetch(url + '/auth/registerUser', fetchOptions);
   const json = await response.json();
   alert(json.message);
-  location.href = './admin_userList.html';
+  window.location.href = '/admin_userList.html';
 });
 
 //submit student form
@@ -274,5 +274,5 @@ studentForm.addEventListener('submit', async (evt) => {
   const response = await fetch(url + '/auth/registerStudent', fetchOptions);
   const json = await response.json();
   alert(json.message);
-  location.href = 'admin_userList.html';
+  window.location.href = '/admin_userList.html';
 });

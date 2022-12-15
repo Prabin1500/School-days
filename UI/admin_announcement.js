@@ -1,6 +1,6 @@
 "use strict";
 
-const url = "https://schooldays.northeurope.cloudapp.azure.com/app";
+const url = "https://schooldays2.northeurope.cloudapp.azure.com/app";
 
 const welcome = document.querySelector(".welcome");
 const username = document.querySelector("#username");
@@ -21,29 +21,29 @@ const role = document.querySelector(".role");
 let showhide = false;
 
 let user = JSON.parse(sessionStorage.getItem("user"));
-welcome.innerHTML = "Welcome " + user.FIRST_NAME;
-username.innerHTML = user.USERNAME;
-nameofuser.innerHTML = user.FIRST_NAME + " " + user.LAST_NAME;
-role.innerHTML = user.ROLE;
+welcome.innerHTML = "Welcome " + user.first_name;
+username.innerHTML = user.username;
+nameofuser.innerHTML = user.first_name + " " + user.last_name;
+role.innerHTML = user.role;
 
 document.getElementById('submit').onclick= onclickL();
 document.getElementById('submit1').onclick= onclickR();
 
 function onclickL(){
-  document.getElementById('userssn').value = user.USERSSN;
+  document.getElementById('userssn').value = user.userssn;
 };
 
 function onclickR(){
-  document.getElementById('userssn2').value = user.USERSSN;
+  document.getElementById('userssn2').value = user.userssn;
   
 };
   
 btnparent.addEventListener("click", () => {
-  location.href = "../admin_userlist/admin_userlist.html";
+  location.href = "/admin_userlist.html";
 });
 
 btnmessage.addEventListener("click", () => {
-  location.href = "../admin_message/admin_message.html";
+  location.href = "/admin_message.html";
 });
 
 const createAnnouncementCards = (announcements) => {
@@ -79,7 +79,7 @@ const createAnnouncementCards = (announcements) => {
     modButton.id = "modbutton";
     modButton.innerHTML = '<i class="fa-solid fa-pen-to-square"></i>';
     modButton.addEventListener("click", async () => {
-      location.href = `../../updateAnnouncement.html?id=${announcements[i].announcementid}`;
+      location.href = `/updateAnnouncement.html?id=${announcements[i].announcementid}`;
     });
 
     // delete selected

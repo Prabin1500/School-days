@@ -1,6 +1,6 @@
 "use strict";
 
-const url = 'http://localhost:3000';
+const url = 'https://schooldays2.northeurope.cloudapp.azure.com/app';
 
 const welcome = document.querySelector('.welcome');
 const listStudent = document.querySelector('.studentList');
@@ -21,16 +21,16 @@ const role = document.querySelector('.role');
 let showhide = false;
 
 let user = JSON.parse(sessionStorage.getItem('user'));
-welcome.innerHTML ='Welcome ' + user.FIRST_NAME;
-username.innerHTML = user.USERNAME;
-nameofuser.innerHTML = user.FIRST_NAME + ' ' + user.LAST_NAME;
-role.innerHTML = user.ROLE.toUpperCase();
+welcome.innerHTML ='Welcome ' + user.first_name;
+username.innerHTML = user.username;
+nameofuser.innerHTML = user.first_name + ' ' + user.last_name;
+role.innerHTML = user.role.toUpperCase();
 
 btnannouncement.addEventListener('click', () => {
-  location.href="../teacher_announcement/teacher_announcement.html"
+  location.href="/teacher_announcement.html"
 });
 btnmessage.addEventListener('click', () => {
-  location.href="../teacher_message/teacher_message.html"
+  location.href="/teacher_message.html"
 });
 
 
@@ -42,7 +42,7 @@ const createParentCards = (users) => {
   users.forEach((user) => {
     
     const img = document.createElement('img');
-    img.src='../../../cat.jpeg'
+    img.src='/cat.jpeg'
   
     const div = document.createElement('div');
     div.className='imgClass';

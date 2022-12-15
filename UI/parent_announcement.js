@@ -1,6 +1,6 @@
 'use strict';
 
-const url = 'https://schooldays.northeurope.cloudapp.azure.com/app';
+const url = 'https://schooldays2.northeurope.cloudapp.azure.com/app';
 
 const welcome = document.querySelector('.welcome');
 const listStudent = document.querySelector('.studentList');
@@ -15,13 +15,13 @@ const role = document.querySelector('.role');
 let showhide = false;
 let user = JSON.parse(sessionStorage.getItem('user'));
 
-welcome.innerHTML ='Welcome ' + user.FIRST_NAME;
-nameofuser.innerHTML = user.USERNAME;
-username.innerHTML = user.FIRST_NAME + ' ' + user.LAST_NAME;
-role.innerHTML = user.ROLE.toUpperCase();
+welcome.innerHTML ='Welcome ' + user.first_name;
+nameofuser.innerHTML = user.username;
+username.innerHTML = user.first_name + ' ' + user.last_name;
+role.innerHTML = user.role.toUpperCase();
 
 btnmessage.addEventListener('click', () => {
-  location.href="../parent_message/parent_message.html"
+  location.href="/parent_message.html";
   getAllUsers();
 });
 

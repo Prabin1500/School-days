@@ -4,11 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../../navigation.css">
-    <link rel="stylesheet" href="admin_userlist.css" />
-    <link rel="stylesheet" href="../../default.css">
-    <link rel="stylesheet" href="../../footer.css">
-    <link rel="javascript" href="admin_userlist.js" />
+    <link rel="stylesheet" href="/navigation.css">
+    <link rel="stylesheet" href="/admin_userlist.css" />
+    <link rel="stylesheet" href="/default.css">
+    <link rel="stylesheet" href="/footer.css">
+    <link rel="javascript" href="/admin_userlist.js" />
     <script
       defer
       src="https://kit.fontawesome.com/0fb84f1994.js"
@@ -50,7 +50,7 @@
           <div class="formsUser" style="display: none;">
             <div class="form-wrapper">
               <h2>Add User</h2>
-              <form action="https://schooldays.northeurope.cloudapp.azure.com/app/" method="post" class="light-border"
+              <form action="https://schooldays2.northeurope.cloudapp.azure.com/app/" method="post" class="light-border"
                   enctype="multipart/form-data" id="addUserForm">
                   <input class="light-border" type="text" name="userssn" placeholder="UserSSN" required>
                   <input class="light-border" type="text" name="firstName" placeholder="FirstName" required>
@@ -63,7 +63,7 @@
                     <option value="parent">Parent</option> 
                   </select>
                   <input class="light-border" type="text" name="username" placeholder="UserName" required>
-                  <input class="light-border" type="text" name="password" placeholder="Password" required>
+                  <input class="light-border" type="password" name="password" placeholder="Password" required>
                   <select class="light-border" name="class">
                     <option value=Null selected>Select Class</option>
                     <option value="1">One</option>
@@ -167,9 +167,9 @@
         </p>
       </div>
     </footer>
-    <script src="admin_userlist.js"></script>
-    <script src="../../js/serialize.js"></script>
-    <script src="../../js/logout.js"></script>
+    <script src="/admin_userlist.js"></script>
+    <script src="/serialize.js"></script>
+    <script src="/logout.js"></script>
   </body>
 </html>
 

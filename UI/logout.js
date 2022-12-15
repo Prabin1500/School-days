@@ -1,6 +1,6 @@
 'use strict';
 
-const url1 = 'https://schooldays.northeurope.cloudapp.azure.com/app';
+const url1 = 'https://schooldays2.northeurope.cloudapp.azure.com/app';
 const logOut = document.querySelector('#log-out');
 
 logOut.addEventListener('click', async (evt) => {
@@ -18,9 +18,8 @@ logOut.addEventListener('click', async (evt) => {
       sessionStorage.removeItem('token');
       sessionStorage.removeItem('user');
       alert('You have logged out');
-      location.href='../../home_page/index.html';
+      location.href='/index.html';
     } catch (e) {
       console.log(e.message);
     }
   });
-  
