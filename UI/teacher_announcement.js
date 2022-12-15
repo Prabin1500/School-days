@@ -57,7 +57,7 @@ const createAnnouncementCards = (announcements) =>{
     div2.className ='button';
 
     const newsImage = document.createElement('img');
-      newsImage.src = '../../../uploads/' + announcements[i].media_filename;
+      newsImage.src = url+'/'+announcements[i].media_filename ;
       newsImage.classList.add('resp');
       const figure = document.createElement('figure').appendChild(newsImage);
       figure.style.maxWidth = '50%';

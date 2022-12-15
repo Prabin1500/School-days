@@ -70,7 +70,10 @@ const addAnnouncement = async (announcement, res) => {
     ];
     const sql = "INSERT INTO announcement VALUES (null,?,?,?,?,?)";
     const [result] = await promisePool.query(sql, values);
-    return result.insertId;
+    if(announcement.class == null){
+      return res.redirect('https://schooldays2.northeurope.cloudapp.azure.com/admin_announcement.html');}
+    else {
+      return res.redirect('https://schooldays2.northeurope.cloudapp.azure.com/teacher_announcement.html');}
     
   } catch (e) {
     res.status(500).send(e.message);
@@ -92,7 +95,10 @@ const addAnnouncementNoImage = async(data,res) => {
     const sql =
   "INSERT INTO announcement(text,dateandtime,userssn,class) VALUES (?,?,?,?)";
   const[rows]=  await promisePool.query(sql, [data.text, datetime,data.userssn, data.class]);
-  return res.redirect('https://schooldays.northeurope.cloudapp.azure.com/app/UI/home_page/index.html');
+  if(data.class == null){
+    return res.redirect('https://schooldays2.northeurope.cloudapp.azure.com/admin_announcement.html');}
+  else {
+    return res.redirect('https://schooldays2.northeurope.cloudapp.azure.com/teacher_announcement.html');} 
   }catch(e){
     res.status(500).send(e.message);
   }
@@ -127,7 +133,7 @@ const updateAnnouncement = async (announcement,res) => {
     currentdate.getSeconds();
     const{text,announcementid} = announcement;
     const [rows] =  await promisePool.query("UPDATE announcement SET text =?, dateandtime=? where announcementid = ?",[text,datetime,announcementid]); 
-    return res.redirect('https://schooldays.northeurope.cloudapp.azure.com/app/UI/home_page/index.html');
+    return res.redirect('https://schooldays2.northeurope.cloudapp.azure.com/index.html');
   }catch(e){
     console.error("error", e.message);
     res.status(500).json({'error': e.message});

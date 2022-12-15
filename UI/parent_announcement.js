@@ -38,7 +38,7 @@ const getAllStudents = async() => {
       const response = await fetch(url + '/student', fetchOptions);
       const students = await response.json();
       for (let i = 0; i < students.length; i++) {
-        if(user.USERSSN == students[i].userssn){
+        if(user.userssn == students[i].userssn){
           usersChildren.push(students[i]);
         } 
       };
@@ -105,7 +105,7 @@ const createAnnouncementCards = (announcements) =>{
 
 
     const newsImage = document.createElement('img');
-      newsImage.src = '../../../uploads/' + announcements[i].media_filename;
+      newsImage.src = url+'/'+announcements[i].media_filename ;
       newsImage.classList.add('resp');
       const figure = document.createElement('figure').appendChild(newsImage);
       figure.style.maxWidth = '100%';
