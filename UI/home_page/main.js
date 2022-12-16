@@ -1,6 +1,6 @@
 'use strict';
 
-const url = 'https://schooldays.northeurope.cloudapp.azure.com/app'; 
+const url = 'http://localhost:3000'; 
 
 // select existing html elements
 const ul = document.querySelector('#list');
@@ -45,6 +45,7 @@ loginForm.addEventListener('submit', async (evt) => {
 
   const response = await fetch(url + '/auth/login', fetchOptions);
   console.log("login");
+  alert('')
   const json = await response.json();
   console.log(json);
   if (!json.user) {
@@ -53,7 +54,6 @@ loginForm.addEventListener('submit', async (evt) => {
     // save token
     sessionStorage.setItem('token', json.token);
     sessionStorage.setItem('user', JSON.stringify(json.user));
-    console.log("login1");
     startApp(true);
   }
 });

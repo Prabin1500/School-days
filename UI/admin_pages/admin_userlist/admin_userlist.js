@@ -1,7 +1,7 @@
 'use strict';
 
 
-const url = 'https://schooldays.northeurope.cloudapp.azure.com/app';
+const url = 'http://localhost:3000';
 const welcome = document.querySelector('.welcome');
 const ul = document.querySelector('#listTeacher');
 const listStudent = document.querySelector('#listStudent');
@@ -274,5 +274,5 @@ studentForm.addEventListener('submit', async (evt) => {
   const response = await fetch(url + '/auth/registerStudent', fetchOptions);
   const json = await response.json();
   alert(json.message);
-  location.href = 'admin_userList.html';
+  location.href = './admin_userList.html';
 });

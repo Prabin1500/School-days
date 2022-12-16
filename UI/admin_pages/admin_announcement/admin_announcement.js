@@ -1,6 +1,6 @@
 "use strict";
 
-const url = "https://schooldays.northeurope.cloudapp.azure.com/app";
+const url = "http://localhost:3000";
 
 const welcome = document.querySelector(".welcome");
 const username = document.querySelector("#username");
