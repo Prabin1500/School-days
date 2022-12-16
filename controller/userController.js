@@ -4,7 +4,7 @@ const getAllUsers = async(req,res) => {
     const users = await userModel.getAllUsers();
     users.map(user => {
         //remove password property for user items
-        delete user.PASSWORD;
+        delete user.password;
         return user
     });
     res.json(users);
