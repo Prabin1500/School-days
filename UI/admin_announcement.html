@@ -6,12 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
-  <link rel="stylesheet" href="../../navigation.css" />
-  <link rel="stylesheet" href="../../teacher_pages/teacher_announcement/teacher_announcement.css" />
-  <link rel="stylesheet" href="../../default.css">
-  <link rel="stylesheet" href="../../footer.css" />
+  <link rel="stylesheet" href="./navigation.css" />
+  <link rel="stylesheet" href="./teacher_announcement.css" />
+  <link rel="stylesheet" href="./default.css">
+  <link rel="stylesheet" href="./footer.css" />
   <script defer src="https://kit.fontawesome.com/0fb84f1994.js" crossorigin="anonymous"></script>
-  <script defer src="../../js/logout.js"></script>
+  <script defer src="./logout.js"></script>
   <script defer src="./admin_announcement.js"></script>
 </head>
 
@@ -58,8 +58,8 @@
 
             <form action="http://localhost:3000/announcement" method="post" enctype="multipart/form-data"
               class="light-border" id="withImage">
-              <input class="light-border" type="text" name="text" placeholder="Your text here...."
-                style="height: 70px; width: 250px" required />
+              <textarea class="light-border" type="text" name="text" placeholder="Your text here...."
+              style="height: 70px; width: 70%" required></textarea>
               <input class="light-border" type="file" name="media_filename" required />
               <input class="light-border" type="hidden" name="userssn" placeholder="USSERSSN" id="userssn" required />
 
@@ -69,8 +69,8 @@
             </form>
             <form action="http://localhost:3000/noimage" method="post" enctype="multipart/form-data"
               class="light-border" id="withoutImage" style="display: none">
-              <input class="light-border" type="text" name="text" placeholder="Your text here...."
-                style="height: 70px; width: 250px" required />
+              <textarea class="light-border" type="text" name="text" placeholder="Your text here...."
+              style="height: 70px; width: 70%" required></textarea>
               <input class="light-border" type="hidden" name="userssn" placeholder="USSERSSN" id="userssn2" required />
 
               <button class="light-border" type="submit" id="submit1" style="width: 50px">

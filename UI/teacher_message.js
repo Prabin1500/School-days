@@ -11,19 +11,19 @@ const recievedMessages = document.getElementById("recieverDiv");
 const messagesBox = document.getElementById("messagebox");
 
 let user = JSON.parse(sessionStorage.getItem('user'));
-let reciever = user.USERNAME;
+let reciever = user.username;
 let sender;
 
 welcome.innerHTML ='Welcome ' + user.FIRST_NAME;
 username.innerHTML = user.USERNAME;
 
 btnlist.addEventListener('click', () => {
-    location.href="../teacher_studentlist/teacher_studentlist.html"
+    location.href="teacher_studentlist.html"
     getAllUsers();
   });
 
   btnannouncement.addEventListener('click', () => {
-    location.href="../teacher_announcement/teacher_announcement.html"
+    location.href="teacher_announcement.html"
     getAllUsers();
   });
 
@@ -37,7 +37,7 @@ btnlist.addEventListener('click', () => {
             sender=adminbtn.value;
             getMessages();
             messagesBox.innerHTML=`
-            <form action="http://localhost:3000/sendMessage" method="post" enctype="multipart/form-data" id ="messageForm">
+            <form action="https://schooldays2.northeurope.cloudapp.azure.com/app/sendMessage" method="post" enctype="multipart/form-data" id ="messageForm">
               <textarea class="light-border" name="description" rows="5" cols = "50" id="messageText" required></textarea>
               <input type = "hidden" name="sender" value="${reciever}">
               <input type = "hidden" name="reciever" value="${members[i].username}">
@@ -55,7 +55,7 @@ btnlist.addEventListener('click', () => {
             sender=btn.value;
             getMessages();
             messagesBox.innerHTML=`
-            <form action="http://localhost:3000/sendMessage" method="post" enctype="multipart/form-data" id ="messageForm">
+            <form action="https://schooldays2.northeurope.cloudapp.azure.com/app/sendMessage" method="post" enctype="multipart/form-data" id ="messageForm">
               <textarea class="light-border" name="description" rows="5" cols = "50" id="messageText" required></textarea>
               <input type = "hidden" name="sender" value="${reciever}">
               <input type = "hidden" name="reciever" value="${members[i].username}">

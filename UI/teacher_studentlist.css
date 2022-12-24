@@ -158,6 +158,8 @@
     flex-wrap: wrap;
     text-align: center;
     align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
     gap: 10px;
     width: 200px;
     flex-direction: column;
@@ -168,12 +170,13 @@
   .parentlist ul{
     display: flex;
     flex-direction: row;
-    margin-top: 60px;
+    margin-top: 40px;
+    margin-bottom: 30px;
     margin-left: 20px;
     padding: 0;
     list-style-type: none;
     gap: 20px;
-    overflow-y: scroll;
+    overflow-x: scroll;
   }
   
   #liststudent li{
@@ -183,9 +186,9 @@
     align-items: center;
     gap: 10px;
     width: 200px;
+    margin-bottom: 20px;
     flex-direction: column;
-    overflow-y: scroll;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 1);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 30px 0 rgba(0, 0, 0, 0.2);
     background: linear-gradient(121deg, rgba(212, 198, 198, 0) 13%, rgb(119, 186, 228) 100%);
   
   }
@@ -193,11 +196,12 @@
   .studentlist ul{
     display: flex;
     flex-direction: row;
-    margin-top: 60px;
+    margin-top: 40px;
     margin-left: 20px;
     padding: 0;
     list-style-type: none;
     gap: 20px;
+    overflow-x: scroll;
   }
   
   #listparent img{

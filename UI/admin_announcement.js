@@ -39,11 +39,11 @@ function onclickR(){
 };
   
 btnparent.addEventListener("click", () => {
-  location.href = "../admin_userlist/admin_userlist.html";
+  location.href = "./admin_userlist.html";
 });
 
 btnmessage.addEventListener("click", () => {
-  location.href = "../admin_message/admin_message.html";
+  location.href = "./admin_message.html";
 });
 
 const createAnnouncementCards = (announcements) => {
@@ -56,10 +56,10 @@ const createAnnouncementCards = (announcements) => {
     div2.className = "button";
 
     const newsImage = document.createElement('img');
-      newsImage.src = '../../../uploads/' + announcements[i].media_filename;
+      newsImage.src = '../uploads/'+announcements[i].media_filename ;
       newsImage.classList.add('resp');
       const figure = document.createElement('figure').appendChild(newsImage);
-      figure.style.maxWidth = '100%';
+      figure.style.maxWidth = '50%';
       figure.style.height = 'auto';
       figure.style.borderRadius='20px 20px 20px 20px'
 
@@ -79,7 +79,7 @@ const createAnnouncementCards = (announcements) => {
     modButton.id = "modbutton";
     modButton.innerHTML = '<i class="fa-solid fa-pen-to-square"></i>';
     modButton.addEventListener("click", async () => {
-      location.href = `../../updateAnnouncement.html?id=${announcements[i].announcementid}`;
+      location.href = `/updateAnnouncement.html?id=${announcements[i].announcementid}`;
     });
 
     // delete selected

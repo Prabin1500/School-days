@@ -21,7 +21,7 @@ username.innerHTML = user.FIRST_NAME + ' ' + user.LAST_NAME;
 role.innerHTML = user.ROLE.toUpperCase();
 
 btnmessage.addEventListener('click', () => {
-  location.href="../parent_message/parent_message.html"
+  location.href="./parent_message.html";
   getAllUsers();
 });
 
@@ -105,7 +105,7 @@ const createAnnouncementCards = (announcements) =>{
 
 
     const newsImage = document.createElement('img');
-      newsImage.src = '../../../uploads/' + announcements[i].media_filename;
+      newsImage.src = '../uploads/' + announcements[i].media_filename ;
       newsImage.classList.add('resp');
       const figure = document.createElement('figure').appendChild(newsImage);
       figure.style.maxWidth = '100%';

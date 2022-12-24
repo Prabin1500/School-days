@@ -20,12 +20,12 @@ const startApp = (logged) => {
 
   if (logged) {
     if(user.ROLE === 'admin'){
-      location.href='../admin_pages/admin_userlist/admin_userlist.html';
+      window.location.href='admin_userlist.html';
     }else if(user.ROLE === 'parent'){
-      location.href='../parent_pages/parent_announcement/parent_announcement.html';
+     window.location.href='parent_announcement.html';
 
     }else if(user.ROLE === 'teacher'){
-      location.href='../teacher_pages/teacher_announcement/teacher_announcement.html';
+      window.location.href='teacher_announcement.html';
     }
   };
 };
@@ -96,7 +96,7 @@ const createAnnouncementCards = (announcements) =>{
 
   for(let i = 0; i<=announcements.length; i++ ){
     const newsImage = document.createElement('img');
-      newsImage.src = '../../uploads/'+announcements[i].media_filename ;
+      newsImage.src = url+'/'+announcements[i].media_filename ;
       newsImage.classList.add('news-img');
 
       const figure = document.createElement('div').appendChild(newsImage);

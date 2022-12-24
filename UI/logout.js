@@ -18,9 +18,8 @@ logOut.addEventListener('click', async (evt) => {
       sessionStorage.removeItem('token');
       sessionStorage.removeItem('user');
       alert('You have logged out');
-      location.href='../../home_page/index.html';
+      location.href='./index.html';
     } catch (e) {
       console.log(e.message);
     }
   });
-  

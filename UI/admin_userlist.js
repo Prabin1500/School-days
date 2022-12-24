@@ -30,7 +30,7 @@ let listofusers = [];
 let listofstudents = [];
 
 let user = JSON.parse(sessionStorage.getItem('user'));
-
+console.log(user);
 welcome.innerHTML ='Welcome ' + user.FIRST_NAME;
 nameofuser.innerHTML = user.USERNAME;
 
@@ -56,7 +56,7 @@ searchvalue.addEventListener('input', (e) => {
     value = value.trim().toLowerCase();
     console.log(value);
     createUserCards(listofusers.filter(p => {
-      let fname = p.first_name + p.last_name;
+      let fname = p.FIRST_NAME + p.LAST_NAME;
       return fname.toLowerCase().includes(value);
     }));
   }
@@ -71,7 +71,7 @@ searchvaluestudent.addEventListener('input', (e) => {
     value = value.trim().toLowerCase();
     console.log(value);
     createStudentCard(listofstudents.filter(p => {
-      let fname = p.first_name + p.last_name;
+      let fname = p.FIRST_NAME + p.LAST_NAME;
       return fname.toLowerCase().includes(value);
     }));
   }
@@ -91,10 +91,11 @@ addStudent.addEventListener('click',() =>{
 });
 
 announcementbtn.addEventListener('click', () => {
-  location.href= '../admin_announcement/admin_announcement.html';
+  location.href= './admin_announcement.html';
 });
+
 btnmessage.addEventListener('click', () => {
-  location.href="../admin_message/admin_message.html"
+  location.href="./admin_message.html"
   getAllUsers();
 });
 
@@ -108,7 +109,7 @@ const createUserCards = (users) => {
     // create li with DOM methods
     
     const img = document.createElement('img');
-    img.src='../../../cat.jpeg'
+    img.src='https://placekitten.com/200/300'
   
     const div = document.createElement('div');
     div.className='imgClass';
@@ -255,7 +256,7 @@ userForm.addEventListener('submit', async (evt) => {
   const response = await fetch(url + '/auth/registerUser', fetchOptions);
   const json = await response.json();
   alert(json.message);
-  location.href = './admin_userList.html';
+  window.location.href = './admin_userList.html';
 });
 
 //submit student form

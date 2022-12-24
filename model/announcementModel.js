@@ -71,9 +71,9 @@ const addAnnouncement = async (announcement, res) => {
     const sql = "INSERT INTO announcement VALUES (null,?,?,?,?,?)";
     const [result] = await promisePool.query(sql, values);
     if(announcement.class == null){
-      return res.redirect('http://localhost:3000/UI/admin_pages/admin_announcement.html');
+      return res.redirect('http://127.0.0.1:5501/UI/admin_announcement.html');
     }else{
-      return res.redirect('http://localhost:3000/UI/teacher_pages/teacher_announcement.html');
+      return res.redirect('http://127.0.0.1:5501/UI/teacher_announcement.html');
     }
     
   } catch (e) {
@@ -98,9 +98,9 @@ const addAnnouncementNoImage = async(data,res) => {
   const[rows]=  await promisePool.query(sql, [data.text, datetime,data.userssn, data.class]);
   
   if(data.class == null){
-    return res.redirect('http://localhost:3000/UI/admin_pages/admin_announcement.html');
+    return res.redirect('http://127.0.0.1:5501/UI/admin_announcement.html');
   }else{
-    return res.redirect('http://localhost:3000/UI/teacher_pages/teacher_announcement.html');
+    return res.redirect('http://127.0.0.1:5501/UI/teacher_announcement.html');
   }
   
   }catch(e){
@@ -137,7 +137,8 @@ const updateAnnouncement = async (announcement,res) => {
     currentdate.getSeconds();
     const{text,announcementid} = announcement;
     const [rows] =  await promisePool.query("UPDATE announcement SET text =?, dateandtime=? where announcementid = ?",[text,datetime,announcementid]); 
-    return res.redirect('http://localhost:3000/UI/home_page/index.html');
+    console.log(announcement);
+    
   }catch(e){
     console.error("error", e.message);
     res.status(500).json({'error': e.message});
