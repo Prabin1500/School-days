@@ -23,7 +23,7 @@ passport.use(
             }
 
             //Hash login password and compare it with the password hash in database. 
-            const hashedPassword = await bcrypt.compare(password, user.PASSWORD);
+            const hashedPassword = await bcrypt.compare(password, user.password);
             if(!hashedPassword){
                 return done(null, false, {message: 'Incorrect password'});
             }
