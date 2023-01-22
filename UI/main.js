@@ -45,7 +45,6 @@ loginForm.addEventListener('submit', async (evt) => {
 
   const response = await fetch(url + '/auth/login', fetchOptions);
   console.log("login");
-  alert('')
   const json = await response.json();
   console.log(json);
   if (!json.user) {
